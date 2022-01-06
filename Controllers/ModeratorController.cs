@@ -24,6 +24,7 @@ namespace Webdevelopment_Project.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.ToListAsync();
@@ -38,6 +39,7 @@ namespace Webdevelopment_Project.Controllers
             }
             return View(userRolesViewModel);
         }
+    
         private async Task<List<string>> GetUserRoles(IdentityUser user)
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
