@@ -1,5 +1,6 @@
 public class Hulpverlener
 {
+    public int Id{get;set;}
     public string Naam{get;set;}
     public string Geboortedatum{get;set;}
     public int Telefoonnummer{get;set;}

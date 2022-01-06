@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Webdevelopment_Project
 {
@@ -24,6 +26,16 @@ namespace Webdevelopment_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddRazorPages();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                // services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<DBClient>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();
+            services.AddDbContext<DBClient>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("DBClient")));
+            services.AddDbContext<DBHulpverlener>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("DBHulpverlener")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,11 +55,12 @@ namespace Webdevelopment_Project
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
