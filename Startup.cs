@@ -28,14 +28,13 @@ namespace Webdevelopment_Project
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddIdentity<IdentityUser, IdentityRole>()
-                // services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<DBClient>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
             services.AddDbContext<DBClient>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("DBClient")));
-            services.AddDbContext<DBHulpverlener>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("DBHulpverlener")));
+            // services.AddDbContext<DBHulpverlener>(options =>
+            //         options.UseSqlite(Configuration.GetConnectionString("DBHulpverlener")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
