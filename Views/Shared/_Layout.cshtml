@@ -21,10 +21,34 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><img src="" class = "img-responsive" alt = "Zorg Maatschap Den Haag,  Orthopedagogiek & Psychologie"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons </a>
+                        </li>
+           
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <button type="button" class="btn btn-dark dropdown-toggle bg-dark" data-toggle="dropdown">Menu</button>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Specialisten</a>
+          <a class="dropdown-item" href="#">Chat</a>
+          <a class="dropdown-item" href="#">Contact</a>
+          <a class="dropdown-item" href="#">Over ons</a>
+          <a class="dropdown-item" href="#">Aandoeningen</a>
+        </div>
+    </li>
+    </ul>
+
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <form method="post" asp-action="Logout" asp-controller="LogoutModel">
+                                <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                                     <button type="submit" class="nav-link btn btn-link py-0"
                                             style="width: auto;">
                                         Logout @User.Identity.Name
@@ -32,13 +56,28 @@
                                 </form>
                             </li>
                         }
+                          @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="get" asp-area="Identity" asp-page="/Account/Manage/Index" >
+                                    <button type="submit" class="nav-link btn btn-link py-0"
+                                            style="width: auto;">
+                                        Profile @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+                        }
+                        @if(!signInManager.IsSignedIn(User))
+                        {
                         <li class="nav-item">
-                            <a class="navbar-brand" asp-controller="Home" ><img src="https://www.w3schools.com/images/lamp.jpg" class = "img-responsive"></a>
-                            @* <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a> *@
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                                <form method="get" asp-area="Identity" asp-page="/Account/Login">
+                                    <button type="submit" class="nav-link btn btn-link py-0"
+                                            style="width: auto;">
+                                        Login 
+                                    </button>
+                                </form>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
