@@ -12,5 +12,9 @@ using Microsoft.EntityFrameworkCore;
         {
         }
 
-        public DbSet<ClientModel> ClientModel { get; set; }
+        public DbSet<ApplicationUser> ClientModel { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Message> Messages { get; set; }
+
     }

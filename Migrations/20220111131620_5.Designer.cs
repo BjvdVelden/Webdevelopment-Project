@@ -2,33 +2,20 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Webdevelopment_Project.Migrations
 {
     [DbContext(typeof(DBClient))]
-    partial class DBClientModelSnapshot : ModelSnapshot
+    [Migration("20220111131620_5")]
+    partial class _5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
-
-            modelBuilder.Entity("ApplicationUserApplicationUser", b =>
-                {
-                    b.Property<string>("GuidedById")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("GuidesId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("GuidedById", "GuidesId");
-
-                    b.HasIndex("GuidesId");
-
-                    b.ToTable("ApplicationUserApplicationUser");
-                });
 
             modelBuilder.Entity("Chat", b =>
                 {
@@ -50,21 +37,39 @@ namespace Webdevelopment_Project.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("Chat");
                 });
 
+            modelBuilder.Entity("ClientModel", b =>
+                {
+                    b.Property<int>("BSN")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Geboortedatum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Naam")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Postcode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Woonplaats")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("BSN");
+
+                    b.ToTable("ClientModel");
+                });
+
             modelBuilder.Entity("Group", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Groups");
                 });
@@ -157,10 +162,6 @@ namespace Webdevelopment_Project.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
@@ -216,8 +217,6 @@ namespace Webdevelopment_Project.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -299,7 +298,7 @@ namespace Webdevelopment_Project.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Webdevelopment_Project.Models.GroupChat", b =>
+            modelBuilder.Entity("GroupChat", b =>
                 {
                     b.HasBaseType("Chat");
 
@@ -315,57 +314,13 @@ namespace Webdevelopment_Project.Migrations
                     b.HasDiscriminator().HasValue("GroupChat");
                 });
 
-            modelBuilder.Entity("ApplicationUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<int>("BSN")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Geboortedatum")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Naam")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Postcode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Woonplaats")
-                        .HasColumnType("TEXT");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
-                });
-
-            modelBuilder.Entity("ApplicationUserApplicationUser", b =>
-                {
-                    b.HasOne("ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("GuidedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ApplicationUser", null)
-                        .WithMany()
-                        .HasForeignKey("GuidesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Group", b =>
-                {
-                    b.HasOne("ApplicationUser", null)
-                        .WithMany("Groups")
-                        .HasForeignKey("ApplicationUserId");
-                });
-
             modelBuilder.Entity("Message", b =>
                 {
                     b.HasOne("Chat", "Chat")
                         .WithMany("Messages")
                         .HasForeignKey("ChatId");
 
-                    b.HasOne("ApplicationUser", "Sender")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Sender")
                         .WithMany()
                         .HasForeignKey("SenderId");
 
@@ -432,11 +387,11 @@ namespace Webdevelopment_Project.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Webdevelopment_Project.Models.GroupChat", b =>
+            modelBuilder.Entity("GroupChat", b =>
                 {
                     b.HasOne("Group", "Group")
                         .WithOne("GroupChat")
-                        .HasForeignKey("Webdevelopment_Project.Models.GroupChat", "GroupId")
+                        .HasForeignKey("GroupChat", "GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -453,11 +408,6 @@ namespace Webdevelopment_Project.Migrations
                     b.Navigation("GroupChat");
 
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("ApplicationUser", b =>
-                {
-                    b.Navigation("Groups");
                 });
 #pragma warning restore 612, 618
         }

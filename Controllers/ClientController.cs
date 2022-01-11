@@ -54,7 +54,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ClientModel clientModel)
+        public async Task<IActionResult> Create([Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ApplicationUser clientModel)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ClientModel clientModel)
+        public async Task<IActionResult> Edit(int id, [Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ApplicationUser clientModel)
         {
             if (id != clientModel.BSN)
             {

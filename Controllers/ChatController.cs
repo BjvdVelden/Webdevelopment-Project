@@ -95,23 +95,38 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Controllers
 {
-    public class ChatController : Controller
-    {
-        private readonly ILogger<ChatController> _logger;
-
-        public ChatController(ILogger<ChatController> logger)
+      
+        public class ChatController : Controller
         {
-            _logger = logger;
-        }
+            private readonly UserManager<ApplicationUser> _userManager;
+            private readonly DBClient _context;
+            public ChatController(UserManager<ApplicationUser> userManager, DBClient context)
+            {
+                _userManager = userManager;
+                _context = context;
+            }
 
-        public IActionResult Index()
-        {
-            return View();
+
+            public IActionResult Index()
+            {
+                   
+                var groups =  _context.Groups.Where( gp => gp.Name == _userManager.GetUserName(User) )
+                        .Join( _context.Groups, ug => ug.Id, g =>g.Id, (ug,g) => new UserGroupViewModel  {  UserName = g.Name,  GroupId = g.Id, GroupName = g.Name})
+                        .ToList();
+
+    ViewData["UserGroups"] = groups;
+
+    // get all users      
+    ViewData["Users"] = _userManager.Users;
+   
+                return View();
+            }
         }
-    }}
+    }
