@@ -13,77 +13,99 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Webdevelopment_Project</a> *@
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><img src="" class = "img-responsive" alt = "Zorg Maatschap Den Haag,  Orthopedagogiek & Psychologie"></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons </a>
-                        </li>
-                        
-           
-                <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
+
+   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+          <li class="nav-item dropdown">
                     <button type="button" class="btn btn-dark dropdown-toggle bg-dark" data-toggle="dropdown">Menu</button>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Specialisten</a>
-                    <a class="dropdown-item" href="#">Chat</a>
-                    <a class="dropdown-item" href="#">Contact</a>
-                    <a class="dropdown-item" href="#">Over ons</a>
-                    <a class="dropdown-item" href="#">Aandoeningen</a>
+                        <a class="dropdown-item" href="#">Specialisten</a>
+                        <a class="dropdown-item" href="#">Chat</a>
+                        <a class="dropdown-item" href="#">Aandoeningen</a>
                     </div>
                 </li>
-                </ul>
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><img src="" alt = "Zorg"></a>
+        </ul>
 
+    <ul class="navbar-nav mx-lg-auto">
+        <li class="nav-item active">
+        <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search">
+        </form>
+        </li>
+        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact </a>
+        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons </a>
+    </ul>
+    <ul class="navbar-nav ml-auto">
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
                                 <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                                    <button type="submit" class="nav-link btn btn-link py-0"
-                                            style="width: auto;">
-                                        Logout @User.Identity.Name
-                                    </button>
+                                    <button type="submit" class="nav-link btn btn-link"> Logout @User.Identity.Name </button>
                                 </form>
                             </li>
                         }
-                          @if (signInManager.IsSignedIn(User))
+
+                        @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
                                 <form method="get" asp-area="Identity" asp-page="/Account/Manage/Index" >
-                                    <button type="submit" class="nav-link btn btn-link py-0"
-                                            style="width: auto;">
-                                        Profile @User.Identity.Name
-                                    </button>
+                                    <button type="submit" class="nav-link btn btn-link"> Profile @User.Identity.Name </button>
+                                </form>
+                            </li>
+                        }
+
+                        @if(!signInManager.IsSignedIn(User))
+                        {
+                        <li class="nav-item">
+                                <form method="get" asp-area="Identity" asp-page="/Account/Login">
+                                    <button type="submit" class="nav-link btn btn-link"> Login </button>
                                 </form>
                             </li>
                         }
                         @if(!signInManager.IsSignedIn(User))
                         {
                         <li class="nav-item">
-                                <form method="get" asp-area="Identity" asp-page="/Account/Login">
-                                    <button type="submit" class="nav-link btn btn-link py-0"
-                                            style="width: auto;">
-                                        Login 
-                                    </button>
+                                <form method="get" asp-area="Identity" asp-page="/Account/Register">
+                                    <button type="submit" class="nav-link btn btn-link"> Register </button>
                                 </form>
                             </li>
                         }
                     </ul>
-                </div>
-            </div>
-        </nav>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

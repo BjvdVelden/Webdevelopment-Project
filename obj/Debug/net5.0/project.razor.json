@@ -15629,6 +15629,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Contact.cshtml",
+      "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
       "FileKind": "mvc"

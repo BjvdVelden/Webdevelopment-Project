@@ -450,3 +450,4 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\bin\Debug\net5.
 C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\libman.json
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\OverOns.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
