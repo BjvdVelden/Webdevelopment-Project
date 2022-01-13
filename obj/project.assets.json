@@ -7774,19 +7774,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yeb93\\.nuget\\packages\\": {}
+    "C:\\Users\\User name\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+      "projectUniqueName": "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
       "projectName": "Webdevelopment-Project",
-      "projectPath": "C:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
-      "packagesPath": "C:\\Users\\Yeb93\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\obj\\",
+      "projectPath": "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+      "packagesPath": "C:\\Users\\User name\\.nuget\\packages\\",
+      "outputPath": "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yeb93\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\User name\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

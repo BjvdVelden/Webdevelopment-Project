@@ -1,0 +1,41 @@
+@model IEnumerable<AdministratieModel>
+@{ Layout = "_Layout"; ViewBag.Title = "Administratie";}
+ 
+<h2>Alle Cliënten</h2>
+<a asp-action="AddReservation" class="btn btn-sm btn-primary">Add Reservation</a>
+<a asp-action="GetReservation" class="btn btn-sm btn-secondary">Get Reservation</a>
+ 
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>clientid</th>
+            <th>volledigenaam</th>
+            <th>IBAN</th>
+            <th>BSN</th>
+            <th>gebdatum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.clientid</td>
+                <td>@r.volledigenaam</td>
+                <td>@r.IBAN</td>
+                <td>@r.BSN</td>
+    	        <td>@r.gebdatum</td>
+                <td>
+                    <a asp-action="UpdateAdministratie" asp-route-id="@r.clientid">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteAdministratie" method="post">
+                        <input type="hidden" value="@r.clientid" name="clientid" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
