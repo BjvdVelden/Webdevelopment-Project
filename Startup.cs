@@ -26,16 +26,15 @@ namespace Webdevelopment_Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("MyContext")));
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<DBClient>()
+                .AddEntityFrameworkStores<MyContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
-            services.AddDbContext<DBClient>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("DBClient")));
-            // services.AddDbContext<DBHulpverlener>(options =>
-            //         options.UseSqlite(Configuration.GetConnectionString("DBHulpverlener")));
+                
              services.AddSignalR();
         }
 

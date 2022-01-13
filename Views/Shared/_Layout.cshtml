@@ -12,15 +12,15 @@
     <link href="~/css/carousel.css" rel="stylesheet"/>
 </head>
 <body>
-    <header>
-
-   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<header>
+   <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
           <li class="nav-item dropdown">
                     <button type="button" class="btn btn-dark dropdown-toggle bg-dark" data-toggle="dropdown">Menu</button>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Specialisten</a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Specialisten">Specialisten </a>
+                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Intake"> Intake afspraak </a>
                         <a class="dropdown-item" href="#">Chat</a>
                         <a class="dropdown-item" href="#">Aandoeningen</a>
                     </div>
@@ -75,36 +75,6 @@
                     </ul>
         </div>
     </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </header>
     <div class="container">

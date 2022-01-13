@@ -15719,6 +15719,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Intake.cshtml",
+      "TargetPath": "Views\\Home\\Intake.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Edit.cshtml",
       "TargetPath": "Views\\Client\\Edit.cshtml",
       "FileKind": "mvc"
@@ -15796,6 +15801,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Create.cshtml",
       "TargetPath": "Views\\Hulpverlener\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Specialisten.cshtml",
+      "TargetPath": "Views\\Home\\Specialisten.cshtml",
       "FileKind": "mvc"
     },
     {

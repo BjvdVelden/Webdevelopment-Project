@@ -22,7 +22,6 @@ namespace Webdevelopment_Project
             var loggerFactory = services.GetRequiredService<ILoggerFactory>();
             try
             {
-                var context = services.GetRequiredService<DBClient>();
                 var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
                 var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                 await ContextSeed.SeedRolesAsync(userManager, roleManager);

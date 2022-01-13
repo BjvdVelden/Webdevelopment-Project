@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,14 +10,13 @@ namespace Webdevelopment_Project.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly DBClient _context;
+        private readonly MyContext _context;
 
-        public ClientController(DBClient context)
+        public ClientController(MyContext context)
         {
             _context = context;
         }
 
-        [Authorize(Roles = "Moderator")]
         // GET: Client
         public async Task<IActionResult> Index()
         {
@@ -26,7 +24,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Client/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -34,7 +32,7 @@ namespace Webdevelopment_Project.Controllers
             }
 
             var clientModel = await _context.ClientModel
-                .FirstOrDefaultAsync(m => m.BSN == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (clientModel == null)
             {
                 return NotFound();
@@ -54,7 +52,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ClientModel clientModel)
+        public async Task<IActionResult> Create([Bind("Naam,Woonplaats,Postcode,Geboortedatum,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ClientModel clientModel)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +64,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Client/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -86,9 +84,9 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ClientModel clientModel)
+        public async Task<IActionResult> Edit(string id, [Bind("Naam,Woonplaats,Postcode,Geboortedatum,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ClientModel clientModel)
         {
-            if (id != clientModel.BSN)
+            if (id != clientModel.Id)
             {
                 return NotFound();
             }
@@ -102,7 +100,7 @@ namespace Webdevelopment_Project.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClientModelExists(clientModel.BSN))
+                    if (!ClientModelExists(clientModel.Id))
                     {
                         return NotFound();
                     }
@@ -117,7 +115,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Client/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -125,7 +123,7 @@ namespace Webdevelopment_Project.Controllers
             }
 
             var clientModel = await _context.ClientModel
-                .FirstOrDefaultAsync(m => m.BSN == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (clientModel == null)
             {
                 return NotFound();
@@ -137,7 +135,7 @@ namespace Webdevelopment_Project.Controllers
         // POST: Client/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var clientModel = await _context.ClientModel.FindAsync(id);
             _context.ClientModel.Remove(clientModel);
@@ -145,9 +143,9 @@ namespace Webdevelopment_Project.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientModelExists(int id)
+        private bool ClientModelExists(string id)
         {
-            return _context.ClientModel.Any(e => e.BSN == id);
+            return _context.ClientModel.Any(e => e.Id == id);
         }
     }
 }
