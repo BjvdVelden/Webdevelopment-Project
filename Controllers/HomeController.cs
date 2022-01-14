@@ -27,7 +27,19 @@ namespace Webdevelopment_Project.Controllers
         {
             return View();
         }
-         public IActionResult OverOns()
+        public IActionResult OverOns()
+        {
+            return View();
+        }
+         public IActionResult Contact()
+        {
+            return View();
+        }
+         public IActionResult Specialisten()
+        {
+            return View();
+        }
+        public IActionResult Intake()
         {
             return View();
         }
