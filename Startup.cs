@@ -31,16 +31,12 @@ namespace Webdevelopment_Project
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDefaultIdentity<ApplicationUser>(options =>
-            {
-                options.SignIn.RequireConfirmedAccount = false;
-                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
-                options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();
 
             services.AddAutoMapper(typeof(Startup));
-            services.AddRazorPages();
-            services.AddControllers();
             services.AddSignalR();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -71,6 +67,9 @@ namespace Webdevelopment_Project
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllers();
                 endpoints.MapHub<ChatHub>("/chatHub");
             });

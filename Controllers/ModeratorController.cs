@@ -16,10 +16,10 @@ namespace Webdevelopment_Project.Controllers
 {
     public class ModeratorController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public ModeratorController(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public ModeratorController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -29,7 +29,7 @@ namespace Webdevelopment_Project.Controllers
         {
             var users = await _userManager.Users.ToListAsync();
             var userRolesViewModel = new List<UserRolesViewModel>();
-            foreach (IdentityUser user in users)
+            foreach (ApplicationUser user in users)
             {
                 var thisViewModel = new UserRolesViewModel();
                 thisViewModel.UserId = user.Id;
@@ -40,7 +40,7 @@ namespace Webdevelopment_Project.Controllers
             return View(userRolesViewModel);
         }
     
-        private async Task<List<string>> GetUserRoles(IdentityUser user)
+        private async Task<List<string>> GetUserRoles(ApplicationUser user)
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
         }

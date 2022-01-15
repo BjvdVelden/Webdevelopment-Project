@@ -19,7 +19,7 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
-        [Authorize(Roles = "Moderator")]
+        // [Authorize(Roles = "Client")]
         // GET: Client
         public async Task<IActionResult> Index()
         {

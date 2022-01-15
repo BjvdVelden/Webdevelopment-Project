@@ -5,6 +5,8 @@ using System.Text;
 using Webdevelopment_Project.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace Webdevelopment_Project.Data
 {
@@ -27,5 +29,9 @@ namespace Webdevelopment_Project.Data
 
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
+        internal Task<IdentityResult> CreateAsync(IdentityRole identityRole)
+    {
+        throw new NotImplementedException();
+    }
     }
 }
