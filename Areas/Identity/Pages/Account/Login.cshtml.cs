@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Webdevelopment_Project.Models;
 
-namespace Webdevelopment_Project.Areas.Identity.Pages.Account
+namespace Chat.Web.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel

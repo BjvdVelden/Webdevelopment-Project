@@ -15,6 +15,8 @@ namespace Webdevelopment_Project.Data
         {
         }
 
+        public DbSet<ClientModel> ClientModel { get; set; }
+        public DbSet<Hulpverlener> Hulpverlener { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
