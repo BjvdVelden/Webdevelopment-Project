@@ -9,8 +9,6 @@ namespace Webdevelopment_Project.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string FullName { get; set; }
-        public string Avatar { get; set; }
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
 

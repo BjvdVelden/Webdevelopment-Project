@@ -47,14 +47,21 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
-            [Display(Name = "Full Name")]
-            public string FullName { get; set; }
+            [Display(Name = "Voornaam")]
+            [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Gebruik alleen letters a.u.b.")]
+            [StringLength(20, MinimumLength = 3, ErrorMessage = "{0} moet ten minste {2} karakters en max {1} karakters hebben.")]
+            public string Voornaam { get; set; }
+            
+            [Required]
+            [Display(Name = "Achternaam")]
+            [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Gebruik alleen letters a.u.b.")]
+            [StringLength(20, MinimumLength = 3, ErrorMessage = "{0} moet ten minste {2} karakters en max {1} karakters hebben.")]
+            public string Achternaam { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 5)]
-            [Display(Name = "Username")]
-            public string UserName { get; set; }
+            [DataType(DataType.Date)]
+            [Display(Name = "GeboorteDatum")]
+            public DateTime Geboortedatum { get; set; }
 
             [Required]
             [EmailAddress]
@@ -62,19 +69,34 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Display(Name = "Postcode")]
+            [StringLength(6, ErrorMessage = "{0} moet {1} karakters hebben.")]
+            public string Postcode { get; set; }
+
+            [Required]
+            [Display(Name = "Huisnummer")]
+            [RegularExpression("^[0-9]*$", ErrorMessage = "Gebruik alleen cijfers a.u.b.")]
+            [StringLength(6, MinimumLength = 1, ErrorMessage = "{0} moet ten minste {2} karakters en max {1} karakters hebben.")]
+            public string Huisnummer { get; set; }
+
+            [EmailAddress]
+            [Display(Name = "Email voogd")]
+            public string EmailVoogd {  get; set; }
+
+            [EmailAddress]
+            [Display(Name = "Email Hulpverlener")]
+            public string EmailHulpverlener{ get; set; }
+
+            [Required]
+            [StringLength(100, ErrorMessage = "De  {0} moet ten minste {2} en max {1} karakters lang zijn.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Wachtwoord")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Bevestig wachtwoord")]
+            [Compare("Password", ErrorMessage = "De wachtwoorden zijn niet gelijk.")]
             public string ConfirmPassword { get; set; }
-
-            [Required]
-            [Display(Name = "Avatar")]
-            public string Avatar { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -89,13 +111,9 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var avatars = new string[] { "avatar1.png", "avatar2.png", "avatar3.png", "avatar4.png" };
-                var index = int.Parse(Input.Avatar);
-                if (index < 0 || index > avatars.Count() - 1)
-                    index = 0;
+            
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Voornaam = Input.Voornaam, Achternaam = Input.Achternaam, Postcode = Input.Postcode, GeboorteDatum = Input.Geboortedatum, Huisnummer = Input.Huisnummer, VoogdEmail = Input.EmailVoogd, HulpverlenerEmail = Input.EmailHulpverlener };
 
-                var avatarName = avatars[index];
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, FullName = Input.FullName, Avatar = avatarName };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

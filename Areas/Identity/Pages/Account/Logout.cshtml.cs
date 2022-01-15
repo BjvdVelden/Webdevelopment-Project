@@ -37,7 +37,7 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
             }
             else
             {
-                return RedirectToPage();
+                return RedirectToAction("Home");
             }
         }
     }

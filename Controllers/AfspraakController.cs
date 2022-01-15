@@ -98,7 +98,7 @@ namespace Webdevelopment_Project.Controllers
             {
                 // Er is geen user ingelogd
             }
-
+           
             return View();
         }
 
@@ -141,6 +141,7 @@ namespace Webdevelopment_Project.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(afspraak);
         }
 

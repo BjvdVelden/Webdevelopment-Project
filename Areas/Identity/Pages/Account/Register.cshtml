@@ -1,7 +1,10 @@
 ﻿@page
+@* @inject UserManager<Webdevelopment_Project.Models.ApplicationUser> userManager *@
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
+     @* var currentUser = await userManager.GetUserAsync(User);
+    string email = currentUser.Email; *@
 }
 
 <div class="d-flex justify-content-center align-items-center vh-100">
@@ -11,15 +14,45 @@
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.UserName"></label>
-                <input asp-for="Input.UserName" class="form-control" />
-                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                <label asp-for="Input.Voornaam"></label>
+                <input asp-for="Input.Voornaam" class="form-control" />
+                <span asp-validation-for="Input.Voornaam" class="text-danger"></span>
+            </div>  
+            <div class="form-group">
+                <label asp-for="Input.Achternaam"></label>
+                <input asp-for="Input.Achternaam" class="form-control" />
+                <span asp-validation-for="Input.Achternaam" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Input.Geboortedatum"></label>
+                <input asp-for="Input.Geboortedatum" class="form-control" />
+                <span asp-validation-for="Input.Geboortedatum" class="text-danger"></span>
+            </div>    
             <div class="form-group">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Input.Postcode"></label>
+                <input asp-for="Input.Postcode" class="form-control" />
+                <span asp-validation-for="Input.Postcode" class="text-danger"></span>
+            </div>   
+            <div class="form-group">
+                <label asp-for="Input.Huisnummer"></label>
+                <input asp-for="Input.Huisnummer" class="form-control" />
+                <span asp-validation-for="Input.Huisnummer" class="text-danger"></span>
+            </div>  
+            <div class="form-group">
+                <label asp-for="Input.EmailVoogd"></label>
+                <input asp-for="Input.EmailVoogd" class="form-control" />
+                <span asp-validation-for="Input.EmailVoogd" class="text-danger"></span>
+            </div>  
+            <div class="form-group">
+                <label asp-for="Input.EmailHulpverlener"></label>
+                <input asp-for="Input.EmailHulpverlener" class="form-control"/>
+                <span asp-validation-for="Input.EmailHulpverlener" class="text-danger"></span>
+            </div>                      
             <div class="form-group">
                 <label asp-for="Input.Password"></label>
                 <input asp-for="Input.Password" class="form-control" />
@@ -29,30 +62,6 @@
                 <label asp-for="Input.ConfirmPassword"></label>
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.FullName"></label>
-                <input asp-for="Input.FullName" class="form-control" />
-                <span asp-validation-for="Input.FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <p>Select your Avatar</p>
-                <label>
-                    <input asp-for="Input.Avatar" type="radio" value="0" checked />
-                    <img class="avatar-icon" src="~/images/icons/avatar1.png" alt="" />
-                </label>
-                <label>
-                    <input asp-for="Input.Avatar" type="radio" value="1" />
-                    <img class="avatar-icon" src="~/images/icons/avatar2.png" alt="" />
-                </label>
-                <label>
-                    <input asp-for="Input.Avatar" type="radio" value="2" />
-                    <img class="avatar-icon" src="~/images/icons/avatar3.png" alt="" />
-                </label>
-                <label>
-                    <input asp-for="Input.Avatar" type="radio" value="3" />
-                    <img class="avatar-icon" src="~/images/icons/avatar4.png" alts="" />
-                </label>
             </div>
             <button type="submit" class="btn btn-sign-up">Register</button>
             <a class="btn btn-link px-0" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Already have an account?</a>
