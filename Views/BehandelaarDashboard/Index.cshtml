@@ -1,0 +1,75 @@
+@model IEnumerable<Webdevelopment_Project.Models.Afspraak>
+
+@{
+    ViewData["Title"] = "Hulpverlener Dashboard";
+}
+
+<div class="row">
+    <div class=col-lg-8>
+        <div class="card mb-2">
+            <div class="card-header">
+                <form action="/Afspraak/Create" method="get">
+                    Mijn afspraken
+                    <input class="btn btn-primary btn-sm float-right" type="submit" value="Nieuwe afspraak">
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="list-group">
+                    @foreach (var item in @Model)
+                    {
+                        if(item.GoedkeuringVoogd)
+                        {
+                            <a href="@item.GetDetailsLink()" class="list-group-item list-group-item-action"> @item.ToStringHulpverlener()</a>
+                        }
+                        else
+                        {
+                            <a href="@item.GetDetailsLink()" class="list-group-item list-group-item-action list-group-item-danger"> @item.ToStringHulpverlener()</a>
+                        }
+                        
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                Mijn meldingen
+            </div>
+            <div class="card-body">
+                <p class="card-text">Een overzicht van uw meldingen.</p>
+                <a href="/Melding" class="btn btn-primary">Mijn meldingen</a>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-header">
+                Mijn clienten
+            </div>
+            <div class="card-body">
+                <p class="card-text">Een overzicht van uw clienten</p>
+                <a href="#" class="btn btn-primary">Mijn clienten</a>
+            </div>
+        </div>
+        
+        <div class="card mt-2">
+            <div class="card-header">
+                Mijn chats
+            </div>
+            <div class="card-body">
+                <p class="card-text">Een overzicht van uw chats</p>
+                <a href="#" class="btn btn-primary">Mijn chats</a>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-header">
+                Mijn zelfhulpgroepen
+            </div>
+            <div class="card-body">
+                <p class="card-text">Een overzicht van uw zelfhulpgroepen</p>
+                <a href="/Zelfhulpgroep" class="btn btn-primary"> Mijn zelfhulpgroep</a>
+            </div>
+        </div>
+    </div>
+</div>

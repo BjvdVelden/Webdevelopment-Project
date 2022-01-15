@@ -70,6 +70,41 @@ namespace Webdevelopment_Project.Migrations
                     b.ToTable("Hulpverlener");
                 });
 
+            modelBuilder.Entity("Melding", b =>
+                {
+                    b.Property<int>("MeldingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AfsrpaakId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Inhoud")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsAfgehandeld")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Ontvanger")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Titel")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("MeldingId");
+
+                    b.ToTable("Melding");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -198,6 +233,47 @@ namespace Webdevelopment_Project.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.Afspraak", b =>
+                {
+                    b.Property<int>("AfspraakId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ClientEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ClientId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Eind")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("GoedkeuringVoogd")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("HulpverlenerEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("HulpverlenerId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Onderwerp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("AfspraakId");
+
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("HulpverlenerId");
+
+                    b.ToTable("Afspraak");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -205,6 +281,9 @@ namespace Webdevelopment_Project.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Achternaam")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Avatar")
                         .HasColumnType("TEXT");
@@ -221,6 +300,15 @@ namespace Webdevelopment_Project.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FullName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("GeboorteDatum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Huisnummer")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("HulpverlenerEmail")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -246,6 +334,9 @@ namespace Webdevelopment_Project.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Postcode")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -254,6 +345,12 @@ namespace Webdevelopment_Project.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("VoogdEmail")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Voornaam")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -377,6 +474,21 @@ namespace Webdevelopment_Project.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Webdevelopment_Project.Models.Afspraak", b =>
+                {
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId");
+
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "Hulpverlener")
+                        .WithMany()
+                        .HasForeignKey("HulpverlenerId");
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Hulpverlener");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>

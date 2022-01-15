@@ -28,6 +28,13 @@ namespace Webdevelopment_Project.Migrations
                     Id = table.Column<string>(type: "TEXT", nullable: false),
                     FullName = table.Column<string>(type: "TEXT", nullable: true),
                     Avatar = table.Column<string>(type: "TEXT", nullable: true),
+                    Voornaam = table.Column<string>(type: "TEXT", nullable: true),
+                    Achternaam = table.Column<string>(type: "TEXT", nullable: true),
+                    GeboorteDatum = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Postcode = table.Column<string>(type: "TEXT", nullable: true),
+                    Huisnummer = table.Column<string>(type: "TEXT", nullable: true),
+                    VoogdEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -89,6 +96,25 @@ namespace Webdevelopment_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Melding",
+                columns: table => new
+                {
+                    MeldingId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Type = table.Column<string>(type: "TEXT", nullable: false),
+                    Ontvanger = table.Column<string>(type: "TEXT", nullable: false),
+                    Titel = table.Column<string>(type: "TEXT", nullable: false),
+                    Datum = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Inhoud = table.Column<string>(type: "TEXT", nullable: true),
+                    IsAfgehandeld = table.Column<bool>(type: "INTEGER", nullable: false),
+                    AfsrpaakId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Melding", x => x.MeldingId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -107,6 +133,38 @@ namespace Webdevelopment_Project.Migrations
                         principalTable: "AspNetRoles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Afspraak",
+                columns: table => new
+                {
+                    AfspraakId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ClientEmail = table.Column<string>(type: "TEXT", nullable: false),
+                    ClientId = table.Column<string>(type: "TEXT", nullable: true),
+                    HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: false),
+                    HulpverlenerId = table.Column<string>(type: "TEXT", nullable: true),
+                    Start = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Eind = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Onderwerp = table.Column<string>(type: "TEXT", nullable: true),
+                    GoedkeuringVoogd = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Afspraak", x => x.AfspraakId);
+                    table.ForeignKey(
+                        name: "FK_Afspraak_AspNetUsers_ClientId",
+                        column: x => x.ClientId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Afspraak_AspNetUsers_HulpverlenerId",
+                        column: x => x.HulpverlenerId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -134,8 +192,8 @@ namespace Webdevelopment_Project.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -179,8 +237,8 @@ namespace Webdevelopment_Project.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    LoginProvider = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     Value = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -243,6 +301,16 @@ namespace Webdevelopment_Project.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Afspraak_ClientId",
+                table: "Afspraak",
+                column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Afspraak_HulpverlenerId",
+                table: "Afspraak",
+                column: "HulpverlenerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -303,6 +371,9 @@ namespace Webdevelopment_Project.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Afspraak");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -322,6 +393,9 @@ namespace Webdevelopment_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Hulpverlener");
+
+            migrationBuilder.DropTable(
+                name: "Melding");
 
             migrationBuilder.DropTable(
                 name: "Messages");

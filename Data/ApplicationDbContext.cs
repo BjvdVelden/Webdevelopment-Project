@@ -22,6 +22,10 @@ namespace Webdevelopment_Project.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
+        public DbSet<Melding> Melding { get; set; }
+
+        
+         public DbSet<Afspraak> Afspraak { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

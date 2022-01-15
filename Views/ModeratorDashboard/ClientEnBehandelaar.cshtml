@@ -1,0 +1,41 @@
+@model List<Webdevelopment_Project.Models.ApplicationUser>
+
+@{
+  ViewData["Title"] = "Client en Hulpverleners overzicht";
+}
+
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 mb-2">
+        <div class="col-md-12 questionBox">
+          <table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Hulpverlener</p>
+            </th>
+            <th>
+                <p>Cliënt</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+  @if((item.HulpverlenerEmail != null)){
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.HulpverlenerEmail)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Email)                
+            </td>
+        </tr>
+  }
+}
+    </tbody>
+</table>
+        </div>
+</section>
