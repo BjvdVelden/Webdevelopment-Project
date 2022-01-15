@@ -23,6 +23,7 @@ namespace Webdevelopment_Project.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
         public DbSet<Melding> Melding { get; set; }
+        // public DbSet<ReportModel> ReportModel { get; set; }
 
         
          public DbSet<Afspraak> Afspraak { get; set; }

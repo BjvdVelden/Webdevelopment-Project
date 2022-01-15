@@ -1,5 +1,5 @@
 
-namespace Webdevelopment_Project{
+namespace Webdevelopment_Project.Models{
 public class ReportModel
 {
     public int Id { get; set; }
