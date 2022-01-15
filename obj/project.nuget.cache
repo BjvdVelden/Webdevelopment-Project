@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2QTtCuZSEP+I61T7WsKh9mOMbRNRAU4qDK8CQjbUoLsC3R0vj+rYJ3R9HRMusk1+loM/fnmfLeEWGMbp2IETwA==",
+  "dgSpecHash": "FxIXnzgsPaoKOHg2QPBDzmnQoPpzyOnR+CG7otVVgpQ2i3u0X0zwmAwszwi5P/AJBvHIvclaCsdh8h/RSlA+rw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Serdi\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Serdi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\Serdi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Serdi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.0\\microsoft.aspnetcore.cryptography.internal.5.0.0.nupkg.sha512",
     "C:\\Users\\Serdi\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.0\\microsoft.aspnetcore.cryptography.keyderivation.5.0.0.nupkg.sha512",

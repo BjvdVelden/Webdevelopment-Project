@@ -452,3 +452,12 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\OverOns.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Specialisten.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
