@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Webdevelopment_Project;
 
 namespace Webdevelopment_Project.Data
 {
@@ -22,6 +23,7 @@ namespace Webdevelopment_Project.Data
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
+        public DbSet<ReportModel> ReportModel { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

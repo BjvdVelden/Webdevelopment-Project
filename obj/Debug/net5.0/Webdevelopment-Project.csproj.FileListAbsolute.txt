@@ -423,3 +423,8 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Ident
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Role\Create.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Create.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Delete.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Details.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Edit.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Index.cshtml.g.cs
