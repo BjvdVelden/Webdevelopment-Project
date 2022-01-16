@@ -135,26 +135,19 @@ namespace Webdevelopment_Project.Migrations
                     AfspraakId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     ClientEmail = table.Column<string>(type: "TEXT", nullable: false),
-                    ClientId = table.Column<string>(type: "TEXT", nullable: true),
                     HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: false),
-                    HulpverlenerId = table.Column<string>(type: "TEXT", nullable: true),
                     Start = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Eind = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Onderwerp = table.Column<string>(type: "TEXT", nullable: true),
-                    GoedkeuringVoogd = table.Column<bool>(type: "INTEGER", nullable: false)
+                    GoedkeuringVoogd = table.Column<bool>(type: "INTEGER", nullable: false),
+                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Afspraak", x => x.AfspraakId);
                     table.ForeignKey(
-                        name: "FK_Afspraak_AspNetUsers_ClientId",
-                        column: x => x.ClientId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Afspraak_AspNetUsers_HulpverlenerId",
-                        column: x => x.HulpverlenerId,
+                        name: "FK_Afspraak_AspNetUsers_ApplicationUserID",
+                        column: x => x.ApplicationUserID,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -294,14 +287,9 @@ namespace Webdevelopment_Project.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Afspraak_ClientId",
+                name: "IX_Afspraak_ApplicationUserID",
                 table: "Afspraak",
-                column: "ClientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Afspraak_HulpverlenerId",
-                table: "Afspraak",
-                column: "HulpverlenerId");
+                column: "ApplicationUserID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
