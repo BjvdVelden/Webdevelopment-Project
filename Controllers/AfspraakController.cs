@@ -15,11 +15,13 @@ namespace Webdevelopment_Project.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         
-        public AfspraakController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public AfspraakController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _context = context;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         // GET: Afspraak
@@ -67,6 +69,8 @@ namespace Webdevelopment_Project.Controllers
         // GET: Afspraak/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email");
+
             return View();
         }
 
@@ -83,7 +87,7 @@ namespace Webdevelopment_Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.Hulpverleners = new SelectList(_context.AppUsers.ToList(),"Id","Email");
+                ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email");
             return View(afspraak);
         }
 
@@ -100,6 +104,7 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", afspraak.ApplicationUserID);
             return View(afspraak);
         }
 
@@ -135,6 +140,7 @@ namespace Webdevelopment_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", afspraak.ApplicationUserID);
             return View(afspraak);
         }
 

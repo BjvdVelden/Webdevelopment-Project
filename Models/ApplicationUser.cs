@@ -22,6 +22,8 @@ namespace Webdevelopment_Project.Models
         public string Avatar { get; set; }
         public ICollection<Room> Rooms { get; set; }
         public ICollection<Message> Messages { get; set; }
+        public ICollection<Afspraak> Afspraken { get; set; }
+        
         // public int getLeeftijd()
         // {
         //     var leeftijd = DateTime.Today.Year - GeboorteDatum.Year;

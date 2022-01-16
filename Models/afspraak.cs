@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Models{
@@ -12,12 +13,8 @@ namespace Webdevelopment_Project.Models{
         [Required]
         public string ClientEmail { get; set; }
 
-        public ApplicationUser Client { get; set; }
-
         [Required]
         public string HulpverlenerEmail { get; set; } 
-
-        public ApplicationUser Hulpverlener { get; set; }
 
         [Required]
         public DateTime Start { get; set; }
@@ -39,6 +36,8 @@ namespace Webdevelopment_Project.Models{
         {
             return "/Afspraak/Details/" + AfspraakId;
         }
-        
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserID { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
