@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+  "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,243 +15619,243 @@
   "RootNamespace": "Webdevelopment_Project",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Hulpverlener\\Create.cshtml",
-      "TargetPath": "Views\\Hulpverlener\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Client\\Details.cshtml",
-      "TargetPath": "Views\\Client\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Hulpverlener\\Details.cshtml",
-      "TargetPath": "Views\\Hulpverlener\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Client\\Create.cshtml",
-      "TargetPath": "Views\\Client\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Afspraak\\Create.cshtml",
-      "TargetPath": "Views\\Afspraak\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Hulpverlener\\Index.cshtml",
-      "TargetPath": "Views\\Hulpverlener\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Moderator\\Manage.cshtml",
-      "TargetPath": "Views\\Moderator\\Manage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Afspraak\\Index.cshtml",
-      "TargetPath": "Views\\Afspraak\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Report\\Index.cshtml",
-      "TargetPath": "Views\\Report\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Home\\Specialisten.cshtml",
-      "TargetPath": "Views\\Home\\Specialisten.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Report\\Details.cshtml",
-      "TargetPath": "Views\\Report\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\HulpverlenerDashboard\\Index.cshtml",
-      "TargetPath": "Views\\HulpverlenerDashboard\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\ModeratorDashboard\\ClientEnHulpverlener.cshtml",
-      "TargetPath": "Views\\ModeratorDashboard\\ClientEnHulpverlener.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Home\\OverOns.cshtml",
-      "TargetPath": "Views\\Home\\OverOns.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\ModeratorDashboard\\Index.cshtml",
-      "TargetPath": "Views\\ModeratorDashboard\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Client\\Index.cshtml",
-      "TargetPath": "Views\\Client\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Afspraak\\Delete.cshtml",
-      "TargetPath": "Views\\Afspraak\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Role\\Index.cshtml",
-      "TargetPath": "Views\\Role\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Afspraak\\Details.cshtml",
-      "TargetPath": "Views\\Afspraak\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Hulpverlener\\Edit.cshtml",
-      "TargetPath": "Views\\Hulpverlener\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Client\\Delete.cshtml",
-      "TargetPath": "Views\\Client\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Home\\Contact.cshtml",
-      "TargetPath": "Views\\Home\\Contact.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Report\\Delete.cshtml",
-      "TargetPath": "Views\\Report\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\ModeratorDashboard\\BehandelingsOverzicht.cshtml",
-      "TargetPath": "Views\\ModeratorDashboard\\BehandelingsOverzicht.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Hulpverlener\\Delete.cshtml",
-      "TargetPath": "Views\\Hulpverlener\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Afspraak\\NoAcces.cshtml",
-      "TargetPath": "Views\\Afspraak\\NoAcces.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Chat\\Index.cshtml",
-      "TargetPath": "Views\\Chat\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Role\\Create.cshtml",
-      "TargetPath": "Views\\Role\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Afspraak\\Edit.cshtml",
-      "TargetPath": "Views\\Afspraak\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Report\\Edit.cshtml",
-      "TargetPath": "Views\\Report\\Edit.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Moderator\\Manage.cshtml",
+      "TargetPath": "Views\\Moderator\\Manage.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\ModeratorDashboard\\ClientEnBehandelaar.cshtml",
+      "TargetPath": "Views\\ModeratorDashboard\\ClientEnBehandelaar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Moderator\\Index.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Contact.cshtml",
+      "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Moderator\\Index.cshtml",
       "TargetPath": "Views\\Moderator\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Report\\Create.cshtml",
-      "TargetPath": "Views\\Report\\Create.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Edit.cshtml",
+      "TargetPath": "Views\\Hulpverlener\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Views\\Client\\Edit.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\Index.cshtml",
+      "TargetPath": "Views\\Chat\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Report\\Edit.cshtml",
+      "TargetPath": "Views\\Report\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Role\\Index.cshtml",
+      "TargetPath": "Views\\Role\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Report\\Index.cshtml",
+      "TargetPath": "Views\\Report\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Report\\Delete.cshtml",
+      "TargetPath": "Views\\Report\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Edit.cshtml",
       "TargetPath": "Views\\Client\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Create.cshtml",
+      "TargetPath": "Views\\Client\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Index.cshtml",
+      "TargetPath": "Views\\Client\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\Delete.cshtml",
+      "TargetPath": "Views\\Afspraak\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\Create.cshtml",
+      "TargetPath": "Views\\Afspraak\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Role\\Create.cshtml",
+      "TargetPath": "Views\\Role\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\OverOns.cshtml",
+      "TargetPath": "Views\\Home\\OverOns.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\NoAcces.cshtml",
+      "TargetPath": "Views\\Afspraak\\NoAcces.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Index.cshtml",
+      "TargetPath": "Views\\Hulpverlener\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\Details.cshtml",
+      "TargetPath": "Views\\Afspraak\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Create.cshtml",
+      "TargetPath": "Views\\Hulpverlener\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\Specialisten.cshtml",
+      "TargetPath": "Views\\Home\\Specialisten.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Details.cshtml",
+      "TargetPath": "Views\\Hulpverlener\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Delete.cshtml",
+      "TargetPath": "Views\\Hulpverlener\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Details.cshtml",
+      "TargetPath": "Views\\Client\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\BehandelaarDashboard\\Index.cshtml",
+      "TargetPath": "Views\\BehandelaarDashboard\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Delete.cshtml",
+      "TargetPath": "Views\\Client\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Report\\Details.cshtml",
+      "TargetPath": "Views\\Report\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\Edit.cshtml",
+      "TargetPath": "Views\\Afspraak\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\ModeratorDashboard\\BehandelingsOverzicht.cshtml",
+      "TargetPath": "Views\\ModeratorDashboard\\BehandelingsOverzicht.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\ModeratorDashboard\\Index.cshtml",
+      "TargetPath": "Views\\ModeratorDashboard\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\Index.cshtml",
+      "TargetPath": "Views\\Afspraak\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Report\\Create.cshtml",
+      "TargetPath": "Views\\Report\\Create.cshtml",
       "FileKind": "mvc"
     }
   ],

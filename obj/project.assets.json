@@ -7829,19 +7829,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yeb93\\.nuget\\packages\\": {}
+    "C:\\Users\\Serdi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+      "projectUniqueName": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
       "projectName": "Webdevelopment-Project",
-      "projectPath": "C:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
-      "packagesPath": "C:\\Users\\Yeb93\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\obj\\",
+      "projectPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+      "packagesPath": "C:\\Users\\Serdi\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yeb93\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Serdi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7924,7 +7924,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

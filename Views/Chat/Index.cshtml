@@ -122,7 +122,6 @@
     margin-left: 10px; }
 
 </style>
-@if(!signInManager.IsSignedIn(User) && User.IsInRole("Banned")){  
 <div class="alert alert-warning alert-dismissible d-none" id="errorAlert" role="alert">
     <span data-bind="text:serverInfoMessage"></span>
     <button type="button" class="close" aria-label="Close">
@@ -322,11 +321,6 @@
         </div>
     </div>
 </div>
-}
-
-@if(signInManager.IsSignedIn(User) && User.IsInRole("Banned")){
-    <h1>Je bent gebanned!</h1>
-}
 
 @section Scripts {
     <script src="~/lib/knockout/knockout-latest.min.js"></script>
