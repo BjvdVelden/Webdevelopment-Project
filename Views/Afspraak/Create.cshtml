@@ -1,10 +1,10 @@
-@model Afspraak
+@model Webdevelopment_Project.Models.Afspraak
 
 @{
-    ViewData["Title"] = "Maak afspraak";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Maak afspraak</h1>
+<h1>Create</h1>
 
 <h4>Afspraak</h4>
 <hr />
@@ -12,47 +12,16 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            @if((String) ViewData["ClientEmail"] == "") 
-            {
-                <div class="form-group">
-                    <label asp-for="ClientEmail" class="control-label"></label>
-                    <input asp-for="ClientEmail" class="form-control" value='@ViewData["ClientEmail"]'/>
-                    <span asp-validation-for="ClientEmail" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="HulpverlenerEmail" class="control-label"></label>
-                    <input asp-for="HulpverlenerEmail" class="form-control" value='@ViewData["HulpverlenerEmail"]' readonly />
-                    <span asp-validation-for="HulpverlenerEmail" class="text-danger"></span>
-                </div>                
-            }
-            else if ((String) ViewData["HulpverlenerEmail"] == "")
-            {
-                <div class="form-group">
-                    <label asp-for="ClientEmail" class="control-label"></label>
-                    <input asp-for="ClientEmail" class="form-control" value='@ViewData["ClientEmail"]'/>
-                    <span asp-validation-for="ClientEmail" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="HulpverlenerEmail" class="control-label"></label>
-                    <input asp-for="HulpverlenerEmail" class="form-control" value='@ViewData["HulpverlenerEmail"]'/>
-                    <span asp-validation-for="HulpverlenerEmail" class="text-danger"></span>
-                </div>                   
-            }
-            else
-            {
-                <div class="form-group">
-                    <label asp-for="ClientEmail" class="control-label"></label>
-                    <input asp-for="ClientEmail" class="form-control" value='@ViewData["ClientEmail"]' readonly/>
-                    <span asp-validation-for="ClientEmail" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="HulpverlenerEmail" class="control-label"></label>
-                    <input asp-for="HulpverlenerEmail" class="form-control" value='@ViewData["HulpverlenerEmail"]' readonly />
-                    <span asp-validation-for="HulpverlenerEmail" class="text-danger"></span>
-                </div>                   
-            }
-            
+            <div class="form-group">
+                <label asp-for="ClientEmail" class="control-label"></label>
+                <input asp-for="ClientEmail" class="form-control" />
+                <span asp-validation-for="ClientEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HulpverlenerEmail" class="control-label"></label>
+                <input asp-for="HulpverlenerEmail" class="form-control" />
+                <span asp-validation-for="HulpverlenerEmail" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Start" class="control-label"></label>
                 <input asp-for="Start" class="form-control" />
@@ -68,21 +37,19 @@
                 <input asp-for="Onderwerp" class="form-control" />
                 <span asp-validation-for="Onderwerp" class="text-danger"></span>
             </div>
-            <div hidden class="form-group form-check">
+            <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="GoedkeuringVoogd" /> @Html.DisplayNameFor(model => model.GoedkeuringVoogd)
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Afspraak" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <button class="btn btn-secondary btn-sm" onclick="history.back()">Terug</button>
+    <a asp-action="Index">Back to List</a>
 </div>
-
-
 

@@ -104,7 +104,7 @@ namespace Webdevelopment_Project.Hubs
                     _ConnectionsMap.Add(IdentityName, Context.ConnectionId);
                 }
 
-                Clients.Caller.SendAsync("getProfileInfo", user.Voornaam);
+                Clients.Caller.SendAsync("getProfileInfo", user.FullName, user.Avatar);
             }
             catch (Exception ex)
             {

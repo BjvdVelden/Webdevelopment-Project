@@ -9,28 +9,30 @@ namespace Webdevelopment_Project.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string Voornaam { get; set; }
-        public string Achternaam { get; set; }
+        // public string Voornaam { get; set; }
+        // public string Achternaam { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime GeboorteDatum { get; set; }
-        public string Postcode { get; set; }
-        public string Huisnummer { get; set; }
-        public string VoogdEmail { get; set; }
-        public string HulpverlenerEmail { get; set; }
+        // [DataType(DataType.Date)]
+        // public DateTime GeboorteDatum { get; set; }
+        // public string Postcode { get; set; }
+        // public string Huisnummer { get; set; }
+        // public string VoogdEmail { get; set; }
+        // public string HulpverlenerEmail { get; set; }
+        public string FullName { get; set; }
+        public string Avatar { get; set; }
         public ICollection<Room> Rooms { get; set; }
         public ICollection<Message> Messages { get; set; }
-        public int getLeeftijd()
-        {
-            var leeftijd = DateTime.Today.Year - GeboorteDatum.Year;
+        // public int getLeeftijd()
+        // {
+        //     var leeftijd = DateTime.Today.Year - GeboorteDatum.Year;
 
-            if (DateTime.Today.DayOfYear >= GeboorteDatum.DayOfYear)
-            {
-                return leeftijd;
-            }
+        //     if (DateTime.Today.DayOfYear >= GeboorteDatum.DayOfYear)
+        //     {
+        //         return leeftijd;
+        //     }
             
-            return leeftijd - 1;
-        }
+        //     return leeftijd - 1;
+        // }
 
     }
 }

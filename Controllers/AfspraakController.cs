@@ -2,22 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Webdevelopment_Project.Models;
 using Webdevelopment_Project.Data;
+using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Controllers
 {
-    //[Authorize]
     public class AfspraakController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-
+        
         public AfspraakController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
@@ -62,43 +60,13 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
-            ApplicationUser currentUser = await _userManager.GetUserAsync(User);
-            string emailUser = await _userManager.GetEmailAsync(currentUser);
 
-            if (await AccesCheckAsync(afspraak))
-            {
-                return View(afspraak);
-            }
-            
-            return View("NoAcces");
+            return View(afspraak);
         }
 
         // GET: Afspraak/Create
-        public async Task<IActionResult> CreateAsync()
+        public IActionResult Create()
         {
-            ApplicationUser currentUser = await _userManager.GetUserAsync(User);
-
-            ViewData["HulpverlenerEmail"] = "";
-            try
-            {
-                var userRollen = await _userManager.GetRolesAsync(currentUser);
-            
-            if(userRollen.Contains("Client"))
-            {
-                ViewData["ClientEmail"] = currentUser.Email;
-                ViewData["HulpverlenerEmail"] = currentUser.HulpverlenerEmail;
-            }
-            else if(userRollen.Contains("Hulpverlener"))
-            {
-                ViewData["HulpverlenerEmail"] = currentUser.Email;
-                ViewData["ClientEmail"] = "";
-            }
-            }
-            catch
-            {
-                // Er is geen user ingelogd
-            }
-           
             return View();
         }
 
@@ -111,43 +79,11 @@ namespace Webdevelopment_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                ApplicationUser client = await _userManager.FindByEmailAsync(afspraak.ClientEmail);
-
                 _context.Add(afspraak);
                 await _context.SaveChangesAsync();
-
-                 if (client.getLeeftijd() >= 16)
-                {
-                    afspraak.GoedkeuringVoogd = true;
-                }
-                else 
-                {   
-                    var afspraakid = _context.Afspraak.Where(afs => afs.ClientEmail == afspraak.ClientEmail && afs.HulpverlenerEmail == afspraak.HulpverlenerEmail && afs.Start == afspraak.Start && afs.Eind == afspraak.Eind).FirstOrDefault().AfspraakId;
-                    
-                    Melding melding  = new Melding
-                    {
-                        Ontvanger = client.VoogdEmail,
-                        Type = "AfspraakVoogd",
-                        Titel = "Nieuwe Afspraak van " + client.Voornaam,
-                        Datum = DateTime.Now,
-                        IsAfgehandeld = false,
-                        Inhoud = client.Voornaam + " heeft een afspraak gemaakt met zijn Hulpverlener voor " + afspraak.Start + " tot " + afspraak.Eind,
-                        AfsrpaakId = afspraakid
-                    };
-
-                    _context.Melding.Add(melding);
-                    _context.SaveChanges();
-                }
-
                 return RedirectToAction(nameof(Index));
             }
-            
             return View(afspraak);
-        }
-
-        private void MaakAfspraakMelding(Afspraak afspraak)
-        {
-
         }
 
         // GET: Afspraak/Edit/5
@@ -163,12 +99,7 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
-            if (await AccesCheckAsync(afspraak))
-            {
-                return View(afspraak);
-            }
-            
-            return View("NoAcces");
+            return View(afspraak);
         }
 
         // POST: Afspraak/Edit/5

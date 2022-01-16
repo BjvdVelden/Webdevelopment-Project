@@ -1,9 +1,8 @@
-@model Afspraak
+@model Webdevelopment_Project.Models.Afspraak
 
 @{
-    ViewData["Title"] = "Afspraak details";
+    ViewData["Title"] = "Details";
 }
-
 
 <h1>Details</h1>
 
@@ -50,9 +49,6 @@
     </dl>
 </div>
 <div>
-    <form action="/Afspraak/Edit/@Model.AfspraakId" method="get">
-    <input class="btn btn-primary" type="submit" value="Bewerken">
-    </form> 
-    <button class="btn btn-secondary btn-sm mt-2" onclick="history.back()">Terug</button> 
+    <a asp-action="Edit" asp-route-id="@Model.AfspraakId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>
-

@@ -282,9 +282,6 @@ namespace Webdevelopment_Project.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Achternaam")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Avatar")
                         .HasColumnType("TEXT");
 
@@ -300,15 +297,6 @@ namespace Webdevelopment_Project.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FullName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("GeboorteDatum")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Huisnummer")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("HulpverlenerEmail")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -334,9 +322,6 @@ namespace Webdevelopment_Project.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Postcode")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -345,12 +330,6 @@ namespace Webdevelopment_Project.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("VoogdEmail")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Voornaam")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -414,23 +393,6 @@ namespace Webdevelopment_Project.Migrations
                     b.HasIndex("AdminId");
 
                     b.ToTable("Rooms");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.ReportModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Naam")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Reden")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ReportModel");
                 });
 
             modelBuilder.Entity("Hulpverlener", b =>
