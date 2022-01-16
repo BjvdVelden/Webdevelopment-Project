@@ -15649,11 +15649,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak1\\Create.cshtml",
-      "TargetPath": "Views\\Afspraak1\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\Index.cshtml",
       "TargetPath": "Views\\Chat\\Index.cshtml",
       "FileKind": "mvc"
@@ -15664,13 +15659,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak1\\Edit.cshtml",
-      "TargetPath": "Views\\Afspraak1\\Edit.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Role\\Index.cshtml",
+      "TargetPath": "Views\\Role\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Role\\Index.cshtml",
-      "TargetPath": "Views\\Role\\Index.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Test\\Index.cshtml",
+      "TargetPath": "Views\\Test\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15681,11 +15676,6 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Edit.cshtml",
       "TargetPath": "Views\\Client\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak1\\Details.cshtml",
-      "TargetPath": "Views\\Afspraak1\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15721,11 +15711,6 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\OverOns.cshtml",
       "TargetPath": "Views\\Home\\OverOns.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak\\NoAcces.cshtml",
-      "TargetPath": "Views\\Afspraak\\NoAcces.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15834,18 +15819,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak1\\Index.cshtml",
-      "TargetPath": "Views\\Afspraak1\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Afspraak1\\Delete.cshtml",
-      "TargetPath": "Views\\Afspraak1\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

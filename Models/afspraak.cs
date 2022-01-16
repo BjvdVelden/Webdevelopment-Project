@@ -39,5 +39,6 @@ namespace Webdevelopment_Project.Models{
         {
             return "/Afspraak/Details/" + AfspraakId;
         }
+        
     }
 }

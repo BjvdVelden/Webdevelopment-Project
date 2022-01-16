@@ -83,6 +83,7 @@ namespace Webdevelopment_Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.Hulpverleners = new SelectList(_context.AppUsers.ToList(),"Id","Email");
             return View(afspraak);
         }
 
