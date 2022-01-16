@@ -6,19 +6,20 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Webdevelopment_Project.Data;
 
 namespace Webdevelopment_Project.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly DBClient _context;
+        private readonly ApplicationDbContext _context;
 
-        public ClientController(DBClient context)
+        public ClientController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [Authorize(Roles = "Moderator")]
+        // [Authorize(Roles = "Client")]
         // GET: Client
         public async Task<IActionResult> Index()
         {

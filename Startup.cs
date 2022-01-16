@@ -9,8 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Webdevelopment_Project.Models;
+using Webdevelopment_Project.Hubs;
+using Webdevelopment_Project.Data;
 using Microsoft.AspNetCore.Identity;
-using SignalRChat.Hubs;
+using AutoMapper;
 
 namespace Webdevelopment_Project
 {
@@ -28,15 +31,16 @@ namespace Webdevelopment_Project
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<DBClient>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
-            services.AddDbContext<DBClient>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("DBClient")));
-            // services.AddDbContext<DBHulpverlener>(options =>
-            //         options.UseSqlite(Configuration.GetConnectionString("DBHulpverlener")));
-             services.AddSignalR();
+
+            services.AddAutoMapper(typeof(Startup));
+            services.AddSignalR();
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("ApplicationDbContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +60,7 @@ namespace Webdevelopment_Project
             app.UseStaticFiles();
 
             app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -65,7 +70,8 @@ namespace Webdevelopment_Project
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapHub<ChatHub>("/chathub");
+                endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }
