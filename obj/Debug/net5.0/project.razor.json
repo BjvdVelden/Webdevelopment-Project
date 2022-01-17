@@ -15624,6 +15624,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Moderator\\Relatie.cshtml",
+      "TargetPath": "Views\\Moderator\\Relatie.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Moderator\\Manage.cshtml",
       "TargetPath": "Views\\Moderator\\Manage.cshtml",
       "FileKind": "mvc"

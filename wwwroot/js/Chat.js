@@ -159,7 +159,8 @@
                 }
             });
         }
-
+        
+        [Authorize(Role ="Hulpverlener")]
         self.createRoom = function () {
             var roomName = $("#roomName").val();
             fetch('/api/Rooms', {
