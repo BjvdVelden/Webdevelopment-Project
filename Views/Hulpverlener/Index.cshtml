@@ -1,4 +1,5 @@
-@model IEnumerable<Hulpverlener>
+@using Webdevelopment_Project
+@model IEnumerable<Webdevelopment_Project.Models.Hulpverlener>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,19 +14,33 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Naam)
+                @Html.DisplayNameFor(model => model.ClientID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Geboortedatum)
+                @Html.DisplayNameFor(model => model.Voornaam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Telefoonnummer)
+                @Html.DisplayNameFor(model => model.Achternaam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Emailadres)
+                @Html.DisplayNameFor(model => model.GeboorteDatum)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Specialisme)
+                @Html.DisplayNameFor(model => model.Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Huisnummer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoogdEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HulpverlenerEmail)
+            </th>
+        
+          
+            <th>
+                <a>Client</a>
             </th>
             <th></th>
         </tr>
@@ -33,21 +48,28 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Client.email)
+            </td> *@
             <td>
-                @Html.DisplayFor(modelItem => item.Naam)
+                @Html.DisplayFor(modelItem => item.ClientID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Geboortedatum)
+                @Html.DisplayFor(modelItem => item.Voornaam)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Telefoonnummer)
+                @Html.DisplayFor(modelItem => item.Achternaam)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Emailadres)
+                @Html.DisplayFor(modelItem => item.GeboorteDatum)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Specialisme)
+                @Html.DisplayFor(modelItem => item.Postcode)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Huisnummer)
+            </td>
+      
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |

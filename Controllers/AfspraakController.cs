@@ -15,13 +15,13 @@ namespace Webdevelopment_Project.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+
         
-        public AfspraakController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AfspraakController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
-            _signInManager = signInManager;
+            
         }
 
         // GET: Afspraak
@@ -69,30 +69,54 @@ namespace Webdevelopment_Project.Controllers
         // GET: Afspraak/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email");
-
             return View();
         }
 
         // POST: Afspraak/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+            [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AfspraakId,ClientEmail,HulpverlenerEmail,Start,Eind,Onderwerp,GoedkeuringVoogd")] Afspraak afspraak)
         {
             if (ModelState.IsValid)
             {
+                ApplicationUser client = await _userManager.FindByEmailAsync(afspraak.ClientEmail);
+
                 _context.Add(afspraak);
                 await _context.SaveChangesAsync();
+
+                 if (client.getLeeftijd() >= 16 || afspraak.GoedkeuringVoogd)
+                {
+                    afspraak.GoedkeuringVoogd = true;
+                }
+                else 
+                {   
+                    var afspraakid = _context.Afspraak.Where(afs => afs.ClientEmail == afspraak.ClientEmail && afs.HulpverlenerEmail == afspraak.HulpverlenerEmail && afs.Start == afspraak.Start && afs.Eind == afspraak.Eind).FirstOrDefault().AfspraakId;
+                    
+                    Melding melding  = new Melding
+                    {
+                        Ontvanger = client.VoogdEmail,
+                        Type = "AfspraakVoogd",
+                        Titel = "Nieuwe Afspraak van " + client.Voornaam,
+                        Datum = DateTime.Now,
+                        IsAfgehandeld = false,
+                        Inhoud = client.Voornaam + " heeft een afspraak gemaakt met zijn behandelaar voor " + afspraak.Start + " tot " + afspraak.Eind,
+                        AfsrpaakId = afspraakid
+                    };
+
+                    _context.Melding.Add(melding);
+                    _context.SaveChanges();
+                }
+
                 return RedirectToAction(nameof(Index));
             }
-                ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email");
             return View(afspraak);
         }
 
+
         // GET: Afspraak/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -104,10 +128,13 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", afspraak.ApplicationUserID);
-            return View(afspraak);
+            if (await AccesCheckAsync(afspraak))
+            {
+                return View(afspraak);
+            }
+            
+            return View("NoAcces");
         }
-
         // POST: Afspraak/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -140,7 +167,7 @@ namespace Webdevelopment_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", afspraak.ApplicationUserID);
+       
             return View(afspraak);
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -17,8 +17,8 @@ namespace Webdevelopment_Project.Data
         {
         }
 
-        public DbSet<ClientModel> ClientModel { get; set; }
-        public DbSet<Hulpverlener> Hulpverlener { get; set; }
+        // public DbSet<Client> ClientModel { get; set; }
+        //  public DbSet<Hulpverlener> Hulpverlener { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
@@ -38,5 +38,10 @@ namespace Webdevelopment_Project.Data
     {
         throw new NotImplementedException();
     }
+        public DbSet<Hulpverlener> Hulpverlener { get; set; }
+        public DbSet<Webdevelopment_Project.Models.Client> Client { get; set; }
+        
+        // public DbSet<Hulpverlener> Hulpverlener { get; set; }
+        // public DbSet<Hulpverlener> Hulpverlener { get; set; }
     }
 }

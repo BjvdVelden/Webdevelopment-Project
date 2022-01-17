@@ -9,68 +9,14 @@ using Webdevelopment_Project.Data;
 namespace Webdevelopment_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220116163945_3")]
-    partial class _3
+    [Migration("20220117130324_0")]
+    partial class _0
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
-
-            modelBuilder.Entity("ClientModel", b =>
-                {
-                    b.Property<int>("BSN")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Geboortedatum")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Naam")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Postcode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Woonplaats")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("BSN");
-
-                    b.ToTable("ClientModel");
-                });
-
-            modelBuilder.Entity("Hulpverlener", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Emailadres")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Geboortedatum")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Naam")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Specialisme")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Telefoonnummer")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("moderatorId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("moderatorId");
-
-                    b.ToTable("Hulpverlener");
-                });
 
             modelBuilder.Entity("Melding", b =>
                 {
@@ -279,11 +225,18 @@ namespace Webdevelopment_Project.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Achternaam")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Avatar")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -294,6 +247,15 @@ namespace Webdevelopment_Project.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FullName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("GeboorteDatum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Huisnummer")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("HulpverlenerEmail")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -319,6 +281,9 @@ namespace Webdevelopment_Project.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Postcode")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -327,6 +292,12 @@ namespace Webdevelopment_Project.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("VoogdEmail")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Voornaam")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -339,6 +310,8 @@ namespace Webdevelopment_Project.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
@@ -392,13 +365,23 @@ namespace Webdevelopment_Project.Migrations
                     b.ToTable("Rooms");
                 });
 
-            modelBuilder.Entity("Hulpverlener", b =>
+            modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
                 {
-                    b.HasOne("Hulpverlener", "moderator")
-                        .WithMany()
-                        .HasForeignKey("moderatorId");
+                    b.HasBaseType("Webdevelopment_Project.Models.ApplicationUser");
 
-                    b.Navigation("moderator");
+                    b.HasDiscriminator().HasValue("Client");
+                });
+
+            modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
+                {
+                    b.HasBaseType("Webdevelopment_Project.Models.ApplicationUser");
+
+                    b.Property<string>("ClientID")
+                        .HasColumnType("TEXT");
+
+                    b.HasIndex("ClientID");
+
+                    b.HasDiscriminator().HasValue("Hulpverlener");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -489,6 +472,15 @@ namespace Webdevelopment_Project.Migrations
                     b.Navigation("Admin");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
+                {
+                    b.HasOne("Webdevelopment_Project.Models.Client", "Client")
+                        .WithMany("Hulpverleners")
+                        .HasForeignKey("ClientID");
+
+                    b.Navigation("Client");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Afspraken");
@@ -501,6 +493,11 @@ namespace Webdevelopment_Project.Migrations
             modelBuilder.Entity("Webdevelopment_Project.Models.Room", b =>
                 {
                     b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
+                {
+                    b.Navigation("Hulpverleners");
                 });
 #pragma warning restore 612, 618
         }

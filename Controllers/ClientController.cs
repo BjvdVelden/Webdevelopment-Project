@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Data;
+using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Controllers
 {
@@ -19,29 +19,28 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
-        // [Authorize(Roles = "Client")]
         // GET: Client
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ClientModel.ToListAsync());
+            return View(await _context.Client.ToListAsync());
         }
 
         // GET: Client/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var clientModel = await _context.ClientModel
-                .FirstOrDefaultAsync(m => m.BSN == id);
-            if (clientModel == null)
+            var client = await _context.Client
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (client == null)
             {
                 return NotFound();
             }
 
-            return View(clientModel);
+            return View(client);
         }
 
         // GET: Client/Create
@@ -55,31 +54,31 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ClientModel clientModel)
+        public async Task<IActionResult> Create([Bind("email,Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,FullName,Avatar,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Client client)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(clientModel);
+                _context.Add(client);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(clientModel);
+            return View(client);
         }
 
         // GET: Client/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var clientModel = await _context.ClientModel.FindAsync(id);
-            if (clientModel == null)
+            var client = await _context.Client.FindAsync(id);
+            if (client == null)
             {
                 return NotFound();
             }
-            return View(clientModel);
+            return View(client);
         }
 
         // POST: Client/Edit/5
@@ -87,9 +86,9 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BSN,Naam,Woonplaats,Postcode,Geboortedatum")] ClientModel clientModel)
+        public async Task<IActionResult> Edit(string id, [Bind("email,Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,FullName,Avatar,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Client client)
         {
-            if (id != clientModel.BSN)
+            if (id != client.Id)
             {
                 return NotFound();
             }
@@ -98,12 +97,12 @@ namespace Webdevelopment_Project.Controllers
             {
                 try
                 {
-                    _context.Update(clientModel);
+                    _context.Update(client);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClientModelExists(clientModel.BSN))
+                    if (!ClientExists(client.Id))
                     {
                         return NotFound();
                     }
@@ -114,41 +113,41 @@ namespace Webdevelopment_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(clientModel);
+            return View(client);
         }
 
         // GET: Client/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var clientModel = await _context.ClientModel
-                .FirstOrDefaultAsync(m => m.BSN == id);
-            if (clientModel == null)
+            var client = await _context.Client
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (client == null)
             {
                 return NotFound();
             }
 
-            return View(clientModel);
+            return View(client);
         }
 
         // POST: Client/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var clientModel = await _context.ClientModel.FindAsync(id);
-            _context.ClientModel.Remove(clientModel);
+            var client = await _context.Client.FindAsync(id);
+            _context.Client.Remove(client);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClientModelExists(int id)
+        private bool ClientExists(string id)
         {
-            return _context.ClientModel.Any(e => e.BSN == id);
+            return _context.Client.Any(e => e.Id == id);
         }
     }
 }

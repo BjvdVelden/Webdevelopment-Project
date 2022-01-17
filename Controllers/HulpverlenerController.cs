@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Data;
+using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Controllers
 {
@@ -25,7 +26,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Hulpverlener/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -45,6 +46,7 @@ namespace Webdevelopment_Project.Controllers
         // GET: Hulpverlener/Create
         public IActionResult Create()
         {
+            ViewData["ClientID"] = new SelectList(_context.Client, "clientEmail", "clientEmail");
             return View();
         }
 
@@ -53,7 +55,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Naam,Geboortedatum,Telefoonnummer,Emailadres,Specialisme")] Hulpverlener hulpverlener)
+        public async Task<IActionResult> Create([Bind("ClientID,Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,FullName,Avatar,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Hulpverlener hulpverlener)
         {
             if (ModelState.IsValid)
             {
@@ -61,11 +63,13 @@ namespace Webdevelopment_Project.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClientID"] = new SelectList(_context.Client, "clientEmail", "clientEmail",hulpverlener.Id);
+
             return View(hulpverlener);
         }
 
         // GET: Hulpverlener/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -85,7 +89,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Naam,Geboortedatum,Telefoonnummer,Emailadres,Specialisme")] Hulpverlener hulpverlener)
+        public async Task<IActionResult> Edit(string id, [Bind("ClientID,Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,FullName,Avatar,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Hulpverlener hulpverlener)
         {
             if (id != hulpverlener.Id)
             {
@@ -116,7 +120,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Hulpverlener/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -136,7 +140,7 @@ namespace Webdevelopment_Project.Controllers
         // POST: Hulpverlener/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var hulpverlener = await _context.Hulpverlener.FindAsync(id);
             _context.Hulpverlener.Remove(hulpverlener);
@@ -144,7 +148,7 @@ namespace Webdevelopment_Project.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool HulpverlenerExists(int id)
+        private bool HulpverlenerExists(string id)
         {
             return _context.Hulpverlener.Any(e => e.Id == id);
         }

@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Models;
+using Webdevelopment_Project.Data;
+
 
 
 // Alleen toegankelijk voor Moderators
@@ -18,11 +20,14 @@ namespace Webdevelopment_Project.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _context;
 
-        public ModeratorController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+
+        public ModeratorController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,ApplicationDbContext context)
         {
             _roleManager = roleManager;
             _userManager = userManager;
+            _context = context;
         }
 
         public async Task<IActionResult> Index()
@@ -39,7 +44,19 @@ namespace Webdevelopment_Project.Controllers
             }
             return View(userRolesViewModel);
         }
-    
+
+        public async Task<IActionResult> Relatie()
+        {
+                var currentUser =await _userManager.GetUserAsync(User);
+            var rol = await _userManager.GetRolesAsync(currentUser);
+            if (rol.Contains("Client"))
+            {
+                return View(await _context.Afspraak.Where(c => c.ClientEmail == currentUser.Email).ToListAsync());
+            }
+            return View(await _context.Afspraak.Where(b => b.HulpverlenerEmail == currentUser.Email).ToListAsync());
+        }
+
+
         private async Task<List<string>> GetUserRoles(ApplicationUser user)
         {
             return new List<string>(await _userManager.GetRolesAsync(user));
