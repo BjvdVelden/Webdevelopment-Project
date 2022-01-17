@@ -33,6 +33,7 @@ namespace Webdevelopment_Project
             services.AddRazorPages();
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddRoles<IdentityRole>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
 
@@ -40,7 +41,7 @@ namespace Webdevelopment_Project
             services.AddSignalR();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("ApplicationDbContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
