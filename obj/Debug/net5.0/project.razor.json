@@ -15634,6 +15634,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Views\\Administratie\\Layout.cshtml",
+      "TargetPath": "Views\\Administratie\\Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
       "FileKind": "mvc"
@@ -15936,11 +15941,6 @@
     {
       "FilePath": "d:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Views\\Administratie\\_layout.cshtml",
-      "TargetPath": "Views\\Administratie\\_layout.cshtml",
       "FileKind": "mvc"
     }
   ],
