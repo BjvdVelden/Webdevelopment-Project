@@ -1,27 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {}
+    "C:\\Users\\Bram\\Documents\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {}
   },
   "projects": {
-    "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
+    "C:\\Users\\Bram\\Documents\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+        "projectUniqueName": "C:\\Users\\Bram\\Documents\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
         "projectName": "Webdevelopment-Project",
-        "projectPath": "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
-        "packagesPath": "C:\\Users\\User name\\.nuget\\packages\\",
-        "outputPath": "D:\\school\\Semester 3\\WDPR\\PROJ\\Code\\Webdevelopment-Project\\obj\\",
+        "projectPath": "C:\\Users\\Bram\\Documents\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+        "packagesPath": "C:\\Users\\Bram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bram\\Documents\\GitHub\\Webdevelopment-Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User name\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bram\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
@@ -89,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
