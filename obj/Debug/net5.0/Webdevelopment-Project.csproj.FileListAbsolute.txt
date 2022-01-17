@@ -673,6 +673,6 @@ D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Webd
 D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\ref\Webdevelopment-Project.dll
 D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.pdb
 D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.genruntimeconfig.cache
-D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Administratie\_layout.cshtml.g.cs
 D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Administratie\Frontdesk.cshtml.g.cs
 D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Administratie\_ViewImports.cshtml.g.cs
+D:\school\Semester 3\WDPR\PROJ\Code\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Administratie\layout.cshtml.g.cs
