@@ -9,6 +9,7 @@ using Webdevelopment_Project.Data;
 
 namespace Webdevelopment_Project.Controllers
 {
+    [Authorize(Roles = "Moderator")]
     public class HulpverlenerController : Controller
     {
         private readonly ApplicationDbContext _context;

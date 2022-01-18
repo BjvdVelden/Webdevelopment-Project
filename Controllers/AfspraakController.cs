@@ -11,6 +11,7 @@ using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Controllers
 {
+    [Authorize(Roles = "Client","Hulpverlener")]
     public class AfspraakController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -14,7 +14,9 @@ using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Controllers
 {
+    [Authorize(Roles = "Moderator")]
     public class ModeratorController : Controller
+
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
