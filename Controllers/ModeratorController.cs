@@ -10,10 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Models;
 
 
-// Alleen toegankelijk voor Moderators
-
 namespace Webdevelopment_Project.Controllers
 {
+    [Authorize(Roles = "Moderator")]
     public class ModeratorController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -98,5 +97,8 @@ namespace Webdevelopment_Project.Controllers
             }
             return RedirectToAction("Index");
         }
+
+       
+
     }
 }

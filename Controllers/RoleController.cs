@@ -9,13 +9,16 @@ using Microsoft.Extensions.Logging;
 using Webdevelopment_Project.Models;
 using Webdevelopment_Project.Areas.Identity.Pages.Account;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Webdevelopment_Project.Controllers
 {
+    [Authorize(Roles = "Moderator")]
     public class RoleController : Controller
     {
-        RoleManager<IdentityRole> roleManager;
 
+        RoleManager<IdentityRole> roleManager;
+     
         public RoleController(RoleManager<IdentityRole> roleManager)
         {
             this.roleManager = roleManager;
