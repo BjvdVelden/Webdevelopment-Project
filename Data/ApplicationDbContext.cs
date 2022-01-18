@@ -21,10 +21,11 @@ namespace Webdevelopment_Project.Data
         {
             base.OnModelCreating(builder);
             builder.Entity<Message>()
-                .HasOne<ApplicationUser>(a => a.ApplicationUser)
+                .HasOne<ApplicationUser>(a => a.Sender)
                 .WithMany(d => d.Messages)
-                .HasForeignKey(d => d.UserId);
+                .HasForeignKey(d => d.UserID);
         }
+
         public DbSet<Message> Messages { get; set; }
         // public DbSet<Client> ClientModel { get; set; }
         //  public DbSet<Hulpverlener> Hulpverlener { get; set; }
