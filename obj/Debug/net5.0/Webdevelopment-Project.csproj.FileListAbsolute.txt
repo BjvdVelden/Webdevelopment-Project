@@ -416,8 +416,11 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Client\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Moderator\Relatie.cshtml.g.cs
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Moderator\Relatie.cshtml.g.cs
 =======
+=======
+>>>>>>> Stashed changes
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\EenOpEenChat.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Zelfhulpgroep\Create.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Zelfhulpgroep\Delete.cshtml.g.cs
@@ -426,4 +429,7 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Zelfhulpgroep\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\EenOpEenChat\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Zelfhulpgroep\groep1chat.cshtml.g.cs
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

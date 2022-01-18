@@ -8,7 +8,11 @@ build_property.IncludeAllContentForSelfExtract =
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Webdevelopment_Project
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 build_property.ProjectDir = C:\Users\Serdi\Desktop\Webdevelopment-Project\
+=======
+build_property.ProjectDir = c:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\
+>>>>>>> Stashed changes
 =======
 build_property.ProjectDir = c:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\
 >>>>>>> Stashed changes
