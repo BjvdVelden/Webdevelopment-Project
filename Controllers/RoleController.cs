@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Webdevelopment_Project.Controllers
 {
+    [Authorize(Roles = "Moderator")]
     public class RoleController : Controller
     {
         RoleManager<IdentityRole> roleManager;
