@@ -10,10 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Models;
-using Webdevelopment_Project.Hubs;
 using Webdevelopment_Project.Data;
 using Microsoft.AspNetCore.Identity;
-using AutoMapper;
+using Webdevelopment_Project.Hubs;
 
 namespace Webdevelopment_Project
 {
@@ -36,7 +35,6 @@ namespace Webdevelopment_Project
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
 
-            services.AddAutoMapper(typeof(Startup));
             services.AddSignalR();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -63,7 +61,10 @@ namespace Webdevelopment_Project
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapHub<ChatHub>("/Chat/Index");
+        });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
@@ -71,7 +72,6 @@ namespace Webdevelopment_Project
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }

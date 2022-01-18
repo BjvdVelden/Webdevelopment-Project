@@ -379,7 +379,6 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Ident
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Role\Create.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Role\Index.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
@@ -416,9 +415,7 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Client\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Moderator\Relatie.cshtml.g.cs
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Moderator\Relatie.cshtml.g.cs
-=======
 =======
 >>>>>>> Stashed changes
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\EenOpEenChat.cshtml.g.cs
@@ -429,7 +426,4 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Zelfhulpgroep\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\EenOpEenChat\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Zelfhulpgroep\groep1chat.cshtml.g.cs
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\Microsoft.AspNet.SignalR.Core.dll

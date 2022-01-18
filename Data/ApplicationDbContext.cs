@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -17,24 +17,24 @@ namespace Webdevelopment_Project.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<Message>()
+                .HasOne<ApplicationUser>(a => a.ApplicationUser)
+                .WithMany(d => d.Messages)
+                .HasForeignKey(d => d.UserId);
+        }
+        public DbSet<Message> Messages { get; set; }
         // public DbSet<Client> ClientModel { get; set; }
         //  public DbSet<Hulpverlener> Hulpverlener { get; set; }
-        public DbSet<Room> Rooms { get; set; }
-        public DbSet<Message> Messages { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
         // public DbSet<Zelfhulpgroep> Zelfhulpgroep { get; set; }
         public DbSet<Melding> Melding { get; set; }
         // public DbSet<ReportModel> ReportModel { get; set; }
 
         
-         public DbSet<Afspraak> Afspraak { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        }
+        public DbSet<Afspraak> Afspraak { get; set; }
         internal Task<IdentityResult> CreateAsync(IdentityRole identityRole)
     {
         throw new NotImplementedException();

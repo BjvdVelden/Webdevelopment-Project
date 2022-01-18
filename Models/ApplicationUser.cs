@@ -9,6 +9,12 @@ namespace Webdevelopment_Project.Models
 {
     public class ApplicationUser : IdentityUser
     {
+
+        public ApplicationUser()
+        {
+            Messages = new HashSet<Message>();
+        }
+
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
 
@@ -22,9 +28,9 @@ namespace Webdevelopment_Project.Models
         public string HulpverlenerEmail { get; set; }
         public string FullName { get; set; }
         public string Avatar { get; set; }
-        public ICollection<Room> Rooms { get; set; }
-        public ICollection<Message> Messages { get; set; }
         public ICollection<Afspraak> Afspraken { get; set; }
+        public ICollection<Message> Messages { get; set; }
+
         
         public int getLeeftijd()
         {
