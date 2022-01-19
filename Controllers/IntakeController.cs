@@ -58,7 +58,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteBehandelaar,GewensteMoment,Onderwerp")] Intake intake)
+        public async Task<IActionResult> Create([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp")] Intake intake)
         {
             if (ModelState.IsValid)
             {

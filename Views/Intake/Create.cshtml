@@ -38,21 +38,21 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @* <div class="form-group">
                 <label asp-for="GewensteHulpverlener" class="control-label"></label>
                 <input asp-for="GewensteHulpverlener" class="form-control" />
                 <span asp-validation-for="GewensteHulpverlener" class="text-danger"></span>
-            </div>
-            @* <div class="form-group">
+            </div> *@
+            <div class="form-group">
                 <label asp-for="GewensteHulpverlener" class="control-label">Kies een behandelaar</label> <br>
                 <select asp-for="GewensteHulpverlener" class="form-select" aria-label="Default select example">
-                    <option selected value= @>Younes </option>
+                    <option selected value="Hulpverlener1@gmail.com">Younes </option>
                     <option value="Hulpverlener2@gmail.com">Serdin</option>
                     <option value="Hulpverlener3@gmail.com">Bram</option>
                     <option value="Hulpverlener4@gmail.com">Kevin</option>
                 </select>
                 <span asp-validation-for="GewensteHulpverlener" class="text-danger"></span>
-            </div> *@
+            </div>
 
 
             <div class="form-group">
