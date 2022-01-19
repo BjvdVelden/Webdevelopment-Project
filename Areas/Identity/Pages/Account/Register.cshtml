@@ -7,7 +7,8 @@
     @* var currentUser = await userManager.GetUserAsync(User);
     string email = currentUser.Email; *@
 }
-
+<div></div>
+<div></div>
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="register-container">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
@@ -39,11 +40,13 @@
                 <input asp-for="Input.Postcode" class="form-control" />
                 <span asp-validation-for="Input.Postcode" class="text-danger"></span>
             </div>   
+            
             <div class="form-group">
                 <label asp-for="Input.Huisnummer"></label>
                 <input asp-for="Input.Huisnummer" class="form-control" />
                 <span asp-validation-for="Input.Huisnummer" class="text-danger"></span>
             </div>  
+            
             <div class="form-group">
                 <label asp-for="Input.EmailVoogd"></label>
                 <input asp-for="Input.EmailVoogd" class="form-control" />

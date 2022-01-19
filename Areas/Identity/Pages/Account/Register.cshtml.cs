@@ -109,6 +109,7 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
         {
             returnUrl = returnUrl ?? Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+    
             if (ModelState.IsValid)
             {
                 

@@ -26,16 +26,6 @@ namespace Webdevelopment_Project.Models{
 
         public bool GoedkeuringVoogd { get; set; }
 
-        public string ToStringHulpverlener()
-        {
-            string afspraakString = Start.ToString() + " - " + Eind.ToString() + ", Client: " + ClientEmail;
-
-            return afspraakString;
-        }
-        public string GetDetailsLink()
-        {
-            return "/Afspraak/Details/" + AfspraakId;
-        }
         [ForeignKey("ApplicationUser")]
         public string ApplicationUserID { get; set; }
         public ApplicationUser ApplicationUser { get; set; }

@@ -22,7 +22,7 @@ public class Melding
 
     [Required]
     public bool IsAfgehandeld { get; set; }
-
+ 
     public int AfsrpaakId { get; set; }
     
 }

@@ -16,6 +16,56 @@ namespace Webdevelopment_Project.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("Intake", b =>
+                {
+                    b.Property<int>("IntakeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AanmaakDatum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Achternaam")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("BSN")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("GeboorteDatum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GewensteHulpverlener")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("GewensteMoment")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsAfgehandeld")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Onderwerp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Voornaam")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("IntakeId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Intake");
+                });
+
             modelBuilder.Entity("Melding", b =>
                 {
                     b.Property<int>("MeldingId")
@@ -226,9 +276,6 @@ namespace Webdevelopment_Project.Migrations
                     b.Property<string>("Achternaam")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Avatar")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
@@ -243,9 +290,6 @@ namespace Webdevelopment_Project.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("GeboorteDatum")
                         .HasColumnType("TEXT");
@@ -318,71 +362,25 @@ namespace Webdevelopment_Project.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Content")
+                    b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FromUserId")
+                    b.Property<string>("UserID")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Timestamp")
+                    b.Property<string>("UserName")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ToRoomId")
-                        .HasColumnType("INTEGER");
+                    b.Property<DateTime>("When")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FromUserId");
-
-                    b.HasIndex("ToRoomId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("Messages");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Room", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("AdminId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AdminId");
-
-                    b.ToTable("Rooms");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Zelfhulpgroep", b =>
-                {
-                    b.Property<string>("Naam")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Beheerder")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MaximaleLeeftijd")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MinimaleLeeftijd")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Onderwerp")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Naam");
-
-                    b.ToTable("Zelfhulpgroep");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
@@ -402,6 +400,13 @@ namespace Webdevelopment_Project.Migrations
                     b.HasIndex("ClientID");
 
                     b.HasDiscriminator().HasValue("Hulpverlener");
+                });
+
+            modelBuilder.Entity("Intake", b =>
+                {
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", null)
+                        .WithMany("Intakes")
+                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -466,30 +471,11 @@ namespace Webdevelopment_Project.Migrations
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
                 {
-                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "FromUser")
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "Sender")
                         .WithMany("Messages")
-                        .HasForeignKey("FromUserId");
+                        .HasForeignKey("UserID");
 
-                    b.HasOne("Webdevelopment_Project.Models.Room", "ToRoom")
-                        .WithMany("Messages")
-                        .HasForeignKey("ToRoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("FromUser");
-
-                    b.Navigation("ToRoom");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Room", b =>
-                {
-                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "Admin")
-                        .WithMany("Rooms")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Admin");
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
@@ -505,13 +491,8 @@ namespace Webdevelopment_Project.Migrations
                 {
                     b.Navigation("Afspraken");
 
-                    b.Navigation("Messages");
+                    b.Navigation("Intakes");
 
-                    b.Navigation("Rooms");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Room", b =>
-                {
                     b.Navigation("Messages");
                 });
 
