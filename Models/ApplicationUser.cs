@@ -19,18 +19,17 @@ namespace Webdevelopment_Project.Models
         public string Achternaam { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime GeboorteDatum { get; set; }
+        public DateTime GeboorteDatum { get;set;}
         public string Postcode { get; set; }
         public string Huisnummer { get; set; }
         // public string clientEmail { get; set; }H
 
         public string VoogdEmail { get; set; }
         public string HulpverlenerEmail { get; set; }
-        public string FullName { get; set; }
-        public string Avatar { get; set; }
         public ICollection<Afspraak> Afspraken { get; set; }
         public ICollection<Message> Messages { get; set; }
 
+        public ICollection<Intake> Intakes { get; set; }
         
         public int getLeeftijd()
         {

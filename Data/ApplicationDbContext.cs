@@ -33,6 +33,7 @@ namespace Webdevelopment_Project.Data
         // public DbSet<Zelfhulpgroep> Zelfhulpgroep { get; set; }
         public DbSet<Melding> Melding { get; set; }
         // public DbSet<ReportModel> ReportModel { get; set; }
+        public DbSet<Intake> Intake {get;set;}
 
         
         public DbSet<Afspraak> Afspraak { get; set; }

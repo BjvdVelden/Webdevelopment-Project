@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {}
+    "C:\\Users\\31623\\OneDrive - De Haagse Hogeschool\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
+    "C:\\Users\\31623\\OneDrive - De Haagse Hogeschool\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+        "projectUniqueName": "C:\\Users\\31623\\OneDrive - De Haagse Hogeschool\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
         "projectName": "Webdevelopment-Project",
-        "projectPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
-        "packagesPath": "C:\\Users\\Serdi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\obj\\",
+        "projectPath": "C:\\Users\\31623\\OneDrive - De Haagse Hogeschool\\Documenten\\GitHub\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+        "packagesPath": "C:\\Users\\31623\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\31623\\OneDrive - De Haagse Hogeschool\\Documenten\\GitHub\\Webdevelopment-Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Serdi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\31623\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -93,6 +93,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.13, 5.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -101,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
