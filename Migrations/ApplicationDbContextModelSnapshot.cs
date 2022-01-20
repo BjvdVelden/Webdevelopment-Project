@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webdevelopment_Project.Data;
 
-namespace Webdevelopment_Project.Migrations
+namespace WebdevelopmentProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -356,17 +356,58 @@ namespace Webdevelopment_Project.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaximumAge")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinimumAge")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("Webdevelopment_Project.Models.ChatUser", b =>
+                {
+                    b.Property<int>("ChatId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ChatId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ChatUsers");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ChatId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("UserID")
+                    b.Property<string>("TypMessage")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
@@ -378,7 +419,7 @@ namespace Webdevelopment_Project.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("ChatId");
 
                     b.ToTable("Messages");
                 });
@@ -469,13 +510,34 @@ namespace Webdevelopment_Project.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.ChatUser", b =>
+                {
+                    b.HasOne("Webdevelopment_Project.Models.Chat", "Chat")
+                        .WithMany("Users")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "User")
+                        .WithMany("Chats")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
                 {
-                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "Sender")
+                    b.HasOne("Webdevelopment_Project.Models.Chat", "Chat")
                         .WithMany("Messages")
-                        .HasForeignKey("UserID");
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Sender");
+                    b.Navigation("Chat");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
@@ -491,9 +553,16 @@ namespace Webdevelopment_Project.Migrations
                 {
                     b.Navigation("Afspraken");
 
-                    b.Navigation("Intakes");
+                    b.Navigation("Chats");
 
+                    b.Navigation("Intakes");
+                });
+
+            modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>
+                {
                     b.Navigation("Messages");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>

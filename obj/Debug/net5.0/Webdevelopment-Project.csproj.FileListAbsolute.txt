@@ -149,7 +149,6 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Pr
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.TagHelpers.output.cache
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.RazorCoreGenerate.cache
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -365,11 +364,6 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\bin\Debug\net5.0\libman.json
 C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\libman.json
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\OverOns.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Specialisten.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\AutoMapper.dll
-C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
@@ -418,8 +412,6 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Moderator\Relatie.cshtml.g.cs
 =======
 >>>>>>> Stashed changes
-C:\Users\Serdi\Desktop\Webdevelopment-Project\bin\Debug\net5.0\Microsoft.AspNet.SignalR.Core.dll
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
 C:\Users\31623\OneDrive - De Haagse Hogeschool\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.csproj.AssemblyReference.cache
 C:\Users\31623\OneDrive - De Haagse Hogeschool\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\31623\OneDrive - De Haagse Hogeschool\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.AssemblyInfoInputs.cache
@@ -641,3 +633,14 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Details.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Edit.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Index.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Create.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Delete.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Details.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Edit.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Index.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Shared\Components\Room\Default.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Chat.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\CreateRoom.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\FindGroup.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\FindUser.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Private.cshtml.g.cs

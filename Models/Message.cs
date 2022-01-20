@@ -14,13 +14,9 @@ namespace Webdevelopment_Project.Models
         [Required]
         public string Text { get; set; }
         public DateTime When { get; set; }
+        public string TypMessage { get; set; }
 
-        public string UserID { get; set; }
-        public virtual ApplicationUser Sender { get; set; }
-
-        public Message()
-        {
-            When = DateTime.Now;
-        }
+        public int ChatId { get; set; }
+        public Chat Chat { get; set; }
     }
 }

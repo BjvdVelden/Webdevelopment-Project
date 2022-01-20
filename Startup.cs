@@ -13,6 +13,7 @@ using Webdevelopment_Project.Models;
 using Webdevelopment_Project.Data;
 using Microsoft.AspNetCore.Identity;
 using Webdevelopment_Project.Hubs;
+using Webdevelopment_Project.Infrastructure.Respository;
 
 namespace Webdevelopment_Project
 {
@@ -35,6 +36,7 @@ namespace Webdevelopment_Project
                 .AddDefaultTokenProviders()
                 .AddDefaultUI();
 
+            services.AddTransient<IChatRepository, ChatRepository>();
             services.AddSignalR();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -68,7 +70,7 @@ namespace Webdevelopment_Project
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                    endpoints.MapHub<ChatHub>("/ChatHub");
+                    endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }

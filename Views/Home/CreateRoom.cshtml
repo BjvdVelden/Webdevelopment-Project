@@ -1,0 +1,21 @@
+@model Chat
+
+    <div>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="FindUser">Find Users</a>
+        <a asp-controller="Home" asp-action="FindGroup">Find Groups</a>
+        <a asp-controller="Home" asp-action="Private">Private</a>
+    </div>
+
+    <div class="modal" id="create-room-modal">
+        <form asp-controller="Home" asp-action="CreateRoom" class="modal-body">
+            <button type="button" class="close" onclick="closeModal()">X</button>
+            <header>Create Room</header>
+            <div>
+                Naam <input type="text" name="name">
+                Leeftijd <input type="number" name="age">
+            <footer>
+                <button>Create</button>
+            </footer>
+        </form>
+    </div>

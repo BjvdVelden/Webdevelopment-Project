@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Webdevelopment_Project.Models;
 
 namespace Webdevelopment_Project.Models
 {
     public class ApplicationUser : IdentityUser
     {
 
-        public ApplicationUser()
+        public ApplicationUser() : base()
         {
-            Messages = new HashSet<Message>();
+            Chats = new List<ChatUser>();
         }
+        public ICollection<ChatUser> Chats { get; set; }
 
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
@@ -27,7 +29,6 @@ namespace Webdevelopment_Project.Models
         public string VoogdEmail { get; set; }
         public string HulpverlenerEmail { get; set; }
         public ICollection<Afspraak> Afspraken { get; set; }
-        public ICollection<Message> Messages { get; set; }
 
         public ICollection<Intake> Intakes { get; set; }
         
@@ -46,8 +47,6 @@ namespace Webdevelopment_Project.Models
     }
 
     public class Client: ApplicationUser {
-        // public int id{get;set;}
-        //  public string email{get;set;}
         public ICollection<Hulpverlener> Hulpverleners{get;set;}
     }
    

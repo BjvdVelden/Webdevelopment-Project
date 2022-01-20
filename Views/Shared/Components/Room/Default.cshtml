@@ -1,0 +1,35 @@
+@model IEnumerable<Chat>
+
+    <div class="side-menu">
+        @foreach(var chat in Model){
+        <a class="room-button" asp-controller="Chat" asp-action="ChatView" asp-route-id="@chat.Id">
+            Zelfhulpgroep: @chat.Name
+            MinimumLeeftijd: @chat.MinimumAge
+            MaximumLeeftijd: @chat.MaximumAge
+        </a>
+        }
+@* @foreach(var chat in Model){
+<div class="container mt-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Zelfhulpgroep:</th>
+        <th>Leeftijd:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>@chat.Name</td>
+      </tr>
+      <tr>
+        <td>@chat.Age</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+} *@
+
+        <a class="room-button" id="create-room-btn" href="#">
+            <strong>Create Room</strong>
+        </a>
+    </div>

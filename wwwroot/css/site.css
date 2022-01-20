@@ -1,122 +1,180 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
-body {
-font-family: 'Shadows Into Light', cursive;
-font-size: 1.4em;
-
+* {
+  box-sizing: border-box;
 }
 
-a.navbar-brand {
-  white-space: normal;
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100wh;
+  display: flex;
+  flex-direction: column;
+}
+/* 
+.navbar {
+  background-color: #342742;
+  min-height: 50px;
+  z-index: 100;
+  box-shadow: 0 1px 2px 0 #333;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar > a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding-top: 0.8rem;
+  padding-left: 1rem;
+} */
+
+.main {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.side-menu {
+  background-color: #443554;
+  min-width: 100px;
+  max-width: 100px;
+  z-index: 50;
+  box-shadow: 1px 0 2px 0 #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-button {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.75rem 1rem 0;
+  height: 68px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 1px #333;
+  background-color: #57446b;
   text-align: center;
-  word-break: break-all;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.room-button > strong {
+  font-size: 36px;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+.room-button:hover {
+  box-shadow: 0 2px 3px 1px #222;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.chat {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.chat-body {
+  background-color: #eee;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+  overflow: auto;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+.message {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.2rem;
 }
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.message:first-child {
+  margin-top: auto;
 }
-.footer {
+
+.message > * {
+  padding: 0.2rem;
+}
+
+.message > header {
+  font-weight: bold;
+  min-width: 100px;
+  text-align: right;
+}
+.message > p {
+  margin: 0;
+  flex-grow: 5;
+}
+.message > footer {
+  min-width: 60px;
+  text-align: center;
+}
+
+.chat-input {
+  background-color: #443554;
+  min-height: 70px;
+  max-height: 70px;
+  z-index: 25;
+  box-shadow: 0 -1px 2px 0 #333;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.chat-input > input {
+  flex-grow: 2;
+}
+
+.chat-input > button {
+  flex-grow: 1;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  background-color: rgba(0.2, 0.2, 0.2, 0.8);
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-body > .close {
   position: absolute;
-  bottom: 0;
+  top: 5px;
+  right: 5px;
+  margin-top: 0;
+}
+
+.modal-body {
+  position: relative;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: #5c4773;
+  padding: 1rem;
+}
+
+.modal-body > * {
+  margin-top: 0.75rem;
+}
+
+.modal-body > header {
+  color: #fff;
+  font-size: 24px;
+}
+
+.modal-body > div > input {
   width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
 }
 
-
-/* Chat containers */
-#chat .container {
-    border: 2px solid #dedede;
-    background-color: #f1f1f1;
-    border-radius: 30px;
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-    font-family: "Open Sans", serif;
-}
-
-#chat .sender {
-    font-size: 0.8em;
-    font-weight: bold;
-    font-family: 'Shadows Into Light', cursive;
-
-}
-
-/* Darker chat container */
-#chat .darker {
-    border-color: #fff;
-    background-color: #007bff;
-}
-
-/* Clear floats */
-#chat .container::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Style images */
-#chat .container img {
-    float: left;
-    max-width: 60px;
-    width: 100%;
-    margin-right: 20px;
-    border-radius: 50%;
-}
-
-    /* Style the right image */
-    #chat .container img.right {
-        float: right;
-        margin-left: 20px;
-        margin-right: 0;
-    }
-
-/* Style time text */
-#chat .time-right {
-    float: right;
-    color: #aaa;
-}
-
-/* Style time text */
-#chat .time-left {
-    float: left;
-    color: #999;
+.modal-body > footer {
+  text-align: center;
 }

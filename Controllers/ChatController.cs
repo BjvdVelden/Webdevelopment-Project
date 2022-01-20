@@ -1,62 +1,146 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Webdevelopment_Project.Data;
-using Webdevelopment_Project.Models;
+// using System;
+// using System.Linq;
+// using System.Security.Claims;
+// using System.Threading.Tasks;
+// using Webdevelopment_Project.Data;
+// using Webdevelopment_Project.Hubs;
+// using Webdevelopment_Project.Infrastructure;
+// using Webdevelopment_Project.Infrastructure.Respository;
+// using Webdevelopment_Project.Models;
+// using Microsoft.AspNetCore.Authorization;
+// using Microsoft.AspNetCore.Mvc;
+// using Microsoft.AspNetCore.SignalR;
+// using Microsoft.EntityFrameworkCore;
 
-namespace Webdevelopment_Project.Controllers
-{
-    [Authorize]
-    public class ChatController : Controller
-    {
-        public readonly ApplicationDbContext _context;
-        public readonly UserManager<ApplicationUser> _userManager;
-        public ChatController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
-        {
-            _context = context;
-            _userManager = userManager;
-        }
+// namespace Webdevelopment_Project.Controllers
+// {
+//     [Authorize]
+//     public class ChatController : Controller
+//     {
+//         private readonly IChatRepository _repo;
+//         private readonly ApplicationDbContext _context;
 
-        public async Task<IActionResult> Index()
-        {
-            var currentUser = await _userManager.GetUserAsync(User);
-            if (User.Identity.IsAuthenticated)
-            {
-                ViewBag.CurrentUserName = currentUser.UserName;
-            }
-            var messages = await _context.Messages.ToListAsync();
-            return View(messages); 
-        }
 
-        public async Task<IActionResult> Create(Message message)
-        {
-            if (ModelState.IsValid)
-            {
-                message.UserName = User.Identity.Name;
-                var sender = await _userManager.GetUserAsync(User);
-                message.UserID = sender.Id;
-                await _context.Messages.AddAsync(message);
-                await _context.SaveChangesAsync();
-                return Ok();
-            }
-            return Error();
-        }
+//         public ChatController(IChatRepository repo, ApplicationDbContext context){
+//             _repo = repo;
+//             _context = context;
+//         }
+//         public IActionResult Index()
+//         {
+//             var chats = _repo.GetChats(GetUserId());
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+//             return View(chats);
+//         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
-}
+//         public IActionResult FindUser()
+//         {
+//             var users = _context.Users
+//                 .Where(x => x.Id != User.GetUserId())
+//                 .ToList();
+
+//             return View(users);
+//         }
+
+//         public async Task<IActionResult> FindGroupAsync( string currentFilter, string searchString)
+//         {
+//             var chats = from m in _context.Chats
+//                  select m;
+
+//             if (!String.IsNullOrEmpty(searchString))
+//             {
+//                 chats = chats.Where(s => s.Name!.Contains(searchString));
+//             }
+
+//             return View(await chats.ToListAsync());
+//         }
+
+//         public IActionResult Private()
+//         {
+//             var chats = _repo.GetPrivateChats(GetUserId());
+
+//             return View(chats);
+//         }
+
+//         public async Task<IActionResult> CreatePrivateRoom(string userId)
+//         {
+//             var id = await _repo.CreatePrivateRoom(GetUserId(), userId);
+
+//             return RedirectToAction("Chat", new { id });
+//         }
+
+//         [HttpGet("{id}")]
+//         public IActionResult Chat(int id)
+//         {
+//             return View(_repo.GetChat(id));
+//         }
+
+//         [HttpPost]
+//         public async Task<IActionResult> CreateRoom(string name, int age)
+//         {
+//             await _repo.CreateRoom(name, age, GetUserId());
+//             return RedirectToAction("Index");
+//         }
+
+//         // [HttpPost]
+//         // public async Task<IActionResult> DeleteRoom(string name)
+//         // {
+//         //     await _repo.DeleteRoom(name, GetUserId());
+//         //     return RedirectToAction("Index");
+//         // }
+
+//         [HttpGet]
+//         public async Task<IActionResult> JoinRoom(int id)
+//         {
+//             await _repo.JoinRoom(id, GetUserId());
+
+//             return RedirectToAction("Chat", "Chat", new { id = id });
+//         }
+
+//         public async Task<IActionResult> SendMessage(
+//             int roomId,
+//             string message,
+//             [FromServices] IHubContext<ChatHub> chat)
+//         {
+//             var Message = await _repo.CreateMessage(roomId, message, User.Identity.Name);
+
+//             await chat.Clients.Group(roomId.ToString())
+//                 .SendAsync("RecieveMessage", new
+//                 {
+//                     Text = Message.Text,
+//                     Name = Message.UserName,
+//                     Timestamp = Message.When.ToString("dd/MM/yyyy hh:mm:ss")
+//                 });
+
+//             return Ok();
+//         }
+
+//         public string GetUserId()
+//         {
+//             return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+//         }
+        
+//         // public async Task<IActionResult> MisbruikMelden(int chatId, string roomName)
+//         // {
+
+//         //     var message = new Message {
+//         //         ChatId = chatId,
+//         //         Name = "er is misbruik gemeld bij de kamer",
+//         //         Text = roomName,
+//         //         Timestamp = DateTime.Now,
+//         //         TypMessage = "abuse"
+//         //     };
+
+//         //     _context.Messages.Add(message);
+//         //     await _context.SaveChangesAsync();
+
+//         //     return RedirectToAction("Chat", new {id = chatId});
+//         // }
+
+//         // public async Task<IActionResult> GebruikerBlokkeren(string userId)
+//         // {
+//         //     _context.ChatUsers.FirstOrDefault(a => a.UserId == userId).blocked = !_context.ChatUsers.FirstOrDefault(a => a.UserId == userId).blocked;
+//         //     await _context.SaveChangesAsync();
+//         //     return RedirectToAction("Index");
+//         // }
+//     }
+// }

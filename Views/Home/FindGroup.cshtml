@@ -1,0 +1,29 @@
+@model IEnumerable<Chat>
+
+    <div>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="FindUser">Find Users</a>
+        <a asp-controller="Home" asp-action="FindGroup">Find Groups</a>
+        <a asp-controller="Home" asp-action="Private">Private</a>
+    </div>
+
+<form asp-controller="Home" asp-action="FindGroup">
+    <p>
+        Zoek bij groep naam: <input type="text" name="onderwerp" />
+        <input type="submit" value="Filter" />
+    </p>
+    <p>
+        Zoek bij leeftijdscategorie: <input type="number" name="leeftijd" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+    @foreach(var chat in Model){
+    <div>
+        <a class="room-button" asp-controller="Home" asp-action="Chat" asp-route-id="@chat.Id">
+           Zelfhulpgroep: @chat.Name
+           MinimumLeeftijd: @chat.MinimumAge
+           MaximumLeeftijd: @chat.MaximumAge
+        </a>
+    </div>
+    }

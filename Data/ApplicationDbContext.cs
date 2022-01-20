@@ -17,22 +17,19 @@ namespace Webdevelopment_Project.Data
         {
         }
 
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<ChatUser> ChatUsers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Message>()
-                .HasOne<ApplicationUser>(a => a.Sender)
-                .WithMany(d => d.Messages)
-                .HasForeignKey(d => d.UserID);
-        }
 
-        public DbSet<Message> Messages { get; set; }
-        // public DbSet<Client> ClientModel { get; set; }
-        //  public DbSet<Hulpverlener> Hulpverlener { get; set; }
+            builder.Entity<ChatUser>()
+                .HasKey(x => new { x.ChatId , x.UserId });
+        }
         public DbSet<ApplicationUser> AppUsers { get; set; }
-        // public DbSet<Zelfhulpgroep> Zelfhulpgroep { get; set; }
         public DbSet<Melding> Melding { get; set; }
-        // public DbSet<ReportModel> ReportModel { get; set; }
         public DbSet<Intake> Intake {get;set;}
 
         
