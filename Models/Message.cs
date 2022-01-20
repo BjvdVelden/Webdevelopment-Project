@@ -15,6 +15,7 @@ namespace Webdevelopment_Project.Models
         public string Text { get; set; }
         public DateTime When { get; set; }
         public string TypMessage { get; set; }
+        public ICollection<Report> Reports { get; set; }
 
         public int ChatId { get; set; }
         public Chat Chat { get; set; }

@@ -237,6 +237,7 @@ namespace WebdevelopmentProject.Migrations
                     Achternaam = table.Column<string>(type: "TEXT", nullable: false),
                     GeboorteDatum = table.Column<DateTime>(type: "TEXT", nullable: false),
                     BSN = table.Column<string>(type: "TEXT", nullable: false),
+                    EmailVoogd = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     GewensteHulpverlener = table.Column<string>(type: "TEXT", nullable: true),
                     GewensteMoment = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -303,6 +304,33 @@ namespace WebdevelopmentProject.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Report",
+                columns: table => new
+                {
+                    ReportId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Reden = table.Column<string>(type: "TEXT", nullable: true),
+                    MessageId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Report", x => x.ReportId);
+                    table.ForeignKey(
+                        name: "FK_Report_AspNetUsers_ApplicationUserID",
+                        column: x => x.ApplicationUserID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Report_Messages_MessageId",
+                        column: x => x.MessageId,
+                        principalTable: "Messages",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Afspraak_ApplicationUserID",
                 table: "Afspraak",
@@ -364,6 +392,16 @@ namespace WebdevelopmentProject.Migrations
                 name: "IX_Messages_ChatId",
                 table: "Messages",
                 column: "ChatId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Report_ApplicationUserID",
+                table: "Report",
+                column: "ApplicationUserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Report_MessageId",
+                table: "Report",
+                column: "MessageId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -396,13 +434,16 @@ namespace WebdevelopmentProject.Migrations
                 name: "Melding");
 
             migrationBuilder.DropTable(
-                name: "Messages");
+                name: "Report");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "Chats");

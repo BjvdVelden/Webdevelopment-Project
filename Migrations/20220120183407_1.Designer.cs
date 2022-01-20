@@ -9,7 +9,7 @@ using Webdevelopment_Project.Data;
 namespace WebdevelopmentProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220120161850_1")]
+    [Migration("20220120183407_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace WebdevelopmentProject.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmailVoogd")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("GeboorteDatum")
@@ -426,6 +429,30 @@ namespace WebdevelopmentProject.Migrations
                     b.ToTable("Messages");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.Report", b =>
+                {
+                    b.Property<int>("ReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ApplicationUserID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MessageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Reden")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ReportId");
+
+                    b.HasIndex("ApplicationUserID");
+
+                    b.HasIndex("MessageId");
+
+                    b.ToTable("Report");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
                 {
                     b.HasBaseType("Webdevelopment_Project.Models.ApplicationUser");
@@ -542,6 +569,23 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Chat");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.Report", b =>
+                {
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserID");
+
+                    b.HasOne("Webdevelopment_Project.Models.Message", "Message")
+                        .WithMany("Reports")
+                        .HasForeignKey("MessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Message");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
                 {
                     b.HasOne("Webdevelopment_Project.Models.Client", "Client")
@@ -565,6 +609,11 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Messages");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
+                {
+                    b.Navigation("Reports");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
