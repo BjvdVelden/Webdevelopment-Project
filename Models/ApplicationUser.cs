@@ -31,11 +31,15 @@ namespace Webdevelopment_Project.Models
 
         public ICollection<Intake> Intakes { get; set; }
         
-        public int getLeeftijd()
+          public int getLeeftijd()
         {
-            var leeftijd = DateTime.Today.Year - GeboorteDatum.Year;
+            return BerekenLeeftijd(GeboorteDatum);
+        }
+        public static int BerekenLeeftijd(DateTime geboortedatum)
+        {
+            var leeftijd = DateTime.Today.Year - geboortedatum.Year;
 
-            if (DateTime.Today.DayOfYear >= GeboorteDatum.DayOfYear)
+            if (DateTime.Today.DayOfYear >= geboortedatum.DayOfYear)
             {
                 return leeftijd;
             }

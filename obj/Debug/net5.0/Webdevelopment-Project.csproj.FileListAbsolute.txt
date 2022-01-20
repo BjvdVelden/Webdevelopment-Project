@@ -390,8 +390,6 @@ C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Details.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Edit.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Index.cshtml.g.cs
-C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\ModeratorDashboard\BehandelingsOverzicht.cshtml.g.cs
-C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\ModeratorDashboard\Index.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Create.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Delete.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Details.cshtml.g.cs
@@ -399,8 +397,6 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspr
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Afspraak\Index.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\ModeratorDashboard\BehandelingsOverzicht.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\ModeratorDashboard\Index.cshtml.g.cs
-C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\BehandelaarDashboard\Index.cshtml.g.cs
-C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\ModeratorDashboard\ClientEnBehandelaar.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\BehandelaarDashboard\Index.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\ModeratorDashboard\ClientEnBehandelaar.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Hulpverlener\Create.cshtml.g.cs
@@ -636,8 +632,11 @@ C:\Users\31623\OneDrive - De Haagse Hogeschool\Documenten\GitHub\Webdevelopment-
 C:\Users\31623\OneDrive - De Haagse Hogeschool\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Edit.cshtml.g.cs
 C:\Users\31623\OneDrive - De Haagse Hogeschool\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Index.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\bin\Debug\net5.0\Microsoft.AspNet.SignalR.Core.dll
-C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Create.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Delete.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Details.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Edit.cshtml.g.cs
 C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Index.cshtml.g.cs
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Moderator\Blokkeren.cshtml.g.cs
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Ckind.cshtml.g.cs
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\CVoogd.cshtml.g.cs
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\Kindv.cshtml.g.cs
