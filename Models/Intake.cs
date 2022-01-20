@@ -20,6 +20,7 @@ public class Intake
 
     [Required]
     public string BSN { get; set; }
+    public string EmailVoogd { get; set; }
 
     [Required]
     public string Email { get; set; }

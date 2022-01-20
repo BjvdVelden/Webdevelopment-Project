@@ -56,37 +56,37 @@ namespace Webdevelopment_Project.Controllers
         // POST: Aanmelding/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp")] Intake intake)
-        {
-            if (ModelState.IsValid)
-            {
-                intake.AanmaakDatum = DateTime.Now;
-                intake.IsAfgehandeld = false;
-                _context.Add(intake);
-                _context.SaveChanges();
+        // [HttpPost]
+        // [ValidateAntiForgeryToken]
+        // public async Task<IActionResult> Create([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp")] Intake intake)
+        // {
+        //     if (ModelState.IsValid)
+        //     {
+        //         intake.AanmaakDatum = DateTime.Now;
+        //         intake.IsAfgehandeld = false;
+        //         _context.Add(intake);
+        //         _context.SaveChanges();
                 
-                var intake1id = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
-                Melding melding  = new Melding
-                    {
-                        Ontvanger = intake.GewensteHulpverlener,
-                        Type = "AanmeldingHulpverlener",
-                        Titel = "Nieuwe Aanmelding van " + intake.Voornaam + " " + intake.Achternaam,
-                        Datum = DateTime.Now,
-                        IsAfgehandeld = false,
-                        Inhoud = intake.Voornaam + " " + intake.Achternaam + " heeft zich aangemeld voor u",
-                        AfsrpaakId = intake1id
-                    };
-                _context.Melding.Add(melding);
+        //         var intake1id = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
+        //         Melding melding  = new Melding
+        //             {
+        //                 Ontvanger = intake.GewensteHulpverlener,
+        //                 Type = "AanmeldingHulpverlener",
+        //                 Titel = "Nieuwe Aanmelding van " + intake.Voornaam + " " + intake.Achternaam,
+        //                 Datum = DateTime.Now,
+        //                 IsAfgehandeld = false,
+        //                 Inhoud = intake.Voornaam + " " + intake.Achternaam + " heeft zich aangemeld voor u",
+        //                 AfsrpaakId = intake1id
+        //             };
+        //         _context.Melding.Add(melding);
                 
 
 
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(intake);
-        }
+        //         await _context.SaveChangesAsync();
+        //         return RedirectToAction(nameof(Index));
+        //     }
+        //     return View(intake);
+        // }
           public async Task<IActionResult> GoedkeurenAsync(int? id) 
         {
             var intake = await _context.Intake.FindAsync(id);
@@ -103,6 +103,123 @@ namespace Webdevelopment_Project.Controllers
             intake.IsAfgehandeld = true;
             return RedirectToAction("Index");
         }
+
+        //     [HttpPost]
+        // public async Task<IActionResult> Manage(List<ModeratorEditModel> model, string userId)
+        // {
+        //     var user = await _userManager.FindByIdAsync(userId);
+        //     if (user == null)
+        //     {
+        //         return View();
+        //     }
+        //     var roles = await _userManager.GetRolesAsync(user);
+        //     var result = await _userManager.RemoveFromRolesAsync(user, roles);
+        //     if (!result.Succeeded)
+        //     {
+        //         ModelState.AddModelError("", "Cannot remove user existing roles");
+        //         return View(model);
+        //     }
+        //     result = await _userManager.AddToRolesAsync(user, model.Where(x => x.Selected).Select(y => y.RoleName));
+        //     if (!result.Succeeded)
+        //     {
+        //         ModelState.AddModelError("", "Cannot add selected roles to user");
+        //         return View(model);
+        //     }
+        //     return RedirectToAction("Index");
+        // }
+
+
+         public IActionResult Kindv()
+        {
+            return View();
+        }
+
+        // GET: Aanmelding/CreateVoogd
+        public IActionResult CVoogd()
+        {
+            return View();
+        }
+
+        // POST: Aanmelding/CreateVoogd
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CVoogd([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp,EmailVoogd")]  Intake intake)
+        {
+            if (ModelState.IsValid)
+            {   
+                if ((ApplicationUser.BerekenLeeftijd(intake.GeboorteDatum) >= 16) ||
+                        !(intake.EmailVoogd == null))
+                {
+                    intake.AanmaakDatum = DateTime.Now;
+                    intake.IsAfgehandeld = false;
+                    _context.Add(intake);
+                    _context.SaveChanges();
+                    
+                    var afspraakid = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
+                    Melding melding  = new Melding
+                        {
+                            Ontvanger = intake.GewensteHulpverlener,
+                            Type = "AanmeldingBEhandelaar",
+                            Titel = "Nieuwe Aanmelding van " + intake.Voornaam + " " + intake.Achternaam,
+                            Datum = DateTime.Now,
+                            IsAfgehandeld = false,
+                            Inhoud = intake.Voornaam + " " + intake.Achternaam + " heeft zich aangemeld voor u",
+                            AfsrpaakId = afspraakid
+                        };
+                    _context.Melding.Add(melding);
+                    
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(intake);
+        }
+
+ // GET: Aanmelding/CreateKind
+        public IActionResult CKind()
+        {
+            return View();
+        }
+
+        // POST: Aanmelding/CreateKind
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CKind([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp,EmailVoogd")] Intake intake)
+        {
+            if (ModelState.IsValid)
+            {   
+                if ((ApplicationUser.BerekenLeeftijd(intake.GeboorteDatum) >= 16) ||
+                        !(intake.EmailVoogd == null))
+                {
+                    intake.AanmaakDatum = DateTime.Now;
+                    intake.IsAfgehandeld = false;
+                    _context.Add(intake);
+                    _context.SaveChanges();
+                    
+                    var afspraakid = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
+                    Melding melding  = new Melding
+                        {
+                            Ontvanger = intake.GewensteHulpverlener,
+                            Type = "AanmeldingBEhandelaar",
+                            Titel = "Nieuwe Aanmelding van " + intake.Voornaam + " " + intake.Achternaam,
+                            Datum = DateTime.Now,
+                            IsAfgehandeld = false,
+                            Inhoud = intake.Voornaam + " " + intake.Achternaam + " heeft zich aangemeld voor u",
+                            AfsrpaakId = afspraakid
+                        };
+                    _context.Melding.Add(melding);
+                    
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(intake);
+        }
+
     }
 }
         

@@ -15651,11 +15651,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\ModeratorDashboard\\ClientEnBehandelaar.cshtml",
-      "TargetPath": "Views\\ModeratorDashboard\\ClientEnBehandelaar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Moderator\\Index.cshtml",
       "TargetPath": "Views\\Moderator\\Index.cshtml",
       "FileKind": "mvc"
@@ -15683,6 +15678,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Role\\Index.cshtml",
       "TargetPath": "Views\\Role\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Intake\\CVoogd.cshtml",
+      "TargetPath": "Views\\Intake\\CVoogd.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15806,11 +15806,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\BehandelaarDashboard\\Index.cshtml",
-      "TargetPath": "Views\\BehandelaarDashboard\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Delete.cshtml",
       "TargetPath": "Views\\Client\\Delete.cshtml",
       "FileKind": "mvc"
@@ -15831,13 +15826,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\FindGroup.cshtml",
-      "TargetPath": "Views\\Home\\FindGroup.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Intake\\Ckind.cshtml",
+      "TargetPath": "Views\\Intake\\Ckind.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\ModeratorDashboard\\BehandelingsOverzicht.cshtml",
-      "TargetPath": "Views\\ModeratorDashboard\\BehandelingsOverzicht.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Intake\\Kindv.cshtml",
+      "TargetPath": "Views\\Intake\\Kindv.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Home\\FindGroup.cshtml",
+      "TargetPath": "Views\\Home\\FindGroup.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15856,13 +15856,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Intake\\Create.cshtml",
-      "TargetPath": "Views\\Intake\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\ModeratorDashboard\\Index.cshtml",
-      "TargetPath": "Views\\ModeratorDashboard\\Index.cshtml",
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Moderator\\Blokkeren.cshtml",
+      "TargetPath": "Views\\Moderator\\Blokkeren.cshtml",
       "FileKind": "mvc"
     },
     {

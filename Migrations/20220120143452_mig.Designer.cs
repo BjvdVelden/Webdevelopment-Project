@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webdevelopment_Project.Data;
 
-namespace WebdevelopmentProject.Migrations
+namespace Webdevelopment_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220120143452_mig")]
+    partial class mig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -359,58 +361,17 @@ namespace WebdevelopmentProject.Migrations
                     b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MaximumAge")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("MinimumAge")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Chats");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.ChatUser", b =>
-                {
-                    b.Property<int>("ChatId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ChatId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ChatUsers");
-                });
-
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ChatId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("TypMessage")
+                    b.Property<string>("UserID")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
@@ -422,7 +383,7 @@ namespace WebdevelopmentProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChatId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("Messages");
                 });
@@ -513,34 +474,13 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Webdevelopment_Project.Models.ChatUser", b =>
-                {
-                    b.HasOne("Webdevelopment_Project.Models.Chat", "Chat")
-                        .WithMany("Users")
-                        .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "User")
-                        .WithMany("Chats")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chat");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
                 {
-                    b.HasOne("Webdevelopment_Project.Models.Chat", "Chat")
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "Sender")
                         .WithMany("Messages")
-                        .HasForeignKey("ChatId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserID");
 
-                    b.Navigation("Chat");
+                    b.Navigation("Sender");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
@@ -556,16 +496,9 @@ namespace WebdevelopmentProject.Migrations
                 {
                     b.Navigation("Afspraken");
 
-                    b.Navigation("Chats");
-
                     b.Navigation("Intakes");
-                });
 
-            modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>
-                {
                     b.Navigation("Messages");
-
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>

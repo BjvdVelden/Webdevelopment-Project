@@ -47,7 +47,8 @@ namespace Webdevelopment_Project.Controllers
 
         public async Task<IActionResult> Relatie()
         {
-                var currentUser =await _userManager.GetUserAsync(User);
+             var currentUser =await _userManager.GetUserAsync(User);
+             
             var rol = await _userManager.GetRolesAsync(currentUser);
             if (rol.Contains("Client"))
             {
@@ -115,5 +116,37 @@ namespace Webdevelopment_Project.Controllers
             }
             return RedirectToAction("Index");
         }
+
+    [HttpGet]
+        public async Task<IActionResult> Blokkeren()
+        {
+            
+            if(!await _roleManager.RoleExistsAsync("Zelfhulpgroep_ban"))
+            {
+                await _roleManager.CreateAsync(new IdentityRole{Name = "Zelfhulpgroep_ban"});
+            }
+            var _users = await _userManager.GetUsersInRoleAsync("Client");
+            var _blokt = await _userManager.GetUsersInRoleAsync("Zelfhulpgroep_ban");
+            ViewData["blockt"] = _blokt.ToList();
+            return View(_users);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Blokkeren(string Id)
+        {   
+            
+            var _user = _context.AppUsers.SingleOrDefault(_user => _user.Id == Id);
+            var _bloktUser = await _userManager.GetUsersInRoleAsync("Zelfhulpgroep_ban");
+            
+            if (_bloktUser.Any(_user => _user.Id == Id))
+            {
+                await _userManager.RemoveFromRoleAsync(_user ,"Zelfhulpgroep_ban");
+            }else
+            {
+                await _userManager.AddToRoleAsync(_user, "Zelfhulpgroep_ban");
+            }
+           
+            return Redirect("Blokkeren");
+        }
+
     }
 }
