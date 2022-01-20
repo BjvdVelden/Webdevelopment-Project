@@ -34,9 +34,7 @@ namespace Webdevelopment_Project.Controllers
 
         public IActionResult FindUser()
         {
-            var users = _context.Users
-                .Where(x => x.Id != User.GetUserId())
-                .ToList();
+            var users = _context.Users.Where(x => x.Id != User.GetUserId()).ToList();
 
             return View(users);
         }
