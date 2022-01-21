@@ -1,15 +1,4 @@
 @model IEnumerable<Chat>
-@* @<head>
-    <link rel="stylesheet" href="~/css/site.css">
-</head>
-
-    <div class="chat-body">
-        @foreach(var chat in Model) { 
-        <a class="room-button" asp-controller="Chat" asp-action="JoinRoom" asp-route-id="">
-            @chat.Name fewqfweq
-        </a>
-         }
-    </div>  *@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,12 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ChatApp</title>
-
-    @* <link rel="stylesheet" href="~/css/site.css"> *@
-
 </head>
 
 <body>
+
+    <div class="chat-body">
+        @foreach(var chat in Model) { 
+        <a class="room-button" asp-controller="Chat" asp-action="JoinRoom" asp-route-id="">
+            @chat.Name
+        </a>
+         }
+    </div>
 
     <div>
         <a asp-controller="Chat" asp-action="Index">Chat</a>

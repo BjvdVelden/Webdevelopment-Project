@@ -18,9 +18,9 @@
     </p>
 </form>
 
-@foreach(var chat in Model){
+@* @foreach(var chat in Model){
 <div class="container">
-<div class="card row align-items-start" style="width: 14rem;">
+<div class="card row align-items-start">
   <div class="card-body">
     <h5 class="card-title">Zelfhulpgroep</h5>
     <p> Zelfhulpgroep: @chat.Name</p>
@@ -30,4 +30,18 @@
   </div>
 </div>
 </div>
-}
+} *@
+
+<div class="container">
+  <div class="row">
+      @foreach(var chat in Model){
+    <div style="padding-bottom: 30px;" class="card col-sm-2 card-body">
+    <h5>Zelfhulpgroep</h5>
+    <p> Zelfhulpgroep: @chat.Name</p>
+    <p>MinimumLeeftijd: @chat.MinimumAge</p>
+    <p> MaximumLeeftijd: @chat.MaximumAge</p>
+    <a style="position: absolute; bottom: 0px; margin-top: 50px;" class="btn btn-primary" asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">Naar groep gaan</a>
+    </div>
+      }
+  </div>
+</div>

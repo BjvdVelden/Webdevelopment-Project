@@ -63,7 +63,6 @@ namespace Webdevelopment_Project.Controllers
             return View(chats);
         }
 
-        [HttpPost]
         public async Task<IActionResult> CreatePrivateRoom(string userId)
         {
             var id = await _repo.CreatePrivateRoom(GetUserId(), userId);
