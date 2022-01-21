@@ -1,7 +1,7 @@
 @model IEnumerable<Chat>
 
     <div>
-        <a asp-controller="Chat" asp-action="Index">Home</a>
+        <a asp-controller="Chat" asp-action="Index">Chat</a>
         <a asp-controller="Chat" asp-action="FindUser">Find Users</a>
         <a asp-controller="Chat" asp-action="FindGroup">Find Groups</a>
         <a asp-controller="Chat" asp-action="Private">Private</a>
@@ -18,12 +18,28 @@
     </p>
 </form>
 
-    @foreach(var chat in Model){
+@foreach(var chat in Model){
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+    <a asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">
+        Zelfhulpgroep: @chat.Name
+        MinimumLeeftijd: @chat.MinimumAge
+        MaximumLeeftijd: @chat.MaximumAge
+        </a>
+    </div>
+  </div>
+  </div>
+}
+
+
+
+    @* @foreach(var chat in Model){
     <div>
-        <a class="room-button" asp-controller="Home" asp-action="Chat" asp-route-id="@chat.Id">
+        <a class="room-button" asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">
            Zelfhulpgroep: @chat.Name
            MinimumLeeftijd: @chat.MinimumAge
            MaximumLeeftijd: @chat.MaximumAge
         </a>
     </div>
-    }
+    } *@
