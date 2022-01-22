@@ -1,0 +1,65 @@
+@model IEnumerable<Afspraak>
+
+@{
+    ViewData["Title"] = "Mijn afspraken";
+}
+
+<h1>Mijn afspraken</h1>
+
+<p>
+    <a asp-action="Create">Nieuwe afspraak</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HulpverlenerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Eind)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Onderwerp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoedkeuringVoogd)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HulpverlenerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Eind)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Onderwerp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoedkeuringVoogd)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AfspraakId">Bewerken</a> |
+                <a asp-action="Details" asp-route-id="@item.AfspraakId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AfspraakId">Verwijderen</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

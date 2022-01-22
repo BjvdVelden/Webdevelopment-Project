@@ -1,0 +1,54 @@
+@model IEnumerable<Chat>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChatApp</title>
+</head>
+
+<body>
+
+    <div class="chat-body">
+        @foreach(var chat in Model) { 
+        <a class="room-button" asp-controller="Chat" asp-action="JoinRoom" asp-route-id="">
+            @chat.Name
+        </a>
+         }
+    </div>
+
+    <div>
+        <a asp-controller="Chat" asp-action="Index">Chat</a>
+        <a asp-controller="Chat" asp-action="FindUser">Find Users</a>
+        <a asp-controller="Chat" asp-action="Private">Private</a>
+    </div>
+
+
+    <div>
+        <form asp-controller="Chat" asp-action="CreateRoom">
+            <header>Create Room</header>
+            <div>
+                Naam <input type="text" name="name">
+                MinimumLeeftijd <input type="number" name="minimumage">
+                MaximumLeeftijd <input type="number" name="maximumage">
+            <footer>
+                <button>Create</button>
+            </footer>
+        </form>
+    </div>
+
+        <div>
+        @foreach(var chat in Model){
+        <a class="room-button" asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">
+            Zelfhulpgroep: @chat.Name
+            MinimumLeeftijd: @chat.MinimumAge
+            MaximumLeeftijd: @chat.MaximumAge
+        </a>
+        }
+        </div>
+    </body>
+
+</html>
