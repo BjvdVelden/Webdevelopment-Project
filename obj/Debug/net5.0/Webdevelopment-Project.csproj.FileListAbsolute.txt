@@ -643,11 +643,8 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Repor
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Details.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Edit.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Report\Index.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Chat.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\CreateRoom.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\FindGroup.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\FindUser.cshtml.g.cs
-C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Private.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\OverOns.cshtml.g.cs
@@ -875,3 +872,5 @@ C:\Users\Serdi\Desktop\WebProject\src\Webdevelopment-Project\obj\Debug\net5.0\We
 C:\Users\Serdi\Desktop\WebProject\src\Webdevelopment-Project\obj\Debug\net5.0\ref\Webdevelopment-Project.dll
 C:\Users\Serdi\Desktop\WebProject\src\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.pdb
 C:\Users\Serdi\Desktop\WebProject\src\Webdevelopment-Project\obj\Debug\net5.0\Webdevelopment-Project.genruntimeconfig.cache
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Index.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\Chatter.cshtml.g.cs

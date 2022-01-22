@@ -15711,11 +15711,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\Chat.cshtml",
-      "TargetPath": "Views\\Chat\\Chat.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Edit.cshtml",
       "TargetPath": "Views\\Client\\Edit.cshtml",
       "FileKind": "mvc"
@@ -15826,6 +15821,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\Chatter.cshtml",
+      "TargetPath": "Views\\Chat\\Chatter.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Delete.cshtml",
       "TargetPath": "Views\\Hulpverlener\\Delete.cshtml",
       "FileKind": "mvc"
@@ -15908,11 +15908,6 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\CreateRoom.cshtml",
       "TargetPath": "Views\\Chat\\CreateRoom.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\FindGroup.cshtml",
-      "TargetPath": "Views\\Chat\\FindGroup.cshtml",
       "FileKind": "mvc"
     },
     {

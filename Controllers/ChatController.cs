@@ -25,7 +25,7 @@ namespace Webdevelopment_Project.Controllers
             _repo = repo;
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult CreateRoom()
         {
             var chats = _repo.GetChats(GetUserId());
 
@@ -39,7 +39,7 @@ namespace Webdevelopment_Project.Controllers
             return View(users);
         }
 
-        public async Task<IActionResult> FindGroupAsync(string onderwerp, int leeftijd)
+        public async Task<IActionResult> Index(string onderwerp, int leeftijd)
         {
             ViewData["onderwerp"] = onderwerp;
             ViewData["leeftijd"] = leeftijd;
@@ -53,12 +53,12 @@ namespace Webdevelopment_Project.Controllers
                     return View(await _context.Chats.Where(A => A.Name.ToLower().Replace(" ", "").Contains(onderwerp.ToLower().Replace(" ", ""))).ToListAsync());
                 }
 
-            return View(await _context.Chats.Where(A => A.Name.ToLower().Replace(" ", "").Contains(onderwerp.ToLower().Replace(" ", "")) && A.MaximumAge <= leeftijd && A.MinimumAge >= leeftijd).ToListAsync());
+            return View(await _context.Chats.Where(x => x.Type == ChatType.Room).Where(A => A.Name.ToLower().Replace(" ", "").Contains(onderwerp.ToLower().Replace(" ", "")) && A.MaximumAge <= leeftijd && A.MinimumAge >= leeftijd).ToListAsync());
         }
 
         public IActionResult Private()
         {
-            var chats = _repo.GetPrivateChats(GetUserId());
+            var chats = _repo.GetPrivateChats(GetUserId()).Take(1);
 
             return View(chats);
         }
@@ -71,17 +71,17 @@ namespace Webdevelopment_Project.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Chat(int id)
+        public IActionResult Chatter(int id)
         {
             return View(_repo.GetChat(id));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateRoom(string name, int minimumAge, int maximumAge)
-        {
-            await _repo.CreateRoom(name, minimumAge,maximumAge, GetUserId());
-            return RedirectToAction("Index");
-        }
+        // [HttpPost]
+        // public async Task<IActionResult> CreateRoom(string name, int minimumAge, int maximumAge)
+        // {
+        //     await _repo.CreateRoom(name, minimumAge,maximumAge, GetUserId());
+        //     return RedirectToAction("Index");
+        // }
 
         // [HttpPost]
         // public async Task<IActionResult> DeleteRoom(string name)
