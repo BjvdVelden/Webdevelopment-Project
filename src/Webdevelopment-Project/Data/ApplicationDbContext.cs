@@ -41,6 +41,7 @@ namespace Webdevelopment_Project.Data
         public DbSet<Hulpverlener> Hulpverlener { get; set; }
         public DbSet<Webdevelopment_Project.Models.Client> Client { get; set; }
         public DbSet<Webdevelopment_Project.Models.Report> Report { get; set; }
+        public DbSet<Behandeling> Behandeling { get; set; }
         
         // public DbSet<Hulpverlener> Hulpverlener { get; set; }
         // public DbSet<Hulpverlener> Hulpverlener { get; set; }

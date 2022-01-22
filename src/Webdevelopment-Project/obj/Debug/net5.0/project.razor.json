@@ -15686,8 +15686,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Behandeling\\Create.cshtml",
+      "TargetPath": "Views\\Behandeling\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Report\\Delete.cshtml",
       "TargetPath": "Views\\Report\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Behandeling\\Edit.cshtml",
+      "TargetPath": "Views\\Behandeling\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15733,6 +15743,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Intake\\Details.cshtml",
       "TargetPath": "Views\\Intake\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Behandeling\\Index.cshtml",
+      "TargetPath": "Views\\Behandeling\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15783,6 +15798,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Intake\\Edit.cshtml",
       "TargetPath": "Views\\Intake\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Behandeling\\Details.cshtml",
+      "TargetPath": "Views\\Behandeling\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15853,6 +15873,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Chat\\Index.cshtml",
       "TargetPath": "Views\\Chat\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Behandeling\\Delete.cshtml",
+      "TargetPath": "Views\\Behandeling\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {

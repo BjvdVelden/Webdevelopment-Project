@@ -16,6 +16,31 @@ namespace WebdevelopmentProject.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("Behandeling", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ApplicationUserID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Datum")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Omschrijving")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserID");
+
+                    b.ToTable("Behandeling");
+                });
+
             modelBuilder.Entity("Intake", b =>
                 {
                     b.Property<int>("IntakeId")
@@ -468,6 +493,15 @@ namespace WebdevelopmentProject.Migrations
                     b.HasIndex("ClientID");
 
                     b.HasDiscriminator().HasValue("Hulpverlener");
+                });
+
+            modelBuilder.Entity("Behandeling", b =>
+                {
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserID");
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Intake", b =>

@@ -98,5 +98,25 @@ namespace test
             chatMock.Verify(s => s.FindGroup(It.Is<string>(s => s == "Depressie"),It.Is<int>(s => s == 18)), Times.Once);
         }
 
+        private static Report createReport()
+        {
+            Report report = new Report{
+                ReportId = 1,
+                Reden = "League of legends toxic"
+            };
+            return report;
+        }
+
+        [Fact]
+        public void AbuseReportTest(){
+
+            ReportController report = new ReportController(context);
+            
+            var createreport = createReport();
+
+            var s = report.Create(createreport);
+            Assert.NotNull(s);
+            Assert.Equal("League of legends toxic", createreport.Reden);
+        }
     }   
 }
