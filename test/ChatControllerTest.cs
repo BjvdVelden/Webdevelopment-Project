@@ -32,17 +32,71 @@ namespace test
         }
 
         [Fact]
-        public void CreateRoomTest(){
+        public void CreatePrivateRoomTest(){
+            var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
             var controller = new ChatController(chatMock.Object, context);
             
+            chatMock.Object.CreatePrivateRoom("RootId", "TargetId");
 
-            controller.CreateRoom();
+            chatMock.Verify(s => s.CreatePrivateRoom(It.IsAny<string>(),It.IsAny<string>()), Times.Once);
+            chatMock.Verify(s => s.CreatePrivateRoom(It.Is<string>(s => s == "RootId"),It.Is<string>(s => s == "TargetId")), Times.Once);
+        }
+
+        [Fact]
+        public void AccessChatTest(){
+            var mgr = MockUserManager();
+            Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
+            var controller = new ChatController(chatMock.Object, context);
+        }
+
+        [Fact]
+        public void JoinRoomTest(){
+            var mgr = MockUserManager();
+            Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
+            var controller = new ChatController(chatMock.Object, context);
+            
+            chatMock.Object.JoinRoom(1, "userId");
+
+            chatMock.Verify(s => s.JoinRoom(It.IsAny<int>(),It.IsAny<string>()), Times.Once);
+            chatMock.Verify(s => s.JoinRoom(It.Is<int>(s => s == 1),It.Is<string>(s => s == "userId")), Times.Once);
+        }
+
+        [Fact]
+        public void CreateMessageTest(){
+            var mgr = MockUserManager();
+            Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
+            var controller = new ChatController(chatMock.Object, context);
+            
+            chatMock.Object.CreateMessage(1, "Hallo Bob", "userId");
+
+            chatMock.Verify(s => s.CreateMessage(It.IsAny<int>(),It.IsAny<string>(),It.IsAny<string>()), Times.Once);
+            chatMock.Verify(s => s.CreateMessage(It.Is<int>(s => s == 1),It.Is<string>(s => s == "Hallo Bob"),It.Is<string>(s => s == "userId")), Times.Once);
+        }
+
+        [Fact]
+        public void CreateRoomTest(){
+            var mgr = MockUserManager();
+            Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
+            var controller = new ChatController(chatMock.Object, context);
+            
+            chatMock.Object.CreateRoom("name", 4, 7, "userId");
 
             chatMock.Verify(s => s.CreateRoom(It.IsAny<string>(),It.IsAny<int>(),It.IsAny<int>(),It.IsAny<string>()), Times.Once);
-
-
-
+            chatMock.Verify(s => s.CreateRoom(It.Is<string>(s => s == "name"),It.Is<int>(s => s == 4),It.Is<int>(s => s == 7),It.Is<string>(s => s == "userId")), Times.Once);
         }
+
+        [Fact]
+        public void FindGroupTest(){
+            var mgr = MockUserManager();
+            Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
+            var controller = new ChatController(chatMock.Object, context);
+            
+            chatMock.Object.FindGroup("Depressie", 18);
+
+            chatMock.Verify(s => s.FindGroup(It.IsAny<string>(),It.IsAny<int>()), Times.Once);
+            chatMock.Verify(s => s.FindGroup(It.Is<string>(s => s == "Depressie"),It.Is<int>(s => s == 18)), Times.Once);
+        }
+
     }   
 }

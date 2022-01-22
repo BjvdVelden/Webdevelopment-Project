@@ -37,7 +37,8 @@ namespace test
                 HulpverlenerEmail = "hulpverlener1@gmail.com",
                 Start = DateTime.Now,
                 Eind = DateTime.Now,
-                Onderwerp = "Depressie"
+                Onderwerp = "Depressie",
+                GoedkeuringVoogd = true
             };
             return afspraak;
         }
@@ -50,7 +51,6 @@ namespace test
             var s = controller.Create(afspraak);
             
             Assert.NotNull(s);
-
         }
 
         [Fact]

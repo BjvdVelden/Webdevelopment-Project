@@ -7,6 +7,7 @@ namespace Webdevelopment_Project.Infrastructure.Respository
     public interface IChatRepository
     {
         Chat GetChat(int id);
+        Task FindGroup(string onderwerp, int leeftijd);
         Task CreateRoom(string name, int minimumAge, int maximumAge, string userId);
         // Task DeleteRoom(string name, string userId);
         Task JoinRoom(int chatId, string userId);

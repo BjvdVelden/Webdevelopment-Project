@@ -132,5 +132,10 @@ namespace Webdevelopment_Project.Infrastructure.Respository
 
             await _context.SaveChangesAsync();
         }
+
+        Task IChatRepository.FindGroup(string onderwerp, int leeftijd)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

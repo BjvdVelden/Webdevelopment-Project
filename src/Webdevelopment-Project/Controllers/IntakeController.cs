@@ -149,7 +149,7 @@ namespace Webdevelopment_Project.Controllers
         {
             if (ModelState.IsValid)
             {   
-                if ((ApplicationUser.BerekenLeeftijd(intake.GeboorteDatum) >= 16) ||
+                if ((ApplicationUser.BerekenLeeftijd(intake.GeboorteDatum) <= 16) ||
                         !(intake.EmailVoogd == null))
                 {
                     intake.AanmaakDatum = DateTime.Now;
