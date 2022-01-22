@@ -71,7 +71,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Chatter(int id)
+        public IActionResult Chat(int id)
         {
             return View(_repo.GetChat(id));
         }

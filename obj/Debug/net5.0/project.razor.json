@@ -15711,6 +15711,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\Chat.cshtml",
+      "TargetPath": "Views\\Chat\\Chat.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Client\\Edit.cshtml",
       "TargetPath": "Views\\Client\\Edit.cshtml",
       "FileKind": "mvc"
@@ -15818,11 +15823,6 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Hulpverlener\\Details.cshtml",
       "TargetPath": "Views\\Hulpverlener\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\Views\\Chat\\Chatter.cshtml",
-      "TargetPath": "Views\\Chat\\Chatter.cshtml",
       "FileKind": "mvc"
     },
     {
