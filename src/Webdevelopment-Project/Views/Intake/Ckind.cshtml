@@ -1,0 +1,70 @@
+@model Intake
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Intake</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CKind">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Voornaam" class="control-label">Uw voornaam</label>
+                <input asp-for="Voornaam" class="form-control" />
+                <span asp-validation-for="Voornaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Achternaam" class="control-label">Uw achternaam</label>
+                <input asp-for="Achternaam" class="form-control" />
+                <span asp-validation-for="Achternaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeboorteDatum" class="control-label">Uw geboortedatum</label>
+                <input asp-for="GeboorteDatum" class="form-control" />
+                <span asp-validation-for="GeboorteDatum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BSN" class="control-label">Uw BSN-nummer</label>
+                <input asp-for="BSN" class="form-control" />
+                <span asp-validation-for="BSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Uw email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailVoogd" class="control-label">Email van uw voogd</label>
+                <input asp-for="EmailVoogd" class="form-control" />
+                <span asp-validation-for="EmailVoogd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GewensteHulpverlener" class="control-label">Geef de email van een behandelaar</label>
+                <input asp-for="GewensteHulpverlener" class="form-control" />
+                <span asp-validation-for="GewensteHulpverlener" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GewensteMoment" class="control-label">Gewenst moment</label>
+                <input asp-for="GewensteMoment" aria-label="Kies hier je gewenste moment" class="form-control" />
+                <span asp-validation-for="GewensteMoment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Onderwerp" class="control-label"></label>
+                <input asp-for="Onderwerp" aria-label="Vul hier het onderwerp van het gesprek in" class="form-control" />
+                <span asp-validation-for="Onderwerp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Intake" aria-label="Druk hier om je aanmelding te versturen" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Home" aria-label="Klik hier om terug te gaan naar de home pagina" asp-action="Index">Terug</a>
+</div>
+
