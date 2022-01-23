@@ -15721,6 +15721,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Chat\\FindGroup.cshtml",
+      "TargetPath": "Views\\Chat\\FindGroup.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Yeb93\\OneDrive\\Documenten\\GitHub\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Afspraak\\Delete.cshtml",
       "TargetPath": "Views\\Afspraak\\Delete.cshtml",
       "FileKind": "mvc"

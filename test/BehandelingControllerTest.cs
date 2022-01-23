@@ -59,15 +59,6 @@ namespace test
             Assert.NotEqual(" ", behandeling.Omschrijving);
         }
 
-        [Fact]
-        public void TestIndexView()
-        {
-            var controller = new BehandelingController(context);
-
-            var result = controller.Index();
-            Assert.IsType<ViewResult>(result);
-        }
-
 
         // Zoek uit
         // [Fact]

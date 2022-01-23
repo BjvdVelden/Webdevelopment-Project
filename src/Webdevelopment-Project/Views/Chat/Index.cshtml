@@ -1,34 +1,23 @@
 @model IEnumerable<Chat>
 
-    <div>
-        <a asp-controller="Chat" asp-action="Index">Chat</a>
-        <a asp-controller="Chat" asp-action="FindUser">Find Users</a>
-        <a asp-controller="Chat" asp-action="Private">Private</a>
+    <div class="chat-body">
+        @foreach(var chat in Model) {
+        <a class="room-button" asp-controller="Chat" asp-action="JoinRoom" asp-route-id="@chat.Id">
+            @chat.Name
+        </a>
+        }
     </div>
 
-<form asp-controller="Chat" asp-action="FindGroup">
-    <p>
-        Zoek bij groep naam: <input type="text" name="onderwerp" />
-        <input type="submit" value="Filter" />
-    </p>
-    <p>
-        Zoek bij leeftijdscategorie: <input type="number" name="leeftijd" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
-
-<div class="container">
-  <div class="row">
-      @foreach(var chat in Model){
-        @if(chat.MaximumAge != 0){
-    <div style="padding-bottom: 30px;" class="card col-sm-2 card-body">
-    <h5>Zelfhulpgroep</h5>
-    <p> Zelfhulpgroep: @chat.Name</p>
-    <p>MinimumLeeftijd: @chat.MinimumAge</p>
-    <p> MaximumLeeftijd: @chat.MaximumAge</p>
-    <a style="position: absolute; bottom: 0px; margin-top: 50px;" class="btn btn-primary" asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">Naar groep gaan</a>
+    <div id="create-room">
+        <form asp-controller="Chat" asp-action="CreateRoom">
+            <header>Create Room</header>
+            <div>
+                Zelfhulpgroep: <input name="name">
+                MinimumLeeftijd: <input number="minimumleeftijd">
+                MaximumLeeftijd: <input name="maximumleeftijd">
+            </div>
+            <footer>
+                <button>Create</button>
+            </footer>
+        </form>
     </div>
-      }
-      }
-  </div>
-</div>
