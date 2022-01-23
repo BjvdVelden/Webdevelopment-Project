@@ -1098,3 +1098,4 @@ D:\school\Semester 3\WDPR\PROJ\src\Webdevelopment-Project\obj\Debug\net5.0\Razor
 D:\school\Semester 3\WDPR\PROJ\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Yasuo.cshtml.g.cs
 D:\school\Semester 3\WDPR\PROJ\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Karel.cshtml.g.cs
 D:\school\Semester 3\WDPR\PROJ\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Sara.cshtml.g.cs
+D:\school\Semester 3\WDPR\PROJ\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Faq.cshtml.g.cs

@@ -15746,6 +15746,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\school\\Semester 3\\WDPR\\PROJ\\src\\Webdevelopment-Project\\Views\\Home\\Faq.cshtml",
+      "TargetPath": "Views\\Home\\Faq.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\school\\Semester 3\\WDPR\\PROJ\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "FileKind": "mvc"
