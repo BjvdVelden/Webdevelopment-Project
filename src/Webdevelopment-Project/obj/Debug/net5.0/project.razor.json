@@ -15639,6 +15639,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Johan.cshtml",
+      "TargetPath": "Views\\Home\\Johan.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
       "FileKind": "mvc"
@@ -15661,6 +15666,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\Email.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Manage\\Email.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Yasuo.cshtml",
+      "TargetPath": "Views\\Home\\Yasuo.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15869,6 +15879,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Faq.cshtml",
+      "TargetPath": "Views\\Home\\Faq.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Moderator\\Blokkeren.cshtml",
       "TargetPath": "Views\\Moderator\\Blokkeren.cshtml",
       "FileKind": "mvc"
@@ -15889,8 +15904,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Sara.cshtml",
+      "TargetPath": "Views\\Home\\Sara.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Moderator\\IndexModerator.cshtml",
       "TargetPath": "Views\\Moderator\\IndexModerator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Karel.cshtml",
+      "TargetPath": "Views\\Home\\Karel.cshtml",
       "FileKind": "mvc"
     },
     {

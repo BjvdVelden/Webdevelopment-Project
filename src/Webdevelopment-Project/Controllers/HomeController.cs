@@ -35,7 +35,31 @@ namespace Webdevelopment_Project.Controllers
         {
             return View();
         }
-         public IActionResult Specialisten()
+           public IActionResult Faq()
+        {
+            return View();
+        }
+
+// Specialisten
+
+        public IActionResult Specialisten()
+        {
+            return View();
+        }
+
+         public IActionResult Yasuo()
+        {
+            return View();
+        }
+         public IActionResult Sara()
+        {
+            return View();
+        }
+         public IActionResult Karel()
+        {
+            return View();
+        }
+         public IActionResult Johan()
         {
             return View();
         }

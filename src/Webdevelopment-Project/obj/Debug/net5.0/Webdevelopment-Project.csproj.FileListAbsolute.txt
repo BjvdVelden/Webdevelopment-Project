@@ -1334,3 +1334,8 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Deb
 C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Manage\_ViewImports.cshtml.g.cs
 c:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Behandeling\IndexBehandeling.cshtml.g.cs
 c:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Intake\IndexIntake.cshtml.g.cs
+c:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Faq.cshtml.g.cs
+c:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Johan.cshtml.g.cs
+c:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Karel.cshtml.g.cs
+c:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Sara.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Home\Yasuo.cshtml.g.cs
