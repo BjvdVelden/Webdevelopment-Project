@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
@@ -102,6 +103,28 @@ namespace test
             Assert.NotEqual("Zelfhulpgroep_ban", contextUser.Value);
             Assert.Equal("Client", contextUser.Value);
             
+        }
+        
+        [Fact]
+        public void IndexModeratorTest(){
+
+            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("ApplicationDbContext").Options;
+            ApplicationDbContext c = new ApplicationDbContext(options);
+            var mgr = MockUserManager();
+            var usr = GetRoleManagerMock();
+            
+            c.Add(new ApplicationUser{
+                Voornaam = "Younes",
+                Achternaam = "El Bali",
+                GeboorteDatum = DateTime.Parse("01-01-2000"),
+                Postcode = "2873HU",
+                Huisnummer = "2810KI",
+                HulpverlenerEmail = "hulpoverlener@gmail.com"
+            });
+
+            c.SaveChanges();
+
+            Assert.Equal(1,c.AppUsers.Count());
         }
     }   
 }

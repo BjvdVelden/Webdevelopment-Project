@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -73,6 +74,17 @@ namespace test
 
             Assert.NotNull(intakeKind);
     
+        }
+
+        [Fact]
+        public void IndexIntakeTest(){
+
+            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("ApplicationDbContext").Options;
+            ApplicationDbContext c = new ApplicationDbContext(options);
+            
+            c.Add(createIntake());
+            c.SaveChanges();
+            Assert.Equal(1,c.Intake.Count());
         }
     }   
 }

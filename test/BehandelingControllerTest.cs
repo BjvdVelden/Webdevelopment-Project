@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -60,16 +61,15 @@ namespace test
         }
 
 
-        // Zoek uit
-        // [Fact]
-        // public void BehandelingTest() {
-        //     var controller = new BehandelingController(context);
-        //     Behandeling behandeling = createBehandeling();
-        //     var s = controller.Create(behandeling);
+        [Fact]
+        public void IndexBehandelingTest(){
 
-        //     IActionResult result = controller.Index() as IActionResult;
-
-        //     Assert.Null(result);
-        // }
+            DbContextOptions<ApplicationDbContext> options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("ApplicationDbContext").Options;
+            ApplicationDbContext c = new ApplicationDbContext(options);
+            
+            c.Add(createBehandeling());
+            c.SaveChanges();
+            Assert.Equal(1,c.AppUsers.Count());
+        }
     }   
 }
