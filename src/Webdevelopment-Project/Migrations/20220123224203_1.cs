@@ -8,6 +8,19 @@ namespace WebdevelopmentProject.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "ApiKoppel",
+                columns: table => new
+                {
+                    clientid = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    volledigenaam = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApiKoppel", x => x.clientid);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -33,8 +46,6 @@ namespace WebdevelopmentProject.Migrations
                     Huisnummer = table.Column<string>(type: "TEXT", nullable: true),
                     VoogdEmail = table.Column<string>(type: "TEXT", nullable: true),
                     HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    Discriminator = table.Column<string>(type: "TEXT", nullable: false),
-                    ClientID = table.Column<string>(type: "TEXT", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -53,12 +64,6 @@ namespace WebdevelopmentProject.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_AspNetUsers_AspNetUsers_ClientID",
-                        column: x => x.ClientID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -336,25 +341,19 @@ namespace WebdevelopmentProject.Migrations
                 {
                     ReportId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
                     Reden = table.Column<string>(type: "TEXT", nullable: true),
-                    MessageId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true)
+                    MessageId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Report", x => x.ReportId);
                     table.ForeignKey(
-                        name: "FK_Report_AspNetUsers_ApplicationUserID",
-                        column: x => x.ApplicationUserID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
                         name: "FK_Report_Messages_MessageId",
                         column: x => x.MessageId,
                         principalTable: "Messages",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -394,11 +393,6 @@ namespace WebdevelopmentProject.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_ClientID",
-                table: "AspNetUsers",
-                column: "ClientID");
-
-            migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
@@ -425,11 +419,6 @@ namespace WebdevelopmentProject.Migrations
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Report_ApplicationUserID",
-                table: "Report",
-                column: "ApplicationUserID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Report_MessageId",
                 table: "Report",
                 column: "MessageId");
@@ -439,6 +428,9 @@ namespace WebdevelopmentProject.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Afspraak");
+
+            migrationBuilder.DropTable(
+                name: "ApiKoppel");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");

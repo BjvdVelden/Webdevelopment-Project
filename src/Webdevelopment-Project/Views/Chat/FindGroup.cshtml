@@ -1,11 +1,6 @@
 @model IEnumerable<Chat>
 
-    <div>
-        <a class="btn btn-primary" role="button"asp-controller="Chat" asp-action="FindGroup">Zoek naar groepen</a>
-        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindUser">Zoek naar gebruikers</a>
-        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="Private">Prive</a>
-        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="CreateRoom">Maak een groep aan</a>
-    </div>
+
 
 <form asp-controller="Chat" asp-action="FindGroup">
     <p style="margin-top: 50px">
@@ -17,7 +12,12 @@
         <input type="submit" value="Filter" />
     </p>
 </form>
-
+<div>
+        <a class="btn btn-primary" role="button"asp-controller="Chat" asp-action="FindGroup">Zoek naar groepen</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindUser">Zoek naar gebruikers</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="Private">Prive</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="CreateRoom">Maak een groep aan</a>
+    </div>
 <div class="container">
   <div style="margin-top: 50px" class="row">
       @foreach(var chat in Model){

@@ -9,7 +9,7 @@ using Webdevelopment_Project.Data;
 namespace WebdevelopmentProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220123124651_1")]
+    [Migration("20220123224203_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -295,6 +295,20 @@ namespace WebdevelopmentProject.Migrations
                     b.ToTable("Afspraak");
                 });
 
+            modelBuilder.Entity("Webdevelopment_Project.Models.ApiKoppel", b =>
+                {
+                    b.Property<int>("clientid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("volledigenaam")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("clientid");
+
+                    b.ToTable("ApiKoppel");
+                });
+
             modelBuilder.Entity("Webdevelopment_Project.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
@@ -308,10 +322,6 @@ namespace WebdevelopmentProject.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
@@ -382,8 +392,6 @@ namespace WebdevelopmentProject.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>
@@ -472,41 +480,20 @@ namespace WebdevelopmentProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ApplicationUserID")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MessageId")
+                    b.Property<int?>("MessageId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Reden")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ReportId");
 
-                    b.HasIndex("ApplicationUserID");
-
                     b.HasIndex("MessageId");
 
                     b.ToTable("Report");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
-                {
-                    b.HasBaseType("Webdevelopment_Project.Models.ApplicationUser");
-
-                    b.HasDiscriminator().HasValue("Client");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
-                {
-                    b.HasBaseType("Webdevelopment_Project.Models.ApplicationUser");
-
-                    b.Property<string>("ClientID")
-                        .HasColumnType("TEXT");
-
-                    b.HasIndex("ClientID");
-
-                    b.HasDiscriminator().HasValue("Hulpverlener");
                 });
 
             modelBuilder.Entity("Behandeling", b =>
@@ -617,28 +604,9 @@ namespace WebdevelopmentProject.Migrations
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Report", b =>
                 {
-                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserID");
-
-                    b.HasOne("Webdevelopment_Project.Models.Message", "Message")
+                    b.HasOne("Webdevelopment_Project.Models.Message", null)
                         .WithMany("Reports")
-                        .HasForeignKey("MessageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Message");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>
-                {
-                    b.HasOne("Webdevelopment_Project.Models.Client", "Client")
-                        .WithMany("Hulpverleners")
-                        .HasForeignKey("ClientID");
-
-                    b.Navigation("Client");
+                        .HasForeignKey("MessageId");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.ApplicationUser", b =>
@@ -660,11 +628,6 @@ namespace WebdevelopmentProject.Migrations
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
                 {
                     b.Navigation("Reports");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Client", b =>
-                {
-                    b.Navigation("Hulpverleners");
                 });
 #pragma warning restore 612, 618
         }
