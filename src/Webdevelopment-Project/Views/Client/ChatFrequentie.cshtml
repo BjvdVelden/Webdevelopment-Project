@@ -1,0 +1,47 @@
+@model IEnumerable<Message>
+
+@{
+    ViewData["Title"] = "ChatFrequentie";
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyEdit</title>
+</head>
+
+<body>
+    <div class="card-body">
+        <div class="list-group">
+            <h2>Chatfrequentie @ViewData["naamClient"]</h2>
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.When)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.When)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>

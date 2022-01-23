@@ -7,147 +7,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Data;
 using Webdevelopment_Project.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Webdevelopment_Project.Controllers
 {
     public class ClientController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ClientController(ApplicationDbContext context)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        public ClientController(ApplicationDbContext context,RoleManager<IdentityRole> roleManager , UserManager<ApplicationUser> userManager )
         {
             _context = context;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
 
-        // GET: Client
-        public async Task<IActionResult> Index()
+    public async Task<IActionResult> ChatFrequentie()
         {
-            return View(await _context.Client.ToListAsync());
+            var user = await _userManager.GetUserAsync(User);
+            
+            ViewData["naamClient"] = _context.Users.Where(v=>v.VoogdEmail == user.Email).SingleOrDefault().Voornaam;
+            var clientmail = _context.Users.Where(v=>v.VoogdEmail == user.Email).SingleOrDefault().Email;
+            var ChatFrequentieClient = _context.Messages.Where(c=>c.UserName == clientmail);
+            ViewData["AantalBerichten"] = _context.Messages.Where(c=>c.UserName == clientmail).Count();
+            return View(await ChatFrequentieClient.ToListAsync());
         }
-
-        // GET: Client/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var client = await _context.Client
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            return View(client);
-        }
-
-        // GET: Client/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Client/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("email,Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,FullName,Avatar,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Client client)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(client);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(client);
-        }
-
-        // GET: Client/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var client = await _context.Client.FindAsync(id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-            return View(client);
-        }
-
-        // POST: Client/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("email,Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,FullName,Avatar,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] Client client)
-        {
-            if (id != client.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(client);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ClientExists(client.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(client);
-        }
-
-        // GET: Client/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var client = await _context.Client
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            return View(client);
-        }
-
-        // POST: Client/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var client = await _context.Client.FindAsync(id);
-            _context.Client.Remove(client);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ClientExists(string id)
-        {
-            return _context.Client.Any(e => e.Id == id);
-        }
+     
     }
 }

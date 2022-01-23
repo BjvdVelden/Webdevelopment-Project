@@ -482,3 +482,12 @@ c:\Users\Serdi\Desktop\Webdevelopment-Project\test\obj\Debug\net5.0\test.dll
 c:\Users\Serdi\Desktop\Webdevelopment-Project\test\obj\Debug\net5.0\ref\test.dll
 c:\Users\Serdi\Desktop\Webdevelopment-Project\test\obj\Debug\net5.0\test.pdb
 c:\Users\Serdi\Desktop\Webdevelopment-Project\test\obj\Debug\net5.0\test.genruntimeconfig.cache
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\bin\Debug\net5.0\CoverletSourceRootsMapping
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.csproj.AssemblyReference.cache
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.AssemblyInfoInputs.cache
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.AssemblyInfo.cs
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.csproj.CoreCompileInputs.cache
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.dll
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\ref\test.dll
+C:\Users\Yeb93\OneDrive\Documenten\GitHub\Webdevelopment-Project\test\obj\Debug\net5.0\test.pdb
