@@ -39,5 +39,6 @@ namespace Webdevelopment_Project.Data
         public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Report> Report { get; set; }
         public DbSet<Behandeling> Behandeling { get; set; }
+        public DbSet<ApiKoppel> ApiKoppel { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-/* * {
+* {
   box-sizing: border-box;
 } */
 
@@ -27,7 +27,7 @@
   padding-left: 1rem;
 } */
 
-/* .main {
+.main {
   flex-grow: 1;
 
   display: flex;
@@ -74,7 +74,7 @@
 }
 
 .chat-body {
-  background-color: #eee;
+  background-color: lightblue;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@
 }
 
 .chat-input {
-  background-color: blue;
+  background-color: purple;
   min-height: 70px;
   max-height: 70px;
   z-index: 25;
@@ -127,7 +127,10 @@
 
 .chat-input > button {
   flex-grow: 1;
-} */
-.styleLinks > a {
-  margin: 20px;
+}
+.card {
+  padding-bottom: 50px;
+  margin-right: 50px;
+  background-color: purple;
+  color: white;
 }

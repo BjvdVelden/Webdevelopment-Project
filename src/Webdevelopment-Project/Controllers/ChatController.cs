@@ -63,7 +63,7 @@ namespace Webdevelopment_Project.Controllers
         [Authorize(Roles="Hulpverlener, Client")] 
         public IActionResult Private()
         {
-            var chats = _repo.GetPrivateChats(GetUserId()).Take(1);
+            var chats = _repo.GetPrivateChats(GetUserId());
 
             return View(chats);
         }

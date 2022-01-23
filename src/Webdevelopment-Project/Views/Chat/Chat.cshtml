@@ -1,13 +1,13 @@
 @model Chat
 
-    <div class="styleLinks">
-        <a asp-controller="Chat" asp-action="FindGroup">Find Groups</a>
-        <a asp-controller="Chat" asp-action="FindUser">Find Users</a>
-        <a asp-controller="Chat" asp-action="Private">Private</a>
-        <a asp-controller="Chat" asp-action="CreateRoom">Create</a>
+    <div>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindGroup">Zoek naar groepen</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindUser">Zoek naar gebruikers</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="Private">Prive</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="CreateRoom">Maak een groep aan</a>
     </div>
     
-<div class="chat-body">
+<div style="margin-top: 50px" class="chat-body">
     @foreach(var message in Model.Messages){
     <div class="message">
         <header>@message.UserName:</header>
