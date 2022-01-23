@@ -38,6 +38,7 @@ namespace Webdevelopment_Project
 
             services.AddTransient<IChatRepository, ChatRepository>();
             services.AddSignalR();
+            services.AddHttpClient();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite(Configuration.GetConnectionString("ApplicationDbContext")));
