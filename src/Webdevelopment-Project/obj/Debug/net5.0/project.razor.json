@@ -15789,6 +15789,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Api\\Index.cshtml",
+      "TargetPath": "Views\\Api\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Chat\\FindUser.cshtml",
       "TargetPath": "Views\\Chat\\FindUser.cshtml",
       "FileKind": "mvc"
@@ -15961,6 +15966,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\OverOns.cshtml",
       "TargetPath": "Views\\Home\\OverOns.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Api\\create.cshtml",
+      "TargetPath": "Views\\Api\\create.cshtml",
       "FileKind": "mvc"
     },
     {

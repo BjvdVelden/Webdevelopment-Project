@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Administratie
+<!-- Roept de administratie model op-->
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Leden</h1>
+    
+    <!-- maakt tabel als er data is-->
+    {
+        <table class ="table table-table-bordered table-hover">
+            <tr class = "table-danger">
+                <th>clientid</th>
+                <th>volledigenaam</th>
+                <th>IBAN</th>
+                <th>BSN</th>
+                <th>gebdatum</th>
+            </tr>
+            
+            {
+                <tr>
+                    <td>@Model.clientid</td>
+                    <td>@Model.volledigenaam</td>
+                    <td>@Model.IBAN</td>
+                    <td>@Model.BSN</td>
+                    <td>@Model.gebdatum</td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id= @Model.clientid })
+                </td>
+            </tr>
+        </table>
+    }
+  
+</div>
