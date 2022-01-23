@@ -1,0 +1,22 @@
+@model IEnumerable<Chat>
+
+    <div>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindGroup">Zoek naar groepen</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindUser">Zoek naar gebruikers</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="Private">Prive</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="CreateRoom">Maak een groep aan</a>
+    </div>
+
+
+    <div>
+        <form asp-controller="Chat" asp-action="CreateRoom">
+            <header>Create Room</header>
+            <div>
+                Naam <input type="text" name="name">
+                MinimumLeeftijd <input type="number" name="minimumage">
+                MaximumLeeftijd <input type="number" name="maximumage">
+            <footer>
+                <button>Create</button>
+            </footer>
+        </form>
+    </div>

@@ -1,0 +1,16 @@
+@model IEnumerable<ApplicationUser>
+
+    <div>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindGroup">Zoek naar groepen</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindUser">Zoek naar gebruikers</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="Private">Prive</a>
+        <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="CreateRoom">Maak een groep aan</a>
+    </div>
+
+    @foreach(var user in Model){
+    <div style="margin-top: 50px">
+        <a style="margin-right: 50px;" asp-controller="Chat" asp-action="CreatePrivateRoom" asp-route-userId="@user.Id">@user.UserName</a>
+        <a class="btn btn-danger" role="button" asp-controller="Report" asp-action="Create"> Meld misbruik </a>
+    </div>
+    
+    }
