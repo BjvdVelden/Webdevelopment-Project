@@ -26,13 +26,6 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            var chats = _repo.GetChats(GetUserId());
-
-            return View(chats);
-        }
-
         public IActionResult CreateRoom()
         {
             var chats = _repo.GetChats(GetUserId());
@@ -88,7 +81,7 @@ namespace Webdevelopment_Project.Controllers
         public async Task<IActionResult> CreateRoom(string name, int minimumAge, int maximumAge)
         {
             await _repo.CreateRoom(name, minimumAge,maximumAge, GetUserId());
-            return RedirectToAction("Index");
+            return RedirectToAction("FindGroup");
         }
 
         // [HttpPost]

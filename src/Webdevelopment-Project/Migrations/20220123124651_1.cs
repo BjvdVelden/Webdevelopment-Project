@@ -228,6 +228,28 @@ namespace WebdevelopmentProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Behandeling",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Omschrijving = table.Column<string>(type: "TEXT", nullable: true),
+                    Datum = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Behandeling", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Behandeling_AspNetUsers_ApplicationUserID",
+                        column: x => x.ApplicationUserID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Intake",
                 columns: table => new
                 {
@@ -262,7 +284,11 @@ namespace WebdevelopmentProject.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    ChatId = table.Column<int>(type: "INTEGER", nullable: false)
+                    ChatId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    BehandelaarEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    Bericht = table.Column<string>(type: "TEXT", nullable: true),
+                    verzendTijd = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -379,6 +405,11 @@ namespace WebdevelopmentProject.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Behandeling_ApplicationUserID",
+                table: "Behandeling",
+                column: "ApplicationUserID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ChatUsers_UserId",
                 table: "ChatUsers",
                 column: "UserId");
@@ -423,6 +454,9 @@ namespace WebdevelopmentProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Behandeling");
 
             migrationBuilder.DropTable(
                 name: "ChatUsers");

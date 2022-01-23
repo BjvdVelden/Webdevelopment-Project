@@ -30,7 +30,7 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexModerator()
         {
             var users = await _userManager.Users.ToListAsync();
             var userRolesViewModel = new List<UserRolesViewModel>();
@@ -39,6 +39,7 @@ namespace Webdevelopment_Project.Controllers
                 var thisViewModel = new UserRolesViewModel();
                 thisViewModel.UserId = user.Id;
                 thisViewModel.Email = user.Email;
+                thisViewModel.HulpverlenerEmail = user.HulpverlenerEmail;
                 thisViewModel.Roles = await GetUserRoles(user);
                 userRolesViewModel.Add(thisViewModel);
             }
@@ -114,7 +115,7 @@ namespace Webdevelopment_Project.Controllers
                 ModelState.AddModelError("", "Cannot add selected roles to user");
                 return View(model);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexModerator");
         }
 
     [HttpGet]

@@ -470,18 +470,16 @@ namespace WebdevelopmentProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ApplicationUserID")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MessageId")
+                    b.Property<int?>("MessageId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Reden")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ReportId");
-
-                    b.HasIndex("ApplicationUserID");
 
                     b.HasIndex("MessageId");
 
@@ -615,19 +613,9 @@ namespace WebdevelopmentProject.Migrations
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Report", b =>
                 {
-                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserID");
-
-                    b.HasOne("Webdevelopment_Project.Models.Message", "Message")
+                    b.HasOne("Webdevelopment_Project.Models.Message", null)
                         .WithMany("Reports")
-                        .HasForeignKey("MessageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Message");
+                        .HasForeignKey("MessageId");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Hulpverlener", b =>

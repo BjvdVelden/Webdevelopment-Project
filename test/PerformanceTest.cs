@@ -1,19 +1,25 @@
-namespace test
-{
-    public class PerformaceTest
-    {
+// using System.Diagnostics;
+// using System.Net;
+// using Xunit;
 
-         [Fact]
-        public void Test() 
-        {
-            Stopwatch sw = new Stopwatch();
+// namespace test
+// {
+//     public class PerformaceTest
+//     {
 
-            sw.Start();
-            {
-             //code to test
-            }
-            sw.Stop();
-        }
+//         [Fact]
+//         public void Test() 
+//         {
+//             Stopwatch sw = new Stopwatch();
+//             WebClient client = new WebClient();
+
+//             sw.Start();
+//             {
+//                 string performancetest = client.DownloadString("https://localhost:5001/");
+//             }
+//             sw.Stop();
+//             Assert.True(sw.ElapsedMilliseconds <= 3000);
+//         }
             
-    }
-}
+//     }
+// }

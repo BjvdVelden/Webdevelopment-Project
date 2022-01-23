@@ -1,7 +1,7 @@
 @using Webdevelopment_Project.Models
 @model List<Webdevelopment_Project.Models.UserRolesViewModel>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "IndexModerator";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h1>User Roles</h1>
@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th>Email</th>
+            <th>Hulpverlener</th>
             <th>Roles</th>
             <th>Action</th>
         </tr>
@@ -18,13 +19,13 @@
         {
         <tr>
             <td>@user.Email</td>
+            <td>@user.HulpverlenerEmail</td>
             <td>@string.Join(" , ", user.Roles.ToList())</td>
             <td>
                 <a class="btn btn-primary" asp-controller="Moderator" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
-                <a class="btn btn-primary" asp-controller="Moderator" asp-action="Relatie" asp-route-userId="@user.UserId">Toon Relaties</a>
-                <a class="btn btn-primary" asp-controller="Report" asp-action="Index">Toon Gemelde misbruik</a>
             </td>
         </tr>
         }
+        <a class="btn btn-primary" asp-controller="Report" asp-action="IndexReport">Toon Gemelde misbruik</a>
     </tbody>
 </table>

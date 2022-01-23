@@ -25,7 +25,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Afspraak
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexAfspraak()
         {
             var currentUser =await _userManager.GetUserAsync(User);
             var rol = await _userManager.GetRolesAsync(currentUser);

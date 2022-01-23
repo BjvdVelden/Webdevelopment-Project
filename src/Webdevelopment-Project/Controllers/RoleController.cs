@@ -21,7 +21,7 @@ namespace Webdevelopment_Project.Controllers
             this.roleManager = roleManager;
         }
 
-        public IActionResult Index()
+        public IActionResult IndexRole()
         {
             var roles = roleManager.Roles.ToList();
             return View(roles);
@@ -35,7 +35,7 @@ namespace Webdevelopment_Project.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IdentityRole role) {
             await roleManager.CreateAsync(role);
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexRole");
         }
     }
 }

@@ -20,10 +20,9 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Report
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexReport()
         {
-            var applicationDbContext = _context.Report.Include(r => r.ApplicationUser).Include(r => r.Message);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await _context.Report.ToListAsync());
         }
 
         // GET: Report/Details/5
@@ -35,8 +34,6 @@ namespace Webdevelopment_Project.Controllers
             }
 
             var report = await _context.Report
-                .Include(r => r.ApplicationUser)
-                .Include(r => r.Message)
                 .FirstOrDefaultAsync(m => m.ReportId == id);
             if (report == null)
             {
@@ -49,8 +46,6 @@ namespace Webdevelopment_Project.Controllers
         // GET: Report/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email");
-            ViewData["MessageId"] = new SelectList(_context.Messages, "Id", "Text");
             return View();
         }
 
@@ -59,16 +54,14 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReportId,Reden,MessageId,ApplicationUserID")] Report report)
+        public async Task<IActionResult> Create([Bind("ReportId,Name,Reden")] Report report)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(report);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexReport");
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", report.ApplicationUserID);
-            ViewData["MessageId"] = new SelectList(_context.Messages, "Id", "Text", report.MessageId);
             return View(report);
         }
 
@@ -85,8 +78,6 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", report.ApplicationUserID);
-            ViewData["MessageId"] = new SelectList(_context.Messages, "Id", "Text", report.MessageId);
             return View(report);
         }
 
@@ -95,7 +86,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReportId,Reden,MessageId,ApplicationUserID")] Report report)
+        public async Task<IActionResult> Edit(int id, [Bind("ReportId,Name,Reden")] Report report)
         {
             if (id != report.ReportId)
             {
@@ -120,10 +111,8 @@ namespace Webdevelopment_Project.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexReport");
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Email", "Email", report.ApplicationUserID);
-            ViewData["MessageId"] = new SelectList(_context.Messages, "Id", "Text", report.MessageId);
             return View(report);
         }
 
@@ -136,8 +125,6 @@ namespace Webdevelopment_Project.Controllers
             }
 
             var report = await _context.Report
-                .Include(r => r.ApplicationUser)
-                .Include(r => r.Message)
                 .FirstOrDefaultAsync(m => m.ReportId == id);
             if (report == null)
             {
@@ -155,7 +142,7 @@ namespace Webdevelopment_Project.Controllers
             var report = await _context.Report.FindAsync(id);
             _context.Report.Remove(report);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("IndexReport");
         }
 
         private bool ReportExists(int id)
