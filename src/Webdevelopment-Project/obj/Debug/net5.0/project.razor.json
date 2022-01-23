@@ -15671,6 +15671,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -15678,6 +15683,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Chat\\Chat.cshtml",
       "TargetPath": "Views\\Chat\\Chat.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\Email.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\Email.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15706,6 +15716,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\GenerateRecoveryCodes.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\GenerateRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\SetPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\SetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -15726,6 +15746,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\ExternalLogins.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\ExternalLogins.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Intake\\CVoogd.cshtml",
       "TargetPath": "Views\\Intake\\CVoogd.cshtml",
       "FileKind": "mvc"
@@ -15733,6 +15758,16 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Shared\\_LoginPartial.cshtml",
       "TargetPath": "Views\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\ResetAuthenticator.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\ResetAuthenticator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\Index.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15753,6 +15788,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Moderator\\Relatie.cshtml",
       "TargetPath": "Views\\Moderator\\Relatie.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\ShowRecoveryCodes.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\ShowRecoveryCodes.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15786,6 +15826,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\_Layout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Report\\IndexReport.cshtml",
       "TargetPath": "Views\\Report\\IndexReport.cshtml",
       "FileKind": "mvc"
@@ -15793,6 +15838,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\Disable2fa.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\Disable2fa.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15816,6 +15866,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\DownloadPersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\DownloadPersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -15833,6 +15888,11 @@
     {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Afspraak\\Edit.cshtml",
       "TargetPath": "Views\\Afspraak\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\ChangePassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\ChangePassword.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15866,6 +15926,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\_StatusMessage.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\TwoFactorAuthentication.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\TwoFactorAuthentication.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Moderator\\IndexModerator.cshtml",
       "TargetPath": "Views\\Moderator\\IndexModerator.cshtml",
       "FileKind": "mvc"
@@ -15891,8 +15961,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\PersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\PersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\EnableAuthenticator.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\EnableAuthenticator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\DeletePersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\DeletePersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Areas\\Identity\\Pages\\Manage\\_ManageNav.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Manage\\_ManageNav.cshtml",
       "FileKind": "mvc"
     },
     {

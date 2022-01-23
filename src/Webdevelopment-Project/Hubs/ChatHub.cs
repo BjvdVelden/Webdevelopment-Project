@@ -15,6 +15,9 @@ namespace Webdevelopment_Project.Hubs
             return Groups.RemoveFromGroupAsync(Context.ConnectionId, roomId);
         }
 
-        public string GetConnectionId() => Context.ConnectionId;
+        public string GetConnectionId()
+        {
+            return Context.ConnectionId;
+        }
     }
 }

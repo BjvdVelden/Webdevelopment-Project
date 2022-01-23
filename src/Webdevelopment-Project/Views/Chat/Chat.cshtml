@@ -31,8 +31,6 @@
         .withUrl("/chatHub")
         .build();
 
-    var _connectionId = '';
-
     connection.on("RecieveMessage", function (data) {
         var message = messageBuilder()
             .createMessage()
@@ -48,6 +46,10 @@
         .then(function () {
             connection.invoke('joinRoom', '@Model.Id');
         })
+        @* Laat connectionId niet zien
+        connection.invoke('GetConnectionId').then(function (id) {
+                document.getElementById("connectionId").innerText = id;
+        }) *@
         .catch(function (err) {
             console.log(err)
         })
