@@ -1099,3 +1099,4 @@ C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Deb
 C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Behandeling\Details.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Behandeling\Edit.cshtml.g.cs
 C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Behandeling\Index.cshtml.g.cs
+C:\Users\Serdi\Desktop\Webdevelopment-Project\src\Webdevelopment-Project\obj\Debug\net5.0\Razor\Views\Chat\FindGroup.cshtml.g.cs

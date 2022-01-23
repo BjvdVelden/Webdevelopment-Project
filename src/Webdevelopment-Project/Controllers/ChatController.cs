@@ -25,6 +25,14 @@ namespace Webdevelopment_Project.Controllers
             _repo = repo;
             _context = context;
         }
+
+        public IActionResult Index()
+        {
+            var chats = _repo.GetChats(GetUserId());
+
+            return View(chats);
+        }
+
         public IActionResult CreateRoom()
         {
             var chats = _repo.GetChats(GetUserId());
@@ -39,7 +47,7 @@ namespace Webdevelopment_Project.Controllers
             return View(users);
         }
 
-        public async Task<IActionResult> Index(string onderwerp, int leeftijd)
+        public async Task<IActionResult> FindGroup(string onderwerp, int leeftijd)
         {
             ViewData["onderwerp"] = onderwerp;
             ViewData["leeftijd"] = leeftijd;
@@ -76,12 +84,12 @@ namespace Webdevelopment_Project.Controllers
             return View(_repo.GetChat(id));
         }
 
-        // [HttpPost]
-        // public async Task<IActionResult> CreateRoom(string name, int minimumAge, int maximumAge)
-        // {
-        //     await _repo.CreateRoom(name, minimumAge,maximumAge, GetUserId());
-        //     return RedirectToAction("Index");
-        // }
+        [HttpPost]
+        public async Task<IActionResult> CreateRoom(string name, int minimumAge, int maximumAge)
+        {
+            await _repo.CreateRoom(name, minimumAge,maximumAge, GetUserId());
+            return RedirectToAction("Index");
+        }
 
         // [HttpPost]
         // public async Task<IActionResult> DeleteRoom(string name)

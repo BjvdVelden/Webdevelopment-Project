@@ -15661,6 +15661,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Chat\\FindGroup.cshtml",
+      "TargetPath": "Views\\Chat\\FindGroup.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Views\\Hulpverlener\\Create.cshtml",
       "TargetPath": "Views\\Hulpverlener\\Create.cshtml",
       "FileKind": "mvc"
