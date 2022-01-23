@@ -18,7 +18,7 @@ namespace Webdevelopment_Project.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+            public IActionResult Index()
         {
             return View();
         }
@@ -35,10 +35,35 @@ namespace Webdevelopment_Project.Controllers
         {
             return View();
         }
-         public IActionResult Specialisten()
+           public IActionResult Faq()
         {
             return View();
         }
+
+// Specialisten
+
+        public IActionResult Specialisten()
+        {
+            return View();
+        }
+
+         public IActionResult Yasuo()
+        {
+            return View();
+        }
+         public IActionResult Sara()
+        {
+            return View();
+        }
+         public IActionResult Karel()
+        {
+            return View();
+        }
+         public IActionResult Johan()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
