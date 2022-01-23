@@ -23,16 +23,6 @@
   @* Dropdown Menu *@
         <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
-                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
-                    {
-                        <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
-                        <a class="nav-link" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
-                    }
-
-                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
-                    {
-                        <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
-                    }
                     <li class="nav-item dropdown">
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Menu</button>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -57,6 +47,16 @@
 
       @* 2 Changeable Navbar buttons on the right *@
         <ul class="navbar-nav ml-auto">
+            @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
+                        <a class="nav-link" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
+                    }
+
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
+                    }
                             @if (signInManager.IsSignedIn(User))
                             {
                                 <li class="nav-item">
