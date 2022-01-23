@@ -18,9 +18,10 @@
    <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Specialisten">Specialisten </a>
-                        <a class="nav-link" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat </a>
-                        <a class="nav-link" asp-area="" asp-controller="Afspraak" asp-action= "IndexAfspraak">Afspraak</a>
+                
+                <a class="nav-link" asp-area="" asp-controller="Intake" asp-action= "Kindv">Aanmelden</a>
+                <a class="nav-link" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat </a>
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Specialisten">Specialisten </a>
                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><img src="" alt = "Zorg"></a>
         </ul>
 
@@ -34,6 +35,17 @@
         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons </a>
     </ul>
     <ul class="navbar-nav ml-auto">
+
+        @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
+        {
+            <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
+            <a class="nav-link" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
+        }
+
+        @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
+        {
+            <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
+        }
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -73,7 +85,7 @@
     </nav>
 
     </header>
-    <div class="container">
+    <div style="margin-top: 50px;" class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

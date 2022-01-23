@@ -116,7 +116,7 @@ namespace Webdevelopment_Project.Controllers
                     _context.Melding.Add(melding);
                     
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("IndexIntake", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View(intake);
@@ -159,7 +159,7 @@ namespace Webdevelopment_Project.Controllers
                     _context.Melding.Add(melding);
                     
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("IndexIntake", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             return View(intake);

@@ -15,7 +15,8 @@ using Webdevelopment_Project.Data;
 // Alleen toegankelijk voor Moderators
 
 namespace Webdevelopment_Project.Controllers
-{   [Authorize (Roles = "Moderator")]
+{   
+    // [Authorize (Roles = "Moderator")]
     public class ModeratorController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
