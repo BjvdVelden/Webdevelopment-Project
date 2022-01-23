@@ -47,7 +47,7 @@ namespace Webdevelopment_Project.Controllers
             return View();
         }
 
-         public IActionResult Yasuo()
+         public IActionResult Bert()
         {
             return View();
         }
