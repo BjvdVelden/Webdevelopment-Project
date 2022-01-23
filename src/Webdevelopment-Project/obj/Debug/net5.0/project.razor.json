@@ -13566,23 +13566,6 @@
         }
       },
       {
-        "HashCode": -84112717,
-        "Kind": "MVC.ViewComponent",
-        "Name": "__Generated__RoomViewComponentTagHelper",
-        "AssemblyName": "Webdevelopment-Project",
-        "CaseSensitive": false,
-        "TagMatchingRules": [
-          {
-            "TagName": "vc:room"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "ITagHelper",
-          "Common.TypeName": "__Generated__RoomViewComponentTagHelper",
-          "MVC.ViewComponent.Name": "Room"
-        }
-      },
-      {
         "HashCode": 141407075,
         "Kind": "Components.Bind",
         "Name": "Bind",
