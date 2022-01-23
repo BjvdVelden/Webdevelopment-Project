@@ -5,7 +5,6 @@ using Webdevelopment_Project.Models;
 
 public class Intake
 {
-
     [Key]
     public int IntakeId { get; set; }   
     

@@ -24,12 +24,14 @@ namespace Webdevelopment_Project.Controllers
         }
          // GET: Aanmelding
         [Authorize (Roles = "Hulpverlener")]
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> IndexIntake()
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
             return View(await _context.Intake.Where(b => b.GewensteHulpverlener == currentUser.Email).Where(af => af.IsAfgehandeld == false).ToListAsync());
         }
-
+        
+        [Authorize (Roles = "Hulpverlener")]
         // GET: Aanmelding/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -47,46 +49,13 @@ namespace Webdevelopment_Project.Controllers
 
             return View(intake);
         }
+
+
     // GET: Aanmelding/Create
         public IActionResult Create()
         {
             return View();
         }
-
-        // POST: Aanmelding/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // [HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Create([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp")] Intake intake)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         intake.AanmaakDatum = DateTime.Now;
-        //         intake.IsAfgehandeld = false;
-        //         _context.Add(intake);
-        //         _context.SaveChanges();
-                
-        //         var intake1id = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
-        //         Melding melding  = new Melding
-        //             {
-        //                 Ontvanger = intake.GewensteHulpverlener,
-        //                 Type = "AanmeldingHulpverlener",
-        //                 Titel = "Nieuwe Aanmelding van " + intake.Voornaam + " " + intake.Achternaam,
-        //                 Datum = DateTime.Now,
-        //                 IsAfgehandeld = false,
-        //                 Inhoud = intake.Voornaam + " " + intake.Achternaam + " heeft zich aangemeld voor u",
-        //                 AfsrpaakId = intake1id
-        //             };
-        //         _context.Melding.Add(melding);
-                
-
-
-        //         await _context.SaveChangesAsync();
-        //         return RedirectToAction(nameof(Index));
-        //     }
-        //     return View(intake);
-        // }
           public async Task<IActionResult> GoedkeurenAsync(int? id) 
         {
             var intake = await _context.Intake.FindAsync(id);
@@ -94,41 +63,17 @@ namespace Webdevelopment_Project.Controllers
             _context.SaveChanges();
 
             // Stuur email etc.
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexIntake");
         }
 
+        [Authorize (Roles = "Hulpverlener")]
         public async Task<IActionResult> AfwijzenAsync(int? id) 
         {
             var intake = await _context.Intake.FindAsync(id);
             intake.IsAfgehandeld = true;
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexIntake");
         }
-
-        //     [HttpPost]
-        // public async Task<IActionResult> Manage(List<ModeratorEditModel> model, string userId)
-        // {
-        //     var user = await _userManager.FindByIdAsync(userId);
-        //     if (user == null)
-        //     {
-        //         return View();
-        //     }
-        //     var roles = await _userManager.GetRolesAsync(user);
-        //     var result = await _userManager.RemoveFromRolesAsync(user, roles);
-        //     if (!result.Succeeded)
-        //     {
-        //         ModelState.AddModelError("", "Cannot remove user existing roles");
-        //         return View(model);
-        //     }
-        //     result = await _userManager.AddToRolesAsync(user, model.Where(x => x.Selected).Select(y => y.RoleName));
-        //     if (!result.Succeeded)
-        //     {
-        //         ModelState.AddModelError("", "Cannot add selected roles to user");
-        //         return View(model);
-        //     }
-        //     return RedirectToAction("Index");
-        // }
-
-
+        
          public IActionResult Kindv()
         {
             return View();
@@ -171,7 +116,7 @@ namespace Webdevelopment_Project.Controllers
                     _context.Melding.Add(melding);
                     
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("IndexIntake", "Home");
                 }
             }
             return View(intake);
@@ -214,7 +159,7 @@ namespace Webdevelopment_Project.Controllers
                     _context.Melding.Add(melding);
                     
                     await _context.SaveChangesAsync();
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("IndexIntake", "Home");
                 }
             }
             return View(intake);

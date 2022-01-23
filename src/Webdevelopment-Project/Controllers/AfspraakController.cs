@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -36,6 +37,7 @@ namespace Webdevelopment_Project.Controllers
             return View(await _context.Afspraak.Where(b => b.HulpverlenerEmail == currentUser.Email).ToListAsync());
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         public async Task<bool> AccesCheckAsync(Afspraak afspraak)
         {   
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
@@ -48,6 +50,7 @@ namespace Webdevelopment_Project.Controllers
             return false;
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         // GET: Afspraak/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -66,12 +69,14 @@ namespace Webdevelopment_Project.Controllers
             return View(afspraak);
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         // GET: Afspraak/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         // POST: Afspraak/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -109,12 +114,13 @@ namespace Webdevelopment_Project.Controllers
                     _context.SaveChanges();
                 }
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexAfspraak");
             }
             return View(afspraak);
         }
 
 
+        [Authorize(Roles = "Hulpverlener")]
         // GET: Afspraak/Edit/5
          public async Task<IActionResult> Edit(int? id)
         {
@@ -135,6 +141,8 @@ namespace Webdevelopment_Project.Controllers
             
             return View("NoAcces");
         }
+
+        [Authorize(Roles = "Hulpverlener")]
         // POST: Afspraak/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -165,12 +173,13 @@ namespace Webdevelopment_Project.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexAfspraak");
             }
        
             return View(afspraak);
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         // GET: Afspraak/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -189,6 +198,7 @@ namespace Webdevelopment_Project.Controllers
             return View(afspraak);
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         // POST: Afspraak/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -197,7 +207,7 @@ namespace Webdevelopment_Project.Controllers
             var afspraak = await _context.Afspraak.FindAsync(id);
             _context.Afspraak.Remove(afspraak);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("IndexAfspraak");
         }
 
         private bool AfspraakExists(int id)

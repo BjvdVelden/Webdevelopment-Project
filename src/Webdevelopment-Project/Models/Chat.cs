@@ -16,6 +16,7 @@ namespace Webdevelopment_Project.Models
         public int MinimumAge { get; set; }
         public int MaximumAge { get; set; }
         public ChatType Type { get; set; }
+        
         public ICollection<Message> Messages { get; set; }
         public ICollection<ChatUser> Users { get; set; }
     }

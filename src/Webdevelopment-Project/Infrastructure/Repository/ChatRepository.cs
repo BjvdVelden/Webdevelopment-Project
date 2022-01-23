@@ -74,25 +74,6 @@ namespace Webdevelopment_Project.Infrastructure.Respository
             await _context.SaveChangesAsync();
         }
 
-        // public async Task DeleteRoom(string name, string userId)
-        // {
-        //     var chat = new Chat
-        //     {
-        //         Name = name,
-        //         Type = ChatType.Room
-        //     };
-
-        //     chat.Users.Add(new ChatUser
-        //     {
-        //         UserId = userId,
-        //         Role = UserRole.Admin
-        //     });
-
-        //     _context.Chats.Remove(chat);
-
-        //     await _context.SaveChangesAsync();
-        // }
-
         public Chat GetChat(int id)
         {
             return _context.Chats

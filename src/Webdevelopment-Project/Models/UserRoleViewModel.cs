@@ -7,6 +7,7 @@ public class UserRolesViewModel
     public string UserName { get; set; }
     public string Email { get; set; }
     public string HulpverlenerEmail { get; set; }
+    
     public IEnumerable<string> Roles { get; set; }
 }
 }

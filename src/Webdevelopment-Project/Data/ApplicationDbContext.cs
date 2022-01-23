@@ -17,10 +17,6 @@ namespace Webdevelopment_Project.Data
         {
         }
 
-        public DbSet<Chat> Chats { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<ChatUser> ChatUsers { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -28,22 +24,20 @@ namespace Webdevelopment_Project.Data
             builder.Entity<ChatUser>()
                 .HasKey(x => new { x.ChatId , x.UserId });
         }
+
+        internal Task<IdentityResult> CreateAsync(IdentityRole identityRole)
+        {
+        throw new NotImplementedException();
+        }
+
+        public DbSet<Chat> Chats { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<ChatUser> ChatUsers { get; set; }
         public DbSet<ApplicationUser> AppUsers { get; set; }
         public DbSet<Melding> Melding { get; set; }
         public DbSet<Intake> Intake {get;set;}
-
-        
         public DbSet<Afspraak> Afspraak { get; set; }
-        internal Task<IdentityResult> CreateAsync(IdentityRole identityRole)
-    {
-        throw new NotImplementedException();
-    }
-        public DbSet<Hulpverlener> Hulpverlener { get; set; }
-        public DbSet<Webdevelopment_Project.Models.Client> Client { get; set; }
-        public DbSet<Webdevelopment_Project.Models.Report> Report { get; set; }
+        public DbSet<Report> Report { get; set; }
         public DbSet<Behandeling> Behandeling { get; set; }
-        
-        // public DbSet<Hulpverlener> Hulpverlener { get; set; }
-        // public DbSet<Hulpverlener> Hulpverlener { get; set; }
     }
 }

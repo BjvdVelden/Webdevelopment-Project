@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Data;
 using Webdevelopment_Project.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Webdevelopment_Project.Controllers
 {
@@ -22,7 +23,8 @@ namespace Webdevelopment_Project.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
-
+    
+    [Authorize(Roles="Ouder")] 
     public async Task<IActionResult> ChatFrequentie()
         {
             var user = await _userManager.GetUserAsync(User);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -19,12 +20,14 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
+        [Authorize (Roles = "Moderator")]
         // GET: Report
         public async Task<IActionResult> IndexReport()
         {
             return View(await _context.Report.ToListAsync());
         }
 
+        [Authorize (Roles = "Moderator")]
         // GET: Report/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -43,12 +46,14 @@ namespace Webdevelopment_Project.Controllers
             return View(report);
         }
 
+        [Authorize (Roles = "Hulpverlener, Client")]
         // GET: Report/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize (Roles = "Hulpverlener, Client")]
         // POST: Report/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,6 +70,7 @@ namespace Webdevelopment_Project.Controllers
             return View(report);
         }
 
+        [Authorize (Roles = "Moderator")]
         // GET: Report/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -79,8 +85,9 @@ namespace Webdevelopment_Project.Controllers
                 return NotFound();
             }
             return View(report);
-        }
+        }   
 
+        [Authorize (Roles = "Moderator")]
         // POST: Report/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -116,6 +123,7 @@ namespace Webdevelopment_Project.Controllers
             return View(report);
         }
 
+        [Authorize (Roles = "Moderator")]
         // GET: Report/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -134,6 +142,7 @@ namespace Webdevelopment_Project.Controllers
             return View(report);
         }
 
+        [Authorize (Roles = "Moderator")]
         // POST: Report/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

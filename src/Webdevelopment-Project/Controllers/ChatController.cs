@@ -26,6 +26,7 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
+        [Authorize(Roles="Hulpverlener")] 
         public IActionResult CreateRoom()
         {
             var chats = _repo.GetChats(GetUserId());
@@ -33,6 +34,7 @@ namespace Webdevelopment_Project.Controllers
             return View(chats);
         }
 
+        [Authorize(Roles="Hulpverlener, Client")] 
         public IActionResult FindUser()
         {
             var users = _context.Users.Where(x => x.Id != User.GetUserId()).ToList();
@@ -40,6 +42,7 @@ namespace Webdevelopment_Project.Controllers
             return View(users);
         }
 
+        [Authorize(Roles="Hulpverlener, Client")] 
         public async Task<IActionResult> FindGroup(string onderwerp, int leeftijd)
         {
             ViewData["onderwerp"] = onderwerp;
@@ -57,6 +60,7 @@ namespace Webdevelopment_Project.Controllers
             return View(await _context.Chats.Where(x => x.Type == ChatType.Room).Where(A => A.Name.ToLower().Replace(" ", "").Contains(onderwerp.ToLower().Replace(" ", "")) && A.MaximumAge <= leeftijd && A.MinimumAge >= leeftijd).ToListAsync());
         }
 
+        [Authorize(Roles="Hulpverlener, Client")] 
         public IActionResult Private()
         {
             var chats = _repo.GetPrivateChats(GetUserId()).Take(1);
@@ -64,6 +68,7 @@ namespace Webdevelopment_Project.Controllers
             return View(chats);
         }
 
+        [Authorize(Roles="Hulpverlener, Client")] 
         public async Task<IActionResult> CreatePrivateRoom(string userId)
         {
             var id = await _repo.CreatePrivateRoom(GetUserId(), userId);
@@ -71,12 +76,14 @@ namespace Webdevelopment_Project.Controllers
             return RedirectToAction("Chat", new { id });
         }
 
+        [Authorize(Roles="Hulpverlener, Client")] 
         [HttpGet("{id}")]
         public IActionResult Chat(int id)
         {
             return View(_repo.GetChat(id));
         }
 
+        [Authorize(Roles = "Hulpverlener")]
         [HttpPost]
         public async Task<IActionResult> CreateRoom(string name, int minimumAge, int maximumAge)
         {
@@ -84,13 +91,7 @@ namespace Webdevelopment_Project.Controllers
             return RedirectToAction("FindGroup");
         }
 
-        // [HttpPost]
-        // public async Task<IActionResult> DeleteRoom(string name)
-        // {
-        //     await _repo.DeleteRoom(name, GetUserId());
-        //     return RedirectToAction("Index");
-        // }
-
+        [Authorize(Roles="Hulpverlener, Client")] 
         [HttpGet]
         public async Task<IActionResult> JoinRoom(int id)
         {
@@ -99,6 +100,7 @@ namespace Webdevelopment_Project.Controllers
             return RedirectToAction("Chat", "Chat", new { id = id });
         }
 
+        [Authorize(Roles="Hulpverlener, Client")] 
         public async Task<IActionResult> SendMessage(
             int roomId,
             string message,
@@ -116,34 +118,10 @@ namespace Webdevelopment_Project.Controllers
 
             return Ok();
         }
-
+        
         public string GetUserId()
         {
             return User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
-        
-        // public async Task<IActionResult> MisbruikMelden(int chatId, string roomName)
-        // {
-
-        //     var message = new Message {
-        //         ChatId = chatId,
-        //         Name = "er is misbruik gemeld bij de kamer",
-        //         Text = roomName,
-        //         Timestamp = DateTime.Now,
-        //         TypMessage = "abuse"
-        //     };
-
-        //     _context.Messages.Add(message);
-        //     await _context.SaveChangesAsync();
-
-        //     return RedirectToAction("Chat", new {id = chatId});
-        // }
-
-        // public async Task<IActionResult> GebruikerBlokkeren(string userId)
-        // {
-        //     _context.ChatUsers.FirstOrDefault(a => a.UserId == userId).blocked = !_context.ChatUsers.FirstOrDefault(a => a.UserId == userId).blocked;
-        //     await _context.SaveChangesAsync();
-        //     return RedirectToAction("Index");
-        // }
     }
 }

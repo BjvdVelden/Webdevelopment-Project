@@ -19,23 +19,21 @@ namespace Webdevelopment_Project.Models
 
         public string Voornaam { get; set; }
         public string Achternaam { get; set; }
-
         [DataType(DataType.Date)]
         public DateTime GeboorteDatum { get;set;}
         public string Postcode { get; set; }
         public string Huisnummer { get; set; }
-        // public string clientEmail { get; set; }H
-
         public string VoogdEmail { get; set; }
         public string HulpverlenerEmail { get; set; }
-        public ICollection<Afspraak> Afspraken { get; set; }
 
+        public ICollection<Afspraak> Afspraken { get; set; }
         public ICollection<Intake> Intakes { get; set; }
         
-          public int getLeeftijd()
+        public int getLeeftijd()
         {
             return BerekenLeeftijd(GeboorteDatum);
         }
+
         public static int BerekenLeeftijd(DateTime geboortedatum)
         {
             var leeftijd = DateTime.Today.Year - geboortedatum.Year;
@@ -44,14 +42,7 @@ namespace Webdevelopment_Project.Models
             {
                 return leeftijd;
             }
-            
             return leeftijd - 1;
         }
-
     }
-
-    public class Client: ApplicationUser {
-        public ICollection<Hulpverlener> Hulpverleners{get;set;}
-    }
-   
 }
