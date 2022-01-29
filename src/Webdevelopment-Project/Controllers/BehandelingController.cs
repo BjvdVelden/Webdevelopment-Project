@@ -19,7 +19,7 @@ namespace Webdevelopment_Project.Controllers
             _context = context;
         }
 
-        [Authorize(Roles="Hulpverlener, Moderator")] 
+        // [Authorize(Roles="Hulpverlener, Moderator")] 
         // GET: Behandeling
         public async Task<IActionResult> IndexBehandeling()
         {
@@ -27,7 +27,7 @@ namespace Webdevelopment_Project.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // GET: Behandeling/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -47,7 +47,7 @@ namespace Webdevelopment_Project.Controllers
             return View(behandeling);
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // GET: Behandeling/Create
         public IActionResult Create()
         {
@@ -55,7 +55,7 @@ namespace Webdevelopment_Project.Controllers
             return View();
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // POST: Behandeling/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -73,7 +73,7 @@ namespace Webdevelopment_Project.Controllers
             return View(behandeling);
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // GET: Behandeling/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -91,7 +91,7 @@ namespace Webdevelopment_Project.Controllers
             return View(behandeling);
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // POST: Behandeling/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -128,7 +128,7 @@ namespace Webdevelopment_Project.Controllers
             return View(behandeling);
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // GET: Behandeling/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -148,7 +148,7 @@ namespace Webdevelopment_Project.Controllers
             return View(behandeling);
         }
 
-        [Authorize(Roles="Hulpverlener")] 
+        // [Authorize(Roles="Hulpverlener")] 
         // POST: Behandeling/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

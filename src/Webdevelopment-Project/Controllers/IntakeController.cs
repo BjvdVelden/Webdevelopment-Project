@@ -28,7 +28,9 @@ namespace Webdevelopment_Project.Controllers
         public async Task<IActionResult> IndexIntake()
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
-            return View(await _context.Intake.Where(b => b.GewensteHulpverlener == currentUser.Email).Where(af => af.IsAfgehandeld == false).ToListAsync());
+                return View(await _context.Melding.Where(c => c.Ontvanger == currentUser.Email).ToListAsync());
+
+            // return View(await _context.Intake.Where(b => b.GewensteHulpverlener == currentUser.Email).Where(af => af.IsAfgehandeld == false).ToListAsync());
         }
         
         [Authorize (Roles = "Hulpverlener")]
