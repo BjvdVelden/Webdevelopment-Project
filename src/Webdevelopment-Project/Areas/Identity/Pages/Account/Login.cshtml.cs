@@ -51,7 +51,7 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me")]
+            [Display(Name = "Onthoud mij")]
             public bool RememberMe { get; set; }
         }
 
@@ -83,21 +83,23 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Gebruiker is ingelogd.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
                 }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
+
+                // if (result.IsLockedOut)
+                // {
+                //     _logger.LogWarning("Gebruiker is uitgesloten.");   <----- kan eruit?
+                //     return RedirectToPage("./Lockout");
+                // }
+                
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Ongeldige inlogpoging.");
                     return Page();
                 }
             }
