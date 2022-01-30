@@ -37,8 +37,10 @@ namespace Webdevelopment_Project.Data
         public DbSet<Melding> Melding { get; set; }
         public DbSet<Intake> Intake {get;set;}
         public DbSet<Afspraak> Afspraak { get; set; }
-        public DbSet<Report> Report { get; set; }
         public DbSet<Behandeling> Behandeling { get; set; }
         public DbSet<ApiKoppel> ApiKoppel { get; set; }
+        public DbSet<Webdevelopment_Project.Models.Report> Report { get; set; }
+        public DbSet<Webdevelopment_Project.Models.Event> Event { get; set; }
+        public DbSet<Webdevelopment_Project.Models.Calendar> Calendar { get; set; }
     }
 }

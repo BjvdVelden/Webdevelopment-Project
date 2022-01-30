@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Webdevelopment_Project.Data;
 
 namespace WebdevelopmentProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220130150011_3")]
+    partial class _3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -318,9 +320,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Property<string>("Achternaam")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CalendarId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
@@ -367,9 +366,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Property<string>("Postcode")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Reden")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -388,8 +384,6 @@ namespace WebdevelopmentProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CalendarId");
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -398,17 +392,6 @@ namespace WebdevelopmentProject.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Calendar", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Calendar");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>
@@ -459,28 +442,6 @@ namespace WebdevelopmentProject.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ChatUsers");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("CalendarId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CalendarId");
-
-                    b.ToTable("Event");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
@@ -613,15 +574,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Webdevelopment_Project.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("Webdevelopment_Project.Models.Calendar", "Calendar")
-                        .WithMany("ApplicationUsers")
-                        .HasForeignKey("CalendarId");
-
-                    b.Navigation("Calendar");
-                });
-
             modelBuilder.Entity("Webdevelopment_Project.Models.ChatUser", b =>
                 {
                     b.HasOne("Webdevelopment_Project.Models.Chat", "Chat")
@@ -639,15 +591,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Chat");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Event", b =>
-                {
-                    b.HasOne("Webdevelopment_Project.Models.Calendar", "Calendar")
-                        .WithMany("Events")
-                        .HasForeignKey("CalendarId");
-
-                    b.Navigation("Calendar");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
@@ -681,13 +624,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Chats");
 
                     b.Navigation("Intakes");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Calendar", b =>
-                {
-                    b.Navigation("ApplicationUsers");
-
-                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Chat", b =>

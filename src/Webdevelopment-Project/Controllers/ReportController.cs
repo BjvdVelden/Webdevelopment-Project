@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,20 +14,22 @@ namespace Webdevelopment_Project.Controllers
     public class ReportController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ReportController(ApplicationDbContext context)
+        public ReportController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        [Authorize (Roles = "Moderator")]
         // GET: Report
         public async Task<IActionResult> IndexReport()
-        {
-            return View(await _context.Report.ToListAsync());
+        {   
+            var applicationDbContext = _context.Report.Include(r => r.ApplicationUser);
+            return View(await applicationDbContext.ToListAsync());
         }
+        
 
-        [Authorize (Roles = "Moderator")]
         // GET: Report/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -37,6 +39,7 @@ namespace Webdevelopment_Project.Controllers
             }
 
             var report = await _context.Report
+                .Include(r => r.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.ReportId == id);
             if (report == null)
             {
@@ -46,31 +49,35 @@ namespace Webdevelopment_Project.Controllers
             return View(report);
         }
 
-        [Authorize (Roles = "Hulpverlener, Client")]
         // GET: Report/Create
         public IActionResult Create()
         {
+            var user = HttpContext.Request.Query["UserName"];
+            ViewBag.UserName = user;
+
+            
+
+            ViewData["ApplicationUserID"] = user;
             return View();
         }
 
-        [Authorize (Roles = "Hulpverlener, Client")]
         // POST: Report/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReportId,Name,Reden")] Report report)
+        public async Task<IActionResult> Create([Bind("ReportId,Reden,ApplicationUserID")] Report report)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(report);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("IndexReport");
+                return RedirectToAction("FindGroup", "Chat");
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "UserName", "UserName", report.ApplicationUserID);
             return View(report);
         }
 
-        [Authorize (Roles = "Moderator")]
         // GET: Report/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -84,16 +91,16 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "UserName", "UserName", report.ApplicationUserID);
             return View(report);
-        }   
+        }
 
-        [Authorize (Roles = "Moderator")]
         // POST: Report/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReportId,Name,Reden")] Report report)
+        public async Task<IActionResult> Edit(int id, [Bind("ReportId,Reden,ApplicationUserID")] Report report)
         {
             if (id != report.ReportId)
             {
@@ -120,10 +127,10 @@ namespace Webdevelopment_Project.Controllers
                 }
                 return RedirectToAction("IndexReport");
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "UserName", "UserName", report.ApplicationUserID);
             return View(report);
         }
 
-        [Authorize (Roles = "Moderator")]
         // GET: Report/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -133,6 +140,7 @@ namespace Webdevelopment_Project.Controllers
             }
 
             var report = await _context.Report
+                .Include(r => r.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.ReportId == id);
             if (report == null)
             {
@@ -142,7 +150,6 @@ namespace Webdevelopment_Project.Controllers
             return View(report);
         }
 
-        [Authorize (Roles = "Moderator")]
         // POST: Report/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

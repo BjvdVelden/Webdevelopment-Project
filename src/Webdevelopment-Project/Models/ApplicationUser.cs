@@ -25,6 +25,9 @@ namespace Webdevelopment_Project.Models
         public string Huisnummer { get; set; }
         public string VoogdEmail { get; set; }
         public string HulpverlenerEmail { get; set; }
+        public string Reden { get; set; }
+
+        public Calendar Calendar { get; set; }
 
         public ICollection<Afspraak> Afspraken { get; set; }
         public ICollection<Intake> Intakes { get; set; }

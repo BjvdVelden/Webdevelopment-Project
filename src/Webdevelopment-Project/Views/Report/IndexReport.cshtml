@@ -1,22 +1,19 @@
 @model IEnumerable<Webdevelopment_Project.Models.Report>
 
 @{
-    ViewData["Title"] = "IndexReport";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Overzicht Reports</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Reden)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reden)
+                @Html.DisplayNameFor(model => model.ApplicationUser)
             </th>
             <th></th>
         </tr>
@@ -25,10 +22,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Reden)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Reden)
+                @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ReportId">Edit</a> |

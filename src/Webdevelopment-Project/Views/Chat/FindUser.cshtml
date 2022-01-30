@@ -11,7 +11,7 @@
     <div style="margin-top: 50px">
         <a> @user.Email</a>
         @* <a style="margin-right: 50px;" asp-controller="Chat" asp-action="CreatePrivateRoom" asp-route-userId="@user.Id">@user.UserName</a> *@
-        <a class="btn btn-danger" role="button" asp-controller="Report" asp-action="Create"> Meld misbruik </a>
+        <a class="btn btn-danger" role="button" asp-controller="Report" asp-action="Create" asp-route-UserName="@user.UserName"> Meld misbruik </a>
     </div>
     
     }
