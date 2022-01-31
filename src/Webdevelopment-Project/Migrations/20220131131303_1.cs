@@ -35,35 +35,15 @@ namespace WebdevelopmentProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUsers",
+                name: "Calendar",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "TEXT", nullable: false),
-                    Voornaam = table.Column<string>(type: "TEXT", nullable: true),
-                    Achternaam = table.Column<string>(type: "TEXT", nullable: true),
-                    GeboorteDatum = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Postcode = table.Column<string>(type: "TEXT", nullable: true),
-                    Huisnummer = table.Column<string>(type: "TEXT", nullable: true),
-                    VoogdEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
-                    PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "TEXT", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.PrimaryKey("PK_Calendar", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,6 +98,90 @@ namespace WebdevelopmentProject.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "TEXT", nullable: false),
+                    Voornaam = table.Column<string>(type: "TEXT", nullable: true),
+                    Achternaam = table.Column<string>(type: "TEXT", nullable: true),
+                    GeboorteDatum = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Postcode = table.Column<string>(type: "TEXT", nullable: true),
+                    Huisnummer = table.Column<string>(type: "TEXT", nullable: true),
+                    VoogdEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    Reden = table.Column<string>(type: "TEXT", nullable: true),
+                    CalendarId = table.Column<int>(type: "INTEGER", nullable: true),
+                    UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
+                    PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "TEXT", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "TEXT", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "INTEGER", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Calendar_CalendarId",
+                        column: x => x.CalendarId,
+                        principalTable: "Calendar",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Event",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CalendarId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Event", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Event_Calendar_CalendarId",
+                        column: x => x.CalendarId,
+                        principalTable: "Calendar",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserName = table.Column<string>(type: "TEXT", nullable: false),
+                    Text = table.Column<string>(type: "TEXT", nullable: false),
+                    When = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    TypMessage = table.Column<string>(type: "TEXT", nullable: true),
+                    ChatId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Messages_Chats_ChatId",
+                        column: x => x.ChatId,
+                        principalTable: "Chats",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -255,6 +319,34 @@ namespace WebdevelopmentProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ChatUsers",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "TEXT", nullable: false),
+                    ChatId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    BehandelaarEmail = table.Column<string>(type: "TEXT", nullable: true),
+                    Bericht = table.Column<string>(type: "TEXT", nullable: true),
+                    verzendTijd = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChatUsers", x => new { x.ChatId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_ChatUsers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChatUsers_Chats_ChatId",
+                        column: x => x.ChatId,
+                        principalTable: "Chats",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Intake",
                 columns: table => new
                 {
@@ -285,73 +377,28 @@ namespace WebdevelopmentProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChatUsers",
-                columns: table => new
-                {
-                    UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    ChatId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: true),
-                    BehandelaarEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    Bericht = table.Column<string>(type: "TEXT", nullable: true),
-                    verzendTijd = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChatUsers", x => new { x.ChatId, x.UserId });
-                    table.ForeignKey(
-                        name: "FK_ChatUsers_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChatUsers_Chats_ChatId",
-                        column: x => x.ChatId,
-                        principalTable: "Chats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Messages",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    UserName = table.Column<string>(type: "TEXT", nullable: false),
-                    Text = table.Column<string>(type: "TEXT", nullable: false),
-                    When = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    TypMessage = table.Column<string>(type: "TEXT", nullable: true),
-                    ChatId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Messages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Messages_Chats_ChatId",
-                        column: x => x.ChatId,
-                        principalTable: "Chats",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Report",
                 columns: table => new
                 {
                     ReportId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
                     Reden = table.Column<string>(type: "TEXT", nullable: true),
-                    MessageId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true),
+                    UserNameId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Report", x => x.ReportId);
                     table.ForeignKey(
-                        name: "FK_Report_Messages_MessageId",
-                        column: x => x.MessageId,
-                        principalTable: "Messages",
+                        name: "FK_Report_AspNetUsers_ApplicationUserID",
+                        column: x => x.ApplicationUserID,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Report_AspNetUsers_UserNameId",
+                        column: x => x.UserNameId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -393,6 +440,11 @@ namespace WebdevelopmentProject.Migrations
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_CalendarId",
+                table: "AspNetUsers",
+                column: "CalendarId");
+
+            migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
@@ -409,6 +461,11 @@ namespace WebdevelopmentProject.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Event_CalendarId",
+                table: "Event",
+                column: "CalendarId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Intake_ApplicationUserId",
                 table: "Intake",
                 column: "ApplicationUserId");
@@ -419,9 +476,14 @@ namespace WebdevelopmentProject.Migrations
                 column: "ChatId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Report_MessageId",
+                name: "IX_Report_ApplicationUserID",
                 table: "Report",
-                column: "MessageId");
+                column: "ApplicationUserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Report_UserNameId",
+                table: "Report",
+                column: "UserNameId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -454,10 +516,16 @@ namespace WebdevelopmentProject.Migrations
                 name: "ChatUsers");
 
             migrationBuilder.DropTable(
+                name: "Event");
+
+            migrationBuilder.DropTable(
                 name: "Intake");
 
             migrationBuilder.DropTable(
                 name: "Melding");
+
+            migrationBuilder.DropTable(
+                name: "Messages");
 
             migrationBuilder.DropTable(
                 name: "Report");
@@ -466,13 +534,13 @@ namespace WebdevelopmentProject.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Chats");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Messages");
-
-            migrationBuilder.DropTable(
-                name: "Chats");
+                name: "Calendar");
         }
     }
 }

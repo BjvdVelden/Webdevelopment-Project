@@ -522,17 +522,12 @@ namespace WebdevelopmentProject.Migrations
                     b.Property<string>("ApplicationUserID")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("MessageId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Reden")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ReportId");
 
                     b.HasIndex("ApplicationUserID");
-
-                    b.HasIndex("MessageId");
 
                     b.ToTable("Report");
                 });
@@ -664,12 +659,8 @@ namespace WebdevelopmentProject.Migrations
             modelBuilder.Entity("Webdevelopment_Project.Models.Report", b =>
                 {
                     b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserID");
-
-                    b.HasOne("Webdevelopment_Project.Models.Message", null)
                         .WithMany("Reports")
-                        .HasForeignKey("MessageId");
+                        .HasForeignKey("ApplicationUserID");
 
                     b.Navigation("ApplicationUser");
                 });
@@ -681,6 +672,8 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Chats");
 
                     b.Navigation("Intakes");
+
+                    b.Navigation("Reports");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.Calendar", b =>
@@ -695,11 +688,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Messages");
 
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
-                {
-                    b.Navigation("Reports");
                 });
 #pragma warning restore 612, 618
         }

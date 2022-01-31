@@ -4,8 +4,14 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Overzicht Reports</h1>
+<h1>Index</h1>
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="Blokkeren">Blokkeren</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -13,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Reden)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser)
+                @Html.DisplayNameFor(model => model.ApplicationUserID)
             </th>
             <th></th>
         </tr>

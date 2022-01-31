@@ -31,6 +31,7 @@ namespace Webdevelopment_Project.Models
 
         public ICollection<Afspraak> Afspraken { get; set; }
         public ICollection<Intake> Intakes { get; set; }
+        public ICollection<Report> Reports { get; set; }
         
         public int getLeeftijd()
         {

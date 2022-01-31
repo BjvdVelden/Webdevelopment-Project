@@ -23,6 +23,11 @@ namespace Webdevelopment_Project.Data
 
             builder.Entity<ChatUser>()
                 .HasKey(x => new { x.ChatId , x.UserId });
+            builder.Entity<Report>()
+                .HasOne<ApplicationUser>(d => d.ApplicationUser)
+                .WithMany(dm => dm.Reports)
+                .HasForeignKey(dkey => dkey.ApplicationUserID);
+                
         }
 
         internal Task<IdentityResult> CreateAsync(IdentityRole identityRole)
@@ -39,8 +44,8 @@ namespace Webdevelopment_Project.Data
         public DbSet<Afspraak> Afspraak { get; set; }
         public DbSet<Behandeling> Behandeling { get; set; }
         public DbSet<ApiKoppel> ApiKoppel { get; set; }
+        public DbSet<Event> Event { get; set; }
+        public DbSet<Calendar> Calendar { get; set; }
         public DbSet<Webdevelopment_Project.Models.Report> Report { get; set; }
-        public DbSet<Webdevelopment_Project.Models.Event> Event { get; set; }
-        public DbSet<Webdevelopment_Project.Models.Calendar> Calendar { get; set; }
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,21 +13,19 @@ namespace Webdevelopment_Project.Controllers
     public class ReportController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ReportController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public ReportController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
         // GET: Report
-        public async Task<IActionResult> IndexReport()
-        {   
+        public async Task<IActionResult> Index()
+        {
+
             var applicationDbContext = _context.Report.Include(r => r.ApplicationUser);
             return View(await applicationDbContext.ToListAsync());
         }
-        
 
         // GET: Report/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -51,13 +48,14 @@ namespace Webdevelopment_Project.Controllers
 
         // GET: Report/Create
         public IActionResult Create()
-        {
+        {   
             var user = HttpContext.Request.Query["UserName"];
             ViewBag.UserName = user;
 
-            
-
-            ViewData["ApplicationUserID"] = user;
+            ViewData["ApplicationUserID"] = (from s in _context.AppUsers
+                                            where s.UserName.Equals(user)
+                                            select s.Id).FirstOrDefault();
+            // _context.AppUsers.Where(x => x.UserName == username).Select(s => s.UserName).FirstOrDefault();
             return View();
         }
 
@@ -68,13 +66,17 @@ namespace Webdevelopment_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ReportId,Reden,ApplicationUserID")] Report report)
         {
+            var user = HttpContext.Request.Query["UserName"];
+            ViewBag.UserName = user;
             if (ModelState.IsValid)
             {
                 _context.Add(report);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("FindGroup", "Chat");
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "UserName", "UserName", report.ApplicationUserID);
+            ViewData["ApplicationUserID"] = (from s in _context.AppUsers
+                                            where s.UserName.Equals(user)
+                                            select s.Id).FirstOrDefault();
             return View(report);
         }
 
@@ -91,7 +93,7 @@ namespace Webdevelopment_Project.Controllers
             {
                 return NotFound();
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "UserName", "UserName", report.ApplicationUserID);
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Id", "Id", report.ApplicationUserID);
             return View(report);
         }
 
@@ -125,9 +127,9 @@ namespace Webdevelopment_Project.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("IndexReport");
+                return RedirectToAction(nameof(Index));
             }
-            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "UserName", "UserName", report.ApplicationUserID);
+            ViewData["ApplicationUserID"] = new SelectList(_context.AppUsers, "Id", "Id", report.ApplicationUserID);
             return View(report);
         }
 
@@ -158,7 +160,7 @@ namespace Webdevelopment_Project.Controllers
             var report = await _context.Report.FindAsync(id);
             _context.Report.Remove(report);
             await _context.SaveChangesAsync();
-            return RedirectToAction("IndexReport");
+            return RedirectToAction(nameof(Index));
         }
 
         private bool ReportExists(int id)

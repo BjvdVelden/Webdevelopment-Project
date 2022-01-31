@@ -9,8 +9,8 @@ using Webdevelopment_Project.Data;
 namespace WebdevelopmentProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220130191950_5")]
-    partial class _5
+    [Migration("20220131131303_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -524,17 +524,17 @@ namespace WebdevelopmentProject.Migrations
                     b.Property<string>("ApplicationUserID")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("MessageId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Reden")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserNameId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("ReportId");
 
                     b.HasIndex("ApplicationUserID");
 
-                    b.HasIndex("MessageId");
+                    b.HasIndex("UserNameId");
 
                     b.ToTable("Report");
                 });
@@ -669,11 +669,13 @@ namespace WebdevelopmentProject.Migrations
                         .WithMany()
                         .HasForeignKey("ApplicationUserID");
 
-                    b.HasOne("Webdevelopment_Project.Models.Message", null)
-                        .WithMany("Reports")
-                        .HasForeignKey("MessageId");
+                    b.HasOne("Webdevelopment_Project.Models.ApplicationUser", "UserName")
+                        .WithMany()
+                        .HasForeignKey("UserNameId");
 
                     b.Navigation("ApplicationUser");
+
+                    b.Navigation("UserName");
                 });
 
             modelBuilder.Entity("Webdevelopment_Project.Models.ApplicationUser", b =>
@@ -697,11 +699,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Navigation("Messages");
 
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Webdevelopment_Project.Models.Message", b =>
-                {
-                    b.Navigation("Reports");
                 });
 #pragma warning restore 612, 618
         }
