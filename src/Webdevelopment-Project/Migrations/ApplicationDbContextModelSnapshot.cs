@@ -367,9 +367,6 @@ namespace WebdevelopmentProject.Migrations
                     b.Property<string>("Postcode")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Reden")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 

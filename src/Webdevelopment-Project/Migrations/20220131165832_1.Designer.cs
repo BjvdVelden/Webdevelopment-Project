@@ -9,8 +9,8 @@ using Webdevelopment_Project.Data;
 namespace WebdevelopmentProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220131132932_2")]
-    partial class _2
+    [Migration("20220131165832_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -367,9 +367,6 @@ namespace WebdevelopmentProject.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Postcode")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Reden")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SecurityStamp")

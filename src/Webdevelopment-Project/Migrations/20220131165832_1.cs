@@ -114,7 +114,6 @@ namespace WebdevelopmentProject.Migrations
                     Huisnummer = table.Column<string>(type: "TEXT", nullable: true),
                     VoogdEmail = table.Column<string>(type: "TEXT", nullable: true),
                     HulpverlenerEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    Reden = table.Column<string>(type: "TEXT", nullable: true),
                     CalendarId = table.Column<int>(type: "INTEGER", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -383,8 +382,7 @@ namespace WebdevelopmentProject.Migrations
                     ReportId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Reden = table.Column<string>(type: "TEXT", nullable: true),
-                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true),
-                    UserNameId = table.Column<string>(type: "TEXT", nullable: true)
+                    ApplicationUserID = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -392,12 +390,6 @@ namespace WebdevelopmentProject.Migrations
                     table.ForeignKey(
                         name: "FK_Report_AspNetUsers_ApplicationUserID",
                         column: x => x.ApplicationUserID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Report_AspNetUsers_UserNameId",
-                        column: x => x.UserNameId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -479,11 +471,6 @@ namespace WebdevelopmentProject.Migrations
                 name: "IX_Report_ApplicationUserID",
                 table: "Report",
                 column: "ApplicationUserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Report_UserNameId",
-                table: "Report",
-                column: "UserNameId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
