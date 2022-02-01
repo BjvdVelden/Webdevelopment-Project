@@ -1,16 +1,14 @@
-﻿@page
+@page
 @* @inject UserManager<ApplicationUser> userManager
 @using Webdevelopment_Project.Models *@
-@model RegisterModel
+@model RegisterModel2
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Register2";
     @* var currentUser = await userManager.GetUserAsync(User);
     string email = currentUser.Email; *@
 }
 <div></div>
 <div></div>
-<a class="btn btn-primary" asp-area="Identity" asp-page="/Account/RegisterAssistent">Registreer een assistent</a>
-<a class="btn btn-primary" asp-area="Identity" asp-page="/Account/RegisterHulpverlener">Registreer een hulpverlener</a>
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="register-container">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
@@ -36,29 +34,7 @@
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Postcode"></label>
-                <input asp-for="Input.Postcode" class="form-control" />
-                <span asp-validation-for="Input.Postcode" class="text-danger"></span>
-            </div>   
-            
-            <div class="form-group">
-                <label asp-for="Input.Huisnummer"></label>
-                <input asp-for="Input.Huisnummer" class="form-control" />
-                <span asp-validation-for="Input.Huisnummer" class="text-danger"></span>
-            </div>  
-            
-            <div class="form-group">
-                <label asp-for="Input.EmailVoogd"></label>
-                <input asp-for="Input.EmailVoogd" class="form-control" />
-                <span asp-validation-for="Input.EmailVoogd" class="text-danger"></span>
-            </div>  
-            <div class="form-group">
-               <label asp-for="Input.EmailHulpverlener"></label>
-                <input asp-for="Input.EmailHulpverlener" class="form-control" />
-                <span asp-validation-for="Input.EmailHulpverlener" class="text-danger"></span>
-            </div>                      
+            </div>                 
             <div class="form-group">
                 <label asp-for="Input.Password"></label>
                 <input asp-for="Input.Password" class="form-control" />

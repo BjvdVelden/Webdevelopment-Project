@@ -42,10 +42,7 @@ namespace Webdevelopment_Project.Controllers
         public async Task<IActionResult> FindUserAsync()
         {
             var users = _context.Users.Where(x => x.Id != User.GetUserId()).ToList();
-            // var users = _context.Users.Where(x => x.Id != User.GetUserId()).ToList();
-            //var relatie = _context.AppUsers.Where(c=> c.Email == clientmail);
-                       
-                // var clientmail = _context.Users.Where(v=>v.Email == user.Email).SingleOrDefault().HulpverlenerEmail;
+                
                 return View(users);
          
         }
