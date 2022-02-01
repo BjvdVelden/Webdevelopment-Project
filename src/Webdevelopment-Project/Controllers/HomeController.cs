@@ -42,7 +42,7 @@ namespace Webdevelopment_Project.Controllers
 
 // Specialisten
 
-        public IActionResult Specialisten()
+        public IActionResult OnzeSpecialisten()
         {
             return View();
         }

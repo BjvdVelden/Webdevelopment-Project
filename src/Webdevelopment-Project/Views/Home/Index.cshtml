@@ -1,9 +1,8 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Pagina";
 }
-
-    <head>  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="nl">
+<head>  
   <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="carousel.css" rel="stylesheet">    
@@ -16,15 +15,16 @@
           <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
 
+      <h1 class="name">Zorgmaatschap Den Haag</h1>
         @* Item 1 in Carousel *@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img class="first-slide" src="https://www.werkmetmensen.be/sites/default/files/styles/1200_x_628/public/iso800%20-%20Vivo%20-%20Coachingstechnieken-73%20%28Aangepast%29.jpg?itok=D8K6ecHY" alt="Slide 1">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>Hoe meld ik mij aan?</h1>
+                <h2>Hoe meld ik mij aan?</h2>
                 <p> 
-                    Ouders kunnen hun kind online aanmelden bij de praktijk voor een intakegesprek, voor >=16 jaar kan de jongere dat zelf. 
+                    Ouders kunnen hun kind online aanmelden bij de praktijk voor een intakegesprek, vanaf 16 jaar kan de jongere dat zelf. 
                     Hierbij dient de aard van de aandoening aangegeven te worden vergezeld van een verwijzing door de huisarts. 
                 </p>
                 <p><a class="btn btn-lg btn-primary" asp-area="" asp-controller="Intake" asp-action="Kindv" role="button">Aanmelden</a></p>
@@ -49,8 +49,8 @@
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Slide 3">
             <div class="container">
               <div class="carousel-caption text-right">
-                <h3>Begin met chatten!</h3>
-                <p>Broer</p>
+                <h2>Begin met chatten!</h2>
+                @* <p>*text*</p> *@
                 <p><a class="btn btn-lg btn-primary" asp-area="" asp-controller="Chat" asp-action="FindGroup" role="button" role="button">Begin met chatten!</a></p>
               </div>
             </div>
@@ -71,8 +71,8 @@
         <hr class="featurette-divider">
 
          <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h1 class="featurette-heading">Informatie ouders </h1>
+          <div class="col-8 col-md-7 order-md-2">
+            <h2 class="featurette-heading">Informatie ouders </h2>
             <p class="lead">
               De praktijk helpt jongeren en ouderen. De praktijk is gespecialiseerd in aandoeningen zoals ADD/ADHD, faalangst, 
               dyslectie/dyscalculie, weinig zelfvertrouwen, laag zelfbeeld en psychische aandoeningen zoals anorexia en 
@@ -80,13 +80,13 @@
               De beroepscode van de Nederlandse Vereniging van Orthopedagogen hanteert de volgende leeftijdscategorieën voor het geven van toestemming voor behandeling/begeleiding en onderzoek:  
             </p>
             <ul>
-              <li>Voor kinderen < 12 jaar: de ouder(s) met het gezag (=voogd(en)); </li>
+              <li>Voor kinderen onder de 12 jaar: de ouder(s) met het gezag (=voogd(en)); </li>
               <li>Voor jongeren van 12 tot 16 jaar: de jeugdige en de ouder(s)/voogd(en); </li>
               <li>tussen 12 en 16 jaar oefenen jongeren hun rechten samen met hun gezaghebbende ouders/voogden uit. Dan is er toestemming van gezaghebbende ouders/voogden en de jongere nodig; </li>
-              <li>voor jongeren >= 16 jaar: de jongere zelf. In de jeugdhulp zijn jongeren al vanaf hun 16e jaar zelfstandig. Zij beslissen zelf over hulp en behandeling en oefenen hun rechten zelfstandig uit </li>
+              <li>voor jongeren vanaf 16 jaar: de jongere zelf. In de jeugdhulp zijn jongeren al vanaf hun 16e jaar zelfstandig. Zij beslissen zelf over hulp en behandeling en oefenen hun rechten zelfstandig uit </li>
             </ul>
           </div>
-          <div class="col-md-5 order-md-1">
+          <div class="col-4 col-md-5 order-md-1">
             <img class="featurette-image img-fluid mx-auto" src="https://www.vindeentherapeut.be/media/content/6011932137390.jpg" alt="foto1">
           </div>
         </div>
@@ -94,7 +94,7 @@
         <hr class="featurette-divider">
         <div class="row featurette">
           <div class="col-md-7">
-            <h1 class="featurette-heading">Afspraak maken</h1>
+            <h2 class="featurette-heading">Afspraak maken</h2>
             <p class="lead">
             Voor iedere orthopedagoog is een profiel beschikbaar bestaande uit een korte introductie en het specialisme van de betreffende behandelaar. 
             Zo kan men direct bij aanmelden kiezen voor een orthopedagoog en een afspraak. Telefonisch kan er ook contact met ons opgenomen worden. 
@@ -110,7 +110,7 @@
 
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-            <h1 class="featurette-heading">Intake </h1>
+            <h2 class="featurette-heading">Intake</h2>
             <p class="lead">
               Na een aanmelding volgt er een intake. Na de intake kan een hulpverlener voor een cliënt (kind) en optioneel voor zijn of haar ouder/voogd een account aanmaken om toegang te krijgen tot chat en zelfhulpgroep(en). 
               Deze krijgen allebei apart een email om een wachtwoord aan te maken. Waarna ze kunnen inloggen. 
