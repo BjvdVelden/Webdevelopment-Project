@@ -20,7 +20,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Calendar
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexCalendar()
         {
             return View(await _context.Calendar.ToListAsync());
         }

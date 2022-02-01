@@ -47,7 +47,6 @@
 
       @* 2 Changeable Navbar buttons on the right *@
         <ul class="navbar-nav ml-auto">
-            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/RegisterAssistent">Registreer assistent</a>
             @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
                     {
                         <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
@@ -57,6 +56,11 @@
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
                     {
                         <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
+                    }
+
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Assistent"))
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Calendar" asp-action="IndexCalendar">Intake inplannen</a>
                     }
                             @if (signInManager.IsSignedIn(User))
                             {
