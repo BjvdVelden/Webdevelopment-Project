@@ -63,34 +63,34 @@
             @* 2 Changeable Navbar buttons on the right *@
             @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
                     {
-                        <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
-                        <a class="nav-link" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
+                        <a class="nav-link nav-item" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
+                        <a class="nav-link nav-item" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
                     }
 
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
                     {
-                        <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
+                        <a class="nav-link nav-item" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
                     }
 
                     @if (signInManager.IsSignedIn(User))
                     {
-                        <a type="submit" class="nav-link btn btn-link" method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post"> Uitloggen </a>
+                        <a type="submit" class="nav-link nav-item" method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post"> Uitloggen </a>
                     }
 
                     @if (signInManager.IsSignedIn(User))
                     {
-                        <a type="submit" class="nav-link btn btn-link" method="get" asp-area="Identity" asp-page="/Account/Manage/Index"> Profiel </a>
+                        <a type="submit" class="nav-link nav-item" method="get" asp-area="Identity" asp-page="/Account/Manage/Index"> Profiel </a>
                     }
 
                     @if(!signInManager.IsSignedIn(User))
                     {
-                        <a type="submit" class="nav-link btn btn-link" method="get" asp-area="Identity" asp-page="/Account/Login"> Inloggen </a>
+                        <a type="submit" class="nav-link nav-item" method="get" asp-area="Identity" asp-page="/Account/Login"> Inloggen </a>
                                     
                     }
                     
                     @if(!signInManager.IsSignedIn(User))
                         {
-                            <a type="submit" class="nav-link btn btn-link" method="get" asp-area="Identity" asp-page="/Account/Register"> Registreren </a>
+                            <a type="submit" class="nav-link nav-item" method="get" asp-area="Identity" asp-page="/Account/Register"> Registreren </a>
                         }
     </div>
   </div>
