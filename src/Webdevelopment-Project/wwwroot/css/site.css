@@ -117,6 +117,7 @@ a.navbar-brand {
 
 .show{
   margin-bottom: 120px;
+  z-index: 5000;
 }
 
 .nav-link:hover{
