@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Webdevelopment_Project.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Webdevelopment_Project.Models{
-
-public class Event
+namespace Webdevelopment_Project.Models
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public DateTime Date { get; set; }
-
-    public Calendar Calendar { get; set; }
-}
+    public class Event
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string StartDate { get; set; }
+    }
 }

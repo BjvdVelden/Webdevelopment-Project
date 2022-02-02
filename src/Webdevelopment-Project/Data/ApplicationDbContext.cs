@@ -46,6 +46,6 @@ namespace Webdevelopment_Project.Data
         public DbSet<ApiKoppel> ApiKoppel { get; set; }
         public DbSet<Event> Event { get; set; }
         public DbSet<Calendar> Calendar { get; set; }
-        public DbSet<Webdevelopment_Project.Models.Report> Report { get; set; }
+        public DbSet<Report> Report { get; set; }
     }
 }

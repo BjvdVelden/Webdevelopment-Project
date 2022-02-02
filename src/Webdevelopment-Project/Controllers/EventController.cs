@@ -20,7 +20,7 @@ namespace Webdevelopment_Project.Controllers
         }
 
         // GET: Event
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexEvent()
         {
             return View(await _context.Event.ToListAsync());
         }
@@ -54,13 +54,13 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Date")] Event @event)
+        public async Task<IActionResult> Create([Bind("Id,Title,StartDate")] Event @event)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexCalendar", "Calendar");
             }
             return View(@event);
         }
@@ -86,7 +86,7 @@ namespace Webdevelopment_Project.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Date")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,StartDate")] Event @event)
         {
             if (id != @event.Id)
             {
@@ -111,7 +111,7 @@ namespace Webdevelopment_Project.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexCalendar", "Calendar");
             }
             return View(@event);
         }
@@ -142,7 +142,7 @@ namespace Webdevelopment_Project.Controllers
             var @event = await _context.Event.FindAsync(id);
             _context.Event.Remove(@event);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("IndexCalendar", "Calendar");
         }
 
         private bool EventExists(int id)
