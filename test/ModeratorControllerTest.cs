@@ -77,7 +77,7 @@ namespace test
 
             var s = moderator.Blokkeren(appUser.Id);
 
-            Assert.NotNull(s);
+           
             Assert.Equal("Zelfhulpgroep_ban", contextUser.Value);
             Assert.NotEqual("Client", contextUser.Value);
         }
@@ -99,7 +99,7 @@ namespace test
 
             var s = moderator.Blokkeren(appUser.Id);
 
-            Assert.NotNull(s);
+           
             Assert.NotEqual("Zelfhulpgroep_ban", contextUser.Value);
             Assert.Equal("Client", contextUser.Value);
             
