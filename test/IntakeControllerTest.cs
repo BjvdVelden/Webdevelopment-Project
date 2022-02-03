@@ -61,20 +61,10 @@ namespace test
             Task<IActionResult> intakeOuder = controller.CVoogd(intake);
             
             Assert.NotNull(intakeOuder);
+            Assert.Equal("Serdin",intake.Voornaam);
+            Assert.Equal("Despressie",intake.Onderwerp);
         }
 
-        [Fact]
-        public void IntakeKindTest(){
-            var mgr = MockUserManager();
-            var controller = new IntakeController(context, mgr.Object);
-            
-            var intake = createIntake();
-            
-            Task<IActionResult> intakeKind = controller.CKind(intake);
-
-            Assert.NotNull(intakeKind);
-    
-        }
 
         [Fact]
         public void IndexIntakeTest(){
