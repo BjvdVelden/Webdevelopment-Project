@@ -4,9 +4,14 @@
 @inject UserManager<ApplicationUser> usermanager;
 
 <!DOCTYPE html>
+
+
     <html lang="nl">
         <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>@ViewData["Title"] </title>
+            
             <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
             <link rel="stylesheet" href="~/css/site.css" />
             <link href="~/css/carousel.css" rel="stylesheet"/>
@@ -14,92 +19,63 @@
     
 <body>
 <header>
-       @* NavigationBar *@
-   <nav class="navbar fixed-top navbar-expand-sm navbar" style="height: 50px; border: 2px; border-radius: 1px; background-color: #2c2c2c;">
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><img src="https://www.burojij.nl/wp-content/uploads/2020/12/Logo-JIJ-SEKSUOLOGEN-2020-portfolio-300x300.png" 
-            style="width:50px;height:50px;" alt="Zorg Maatschap Den Haag Logo">
-            </a>
 
-  @* Dropdown Menu *@
-        <div class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Menu</button>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Homepagina</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Specialisten">Specialisten</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Faq">Veel gestelde vragen</a>
-                        </div>
-                    </li>
-            </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img  src="https://www.burojij.nl/wp-content/uploads/2020/12/Logo-JIJ-SEKSUOLOGEN-2020-portfolio-300x300.png" 
+            alt="Zorg Maatschap Den Haag Logo" style="width:50px;height:50px;"></img>Zorgmaatschap Den Haag</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="OnzeSpecialisten">Specialisten</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Faq">Veel gestelde vragen</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
 
-    @* Searchbar *@
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-            <form class="form-inline my-2 my-ml-0" alt="Zoeken">
-                <input class="form-control" type="text" placeholder="Search">
-            </form>
-            </li>
-        </ul>
-
-      @* 2 Changeable Navbar buttons on the right *@
-        <ul class="navbar-nav ml-auto">
+            @* 2 Changeable Navbar buttons on the right *@
             @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
                     {
-                        <a class="nav-link" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
-                        <a class="nav-link" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
+                        <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
+                        <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
                     }
 
                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
                     {
-                        <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
+                        <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
                     }
 
-                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Assistent") || User.IsInRole("Hulpverlener"))
+                    @if (signInManager.IsSignedIn(User))
                     {
-                        <a class="nav-link" asp-area="" asp-controller="Calendar" asp-action="IndexCalendar">Intake inplannen</a>
+                        <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                            <button type="submit" class="nav-link nav-item nav-link1" style="text-align: left; min-width: 100%;"> Uitloggen</button>
+                        </form>
                     }
-                            @if (signInManager.IsSignedIn(User))
-                            {
-                                <li class="nav-item">
-                                    <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                                        <button type="submit" class="nav-link btn btn-link"> Logout @User.Identity.Name </button>
-                                    </form>
-                                </li>
-                            }
 
-                            @if (signInManager.IsSignedIn(User))
-                            {
-                                <li class="nav-item">
-                                    <form method="get" asp-area="Identity" asp-page="/Account/Manage/Index" >
-                                        <button type="submit" class="nav-link btn btn-link"> Profile @User.Identity.Name </button>
-                                    </form>
-                                </li>
-                            }
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <a type="submit" class="nav-link nav-item nav-link1" method="get" asp-area="Identity" asp-page="/Account/Manage/Index"> Profiel </a>
+                    }
 
-                            @if(!signInManager.IsSignedIn(User))
-                            {
-                            <li class="nav-item">
-                                    <form method="get" asp-area="Identity" asp-page="/Account/Login">
-                                        <button type="submit" class="nav-link btn btn-link"> Login </button>
-                                    </form>
-                                </li>
-                            }
-                            @if(!signInManager.IsSignedIn(User))
-                            {
-                            <li class="nav-item">
-                                    <form method="get" asp-area="Identity" asp-page="/Account/Register">
-                                    <button type="submit" class="nav-link btn btn-link"> Register </button>
-                                    </form>
-                                </li>
-                            }
-                        </ul>
-            </div>
-        </nav>
+                    @if(!signInManager.IsSignedIn(User))
+                    {
+                        <a type="submit" class="nav-link nav-item nav-link1" method="get" asp-area="Identity" asp-page="/Account/Login"> Inloggen </a>
+                                    
+                    }
+                    
+                    @if(!signInManager.IsSignedIn(User))
+                        {
+                            <a type="submit" class="nav-link nav-item nav-link1" method="get" asp-area="Identity" asp-page="/Account/Register"> Registreren </a>
+                        }
+    </div>
+  </div>
+</nav>
+
+
+        @* </nav> *@
         </header>
-        <div style="margin-top: 50px;" class="container" >
+        <div class="container" >
             <main role="main" class="pb-3">
             @RenderBody()
             </main>
@@ -108,6 +84,7 @@
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+
         @await RenderSectionAsync("Scripts", required: false)
 
     </body>

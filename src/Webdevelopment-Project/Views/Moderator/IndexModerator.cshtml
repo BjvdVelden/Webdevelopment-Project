@@ -4,14 +4,14 @@
     ViewData["Title"] = "IndexModerator";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>User Roles</h1>
+<h1>Gebruikersrollen</h1>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>Email</th>
             <th>Hulpverlener</th>
-            <th>Roles</th>
-            <th>Action</th>
+            <th>Rollen</th>
+            <th>Actie</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
             <td>@user.HulpverlenerEmail</td>
             <td>@string.Join(" , ", user.Roles.ToList())</td>
             <td>
-                <a class="btn btn-primary" asp-controller="Moderator" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
+                <a class="btn btn-primary" asp-controller="Moderator" asp-action="Manage" asp-route-userId="@user.UserId">Rollen beheren</a>
                 <a class="btn btn-primary" asp-controller="Moderator" asp-action="Edit" asp-route-userId="@user.UserId">Verander relatie</a>
             </td>
         </tr>

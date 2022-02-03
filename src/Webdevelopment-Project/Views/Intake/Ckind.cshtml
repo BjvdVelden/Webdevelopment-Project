@@ -1,12 +1,12 @@
 @model Intake
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Aanmaken kind";
 }
 
-<h1>Create</h1>
+<h1>Aanmaken Kind</h1>
 
-<h4>Intake</h4>
+<h2>Intake</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,17 +33,17 @@
                 <span asp-validation-for="BSN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label">Uw email</label>
+                <label asp-for="Email" class="control-label">Uw mailadres</label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmailVoogd" class="control-label">Email van uw voogd</label>
+                <label asp-for="EmailVoogd" class="control-label">Mailadres van uw voogd</label>
                 <input asp-for="EmailVoogd" class="form-control" />
                 <span asp-validation-for="EmailVoogd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="GewensteHulpverlener" class="control-label">Geef de email van een behandelaar</label>
+                <label asp-for="GewensteHulpverlener" class="control-label">Geef het mailadres van een behandelaar</label>
                 <input asp-for="GewensteHulpverlener" class="form-control" />
                 <span asp-validation-for="GewensteHulpverlener" class="text-danger"></span>
             </div>
