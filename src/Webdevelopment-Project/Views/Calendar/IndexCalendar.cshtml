@@ -336,6 +336,8 @@ load();
         <td>@Html.Encode(events.ElementAt(i).StartDate)</td>
         <td><a class="btn" asp-area="" asp-controller="Event" asp-action="Delete" asp-route-id=@Html.Encode(events.ElementAt(i).Id )>Verwijder afspraak</a></td>
         <td><a class="btn" asp-area="" asp-controller="Event" asp-action="Edit" asp-route-id=@Html.Encode(events.ElementAt(i).Id )>Wijzig afspraak</a></td>
+
+        <td><a class="btn" asp-area="" asp-controller="Event" asp-action="Create">Maak afspraak</a></td>
     </tr>
     }
 </table>
