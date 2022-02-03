@@ -42,13 +42,13 @@ namespace Webdevelopment_Project.Controllers
             return View(applicationUser);
         }
 
-        // POST: ApplicationUser/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Voornaam,Achternaam,GeboorteDatum,Postcode,Huisnummer,VoogdEmail,HulpverlenerEmail,Reden,Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount")] ApplicationUser applicationUser)
         {
+                    
             if (id != applicationUser.Id)
             {
                 return NotFound();
@@ -57,10 +57,21 @@ namespace Webdevelopment_Project.Controllers
             if (ModelState.IsValid)
             {
                 try
-                {
+                { 
+
+                    var koppelingDB = new assistentHulpverlenerKoppel {mailHulpverlener = applicationUser.HulpverlenerEmail, mailAssistent= applicationUser.Email};
+                    _context.Add(koppelingDB);
+                    _context.SaveChanges();
+                    int koppelId = koppelingDB.idKoppel -1 ;
+                    assistentHulpverlenerKoppel assistent =  _context.assistentHulpverlenerKoppel.Find(koppelId);
+                    _context.Remove(assistent);
+                    _context.SaveChanges();
+
+
                     _context.Update(applicationUser);
                     await _context.SaveChangesAsync();
                 }
+                
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ApplicationUserExists(applicationUser.Id))

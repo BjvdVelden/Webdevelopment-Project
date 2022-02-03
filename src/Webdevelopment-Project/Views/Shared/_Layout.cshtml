@@ -61,6 +61,11 @@
                     {
                         <a class="nav-link" asp-area="" asp-controller="Calendar" asp-action="IndexCalendar">Intake inplannen</a>
                     }
+
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Ouder"))
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Client" asp-action="ChatFrequentie">Berichten</a>
+                    }
                             @if (signInManager.IsSignedIn(User))
                             {
                                 <li class="nav-item">

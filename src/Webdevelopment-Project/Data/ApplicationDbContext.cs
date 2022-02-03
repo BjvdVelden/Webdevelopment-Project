@@ -47,5 +47,6 @@ namespace Webdevelopment_Project.Data
         public DbSet<Event> Event { get; set; }
         public DbSet<Calendar> Calendar { get; set; }
         public DbSet<Report> Report { get; set; }
+        public DbSet<assistentHulpverlenerKoppel> assistentHulpverlenerKoppel { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Webdevelopment_Project.Models;
+using Webdevelopment_Project.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -24,13 +25,16 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _context;
 
         public RegisterModel1(
+            ApplicationDbContext context,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
+            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -98,6 +102,11 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 
+                var koppelingDB = new assistentHulpverlenerKoppel {mailHulpverlener = Input.EmailHulpverlener, mailAssistent= Input.Email};
+                _context.Add(koppelingDB);
+                _context.SaveChanges();
+
+
                 var user = new ApplicationUser {  UserName = Input.Email, Email = Input.Email, Voornaam = Input.Voornaam, Achternaam = Input.Achternaam, GeboorteDatum = Input.Geboortedatum, HulpverlenerEmail = Input.EmailHulpverlener };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
@@ -137,5 +146,4 @@ namespace Webdevelopment_Project.Areas.Identity.Pages.Account
         }
     }
 }
-
 

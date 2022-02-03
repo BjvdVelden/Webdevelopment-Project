@@ -9,6 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Webdevelopment_Project.Models;
 using Webdevelopment_Project.Data;
 using System;
+using System.IO;  
+using System.Net;  
+using System.Net.Mail;
+using System.Text;
 
 namespace Webdevelopment_Project.Controllers
 {
@@ -28,9 +32,9 @@ namespace Webdevelopment_Project.Controllers
         public async Task<IActionResult> IndexIntake()
         {
             ApplicationUser currentUser = await _userManager.GetUserAsync(User);
-                return View(await _context.Melding.Where(c => c.Ontvanger == currentUser.Email).ToListAsync());
+                // return View(await _context.Melding.Where(c => c.Ontvanger == currentUser.Email).ToListAsync());
 
-            // return View(await _context.Intake.Where(b => b.GewensteHulpverlener == currentUser.Email).Where(af => af.IsAfgehandeld == false).ToListAsync());
+            return View(await _context.Intake.Where(b => b.GewensteHulpverlener == currentUser.Email).Where(af => af.IsAfgehandeld == false).ToListAsync());
         }
         
         [Authorize (Roles = "Hulpverlener")]
@@ -87,6 +91,34 @@ namespace Webdevelopment_Project.Controllers
             return View();
         }
 
+
+        public void sendMail(string emailClient, string emailHulpverlener, DateTime Datum, string clientVoornaam, string clientActhernaam, string hulpverlenerAssistent = "geen")
+        {
+            string to = "";
+            if(hulpverlenerAssistent == "geen"){
+                to = emailClient; //To address    
+            }
+            else{
+                to = emailClient+";"+hulpverlenerAssistent;
+            }
+            string from = emailHulpverlener; //From address    
+            MailMessage message = new MailMessage(from, to); 
+            string mailbody = "Beste heer/mevrouw " + clientActhernaam + 
+            ",<br><br> Bij deze heeft u een afspraak gemaakt met de hulpverlener: " + emailHulpverlener + 
+            ".<br><br> Het tijdstip waneer u het heeft is " + Datum + "<br><br> Met vriendelijke groet,<br> ZMDH"; 
+            message.Subject = "Betreft: Intakegesprek met hulpverlener" + emailHulpverlener;  
+            message.Body = mailbody;  
+            message.BodyEncoding = Encoding.UTF8;  
+            message.IsBodyHtml = true;  
+            using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+            {
+                smtp.Credentials = new System.Net.NetworkCredential("zmdh.zorgdienst@gmail.com", "#1Geheim");
+                smtp.EnableSsl = true;
+                smtp.Send(message);
+            }
+        }
+    
+
         // POST: Aanmelding/CreateVoogd
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -94,6 +126,8 @@ namespace Webdevelopment_Project.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CVoogd([Bind("AanmeldingId,Voornaam,Achternaam,GeboorteDatum,BSN,Email,GewensteHulpverlener,GewensteMoment,Onderwerp,EmailVoogd")]  Intake intake)
         {
+
+
             if (ModelState.IsValid)
             {   
                 if ((ApplicationUser.BerekenLeeftijd(intake.GeboorteDatum) <= 16) ||
@@ -103,6 +137,7 @@ namespace Webdevelopment_Project.Controllers
                     intake.IsAfgehandeld = false;
                     _context.Add(intake);
                     _context.SaveChanges();
+                    sendMail(intake.EmailVoogd, intake.GewensteHulpverlener, intake.GewensteMoment, intake.Voornaam, intake.Achternaam);
                     
                     var afspraakid = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
                     Melding melding  = new Melding
@@ -146,6 +181,7 @@ namespace Webdevelopment_Project.Controllers
                     intake.IsAfgehandeld = false;
                     _context.Add(intake);
                     _context.SaveChanges();
+                    sendMail(intake.Email, intake.GewensteHulpverlener, intake.GewensteMoment, intake.Voornaam, intake.Achternaam);
                     
                     var afspraakid = _context.Intake.Where(aan => aan.BSN == intake.BSN).OrderByDescending(d => d.AanmaakDatum).FirstOrDefault().IntakeId;
                     Melding melding  = new Melding

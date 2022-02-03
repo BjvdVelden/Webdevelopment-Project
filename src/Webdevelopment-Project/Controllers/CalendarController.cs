@@ -21,7 +21,10 @@ private readonly ApplicationDbContext _context;
         // GET: Event
         public IActionResult IndexCalendar()
         {
-   
+
+
+                //hier zo IF statement voor hulpverleners bij welke event in zijn naam staad
+
             
                 ViewData["events"] = _context.Event;
                 {
