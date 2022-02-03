@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj": {}
+    "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
+    "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+        "projectUniqueName": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
         "projectName": "Webdevelopment-Project",
-        "projectPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
+        "projectPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj",
         "packagesPath": "C:\\Users\\Serdi\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\obj\\",
+        "outputPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Serdi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -93,14 +93,14 @@
         }
       }
     },
-    "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj": {
+    "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj",
+        "projectUniqueName": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj",
         "projectName": "test",
-        "projectPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj",
+        "projectPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\test.csproj",
         "packagesPath": "C:\\Users\\Serdi\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\obj\\",
+        "outputPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Serdi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -115,8 +115,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
-                "projectPath": "c:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj"
+              "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj": {
+                "projectPath": "C:\\Users\\Serdi\\Desktop\\Webdevelopment-Project\\src\\Webdevelopment-Project\\Webdevelopment-Project.csproj"
               }
             }
           }

@@ -35,7 +35,6 @@ namespace test
         public void CreatePrivateRoomTest(){
             var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
-            var controller = new ChatController(chatMock.Object, context);
             
             chatMock.Object.CreatePrivateRoom("RootId", "TargetId");
 
@@ -47,14 +46,12 @@ namespace test
         public void AccessChatTest(){
             var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
-            var controller = new ChatController(chatMock.Object, context);
         }
 
         [Fact]
         public void JoinRoomTest(){
             var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
-            var controller = new ChatController(chatMock.Object, context);
             
             chatMock.Object.JoinRoom(1, "userId");
 
@@ -66,7 +63,6 @@ namespace test
         public void CreateMessageTest(){
             var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
-            var controller = new ChatController(chatMock.Object, context);
             
             chatMock.Object.CreateMessage(1, "Hallo Bob", "userId");
 
@@ -78,7 +74,6 @@ namespace test
         public void CreateRoomTest(){
             var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
-            var controller = new ChatController(chatMock.Object, context);
             
             chatMock.Object.CreateRoom("name", 4, 7, "userId");
 
@@ -90,7 +85,6 @@ namespace test
         public void FindGroupTest(){
             var mgr = MockUserManager();
             Mock<IChatRepository> chatMock = new Mock<IChatRepository>();
-            var controller = new ChatController(chatMock.Object, context);
             
             chatMock.Object.FindGroup("Depressie", 18);
 
