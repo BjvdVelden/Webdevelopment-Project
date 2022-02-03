@@ -76,12 +76,13 @@ a.navbar-brand {
 .btn-primary{
   color: #fff;
   background-color: orangered;
+  margin-top: auto;
 }
 
 .btn-secondary{
   color: #fff;
   background-color: orangered;
-
+  margin-top: auto;
 }
 
 .btn:hover{

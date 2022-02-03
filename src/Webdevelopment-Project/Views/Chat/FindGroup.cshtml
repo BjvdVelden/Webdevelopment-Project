@@ -1,7 +1,7 @@
 @model IEnumerable<Chat>
 
 
-
+<h1> Zoek een groep</h1>
 <form asp-controller="Chat" asp-action="FindGroup">
     <p style="margin-top: 50px">
         Zoek bij groep naam: <input type="text" name="onderwerp" />
@@ -29,7 +29,9 @@
     <p> @chat.MinimumAge</p>
     <h5> Maximum Leeftijd</h5>
     <p> @chat.MaximumAge</p>
+    @if(!User.IsInRole("Assistent")){
     <a style="position: absolute; bottom: 0px; margin-top: 50px;" class="btn btn-primary" asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">Naar groep gaan</a>
+    }
     </div>
       }
       }

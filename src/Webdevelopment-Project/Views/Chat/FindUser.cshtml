@@ -1,5 +1,6 @@
 @model IEnumerable<ApplicationUser>
 
+    <h1>Zoek een gebruiker</h1>
     <div>
         <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindGroup">Zoek naar groepen</a>
         <a class="btn btn-primary" role="button" asp-controller="Chat" asp-action="FindUser">Zoek naar gebruikers</a>
@@ -10,7 +11,7 @@
     @foreach(var user in Model){
     <div style="margin-top: 50px">
         <a> @user.Email</a>
-        @* <a style="margin-right: 50px;" asp-controller="Chat" asp-action="CreatePrivateRoom" asp-route-userId="@user.Id">@user.UserName</a> *@
+        <a style="margin-right: 50px;" asp-controller="Chat" asp-action="CreatePrivateRoom" asp-route-userId="@user.Id">@user.UserName</a>
         <a class="btn btn-danger" role="button" asp-controller="Report" asp-action="Create" asp-route-UserName="@user.UserName"> Meld misbruik </a>
     </div>
     
