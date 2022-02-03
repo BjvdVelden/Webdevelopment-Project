@@ -19,32 +19,6 @@
     
 <body>
 <header>
-    @* NavigationBar
-   <nav class="navbar fixed-top navbar-expand-sm navbar">
-        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index" style="border: 2px; border-radius: 1px;">
-     Logo
-    <img  src="https://www.burojij.nl/wp-content/uploads/2020/12/Logo-JIJ-SEKSUOLOGEN-2020-portfolio-300x300.png" 
-            alt="Zorg Maatschap Den Haag Logo" style="width:50px;height:50px;"></img>
-        </a>
-
-
-
-    Dropdown Menu
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Menu</button>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Homepagina</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Specialisten">Specialisten</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Faq">Veel gestelde vragen</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </div>
-                </li>
-            </ul>
-        </div> *@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img  src="https://www.burojij.nl/wp-content/uploads/2020/12/Logo-JIJ-SEKSUOLOGEN-2020-portfolio-300x300.png" 
@@ -54,56 +28,46 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link nav-link1" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat</a>
-      <a class="nav-item nav-link nav-link1" asp-area="" asp-controller="Home" asp-action="OnzeSpecialisten">Specialisten</a>
-      <a class="nav-item nav-link nav-link1" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons</a>
-      <a class="nav-item nav-link nav-link1" asp-area="" asp-controller="Home" asp-action="Faq">Veel gestelde vragen</a>
-      <a class="nav-item nav-link nav-link1" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Chat" asp-action="FindGroup">Chat</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="OnzeSpecialisten">Specialisten</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="OverOns">Over ons</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Faq">Veel gestelde vragen</a>
+      <a class="nav-item nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
 
             @* 2 Changeable Navbar buttons on the right *@
             @if (signInManager.IsSignedIn(User) && User.IsInRole("Moderator"))
                     {
-                        <a class="nav-link nav-item" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
-                        <a class="nav-link nav-item" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
+                        <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Moderator" asp-action="IndexModerator">Moderator</a>
+                        <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Behandeling" asp-action="IndexBehandeling">Behandelingen</a>
                     }
 
-                            @if (signInManager.IsSignedIn(User))
-                            {
-                                <li class="nav-item">
-                                   <a> <form class="nav-link" method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                                        <button type="submit" class="nav-link"> Logout
-                                    </form>
-                                   </a>
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Hulpverlener"))
+                    {
+                        <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
+                    }
+
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                            <button type="submit" class="nav-link nav-item nav-link1"> Uitloggen</button>
+                        </form>
+                    }
+
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <a type="submit" class="nav-link nav-item nav-link1" method="get" asp-area="Identity" asp-page="/Account/Manage/Index"> Profiel </a>
+                    }
+
+                    @if(!signInManager.IsSignedIn(User))
+                    {
+                        <a type="submit" class="nav-link nav-item nav-link1" method="get" asp-area="Identity" asp-page="/Account/Login"> Inloggen </a>
                                     
-                                </li>
-                            }
-
-                            @if (signInManager.IsSignedIn(User))
-                            {
-                                <li class="nav-item">
-                                    <a><form method="get" asp-area="Identity" asp-page="/Account/Manage/Index" >
-                                        <button type="submit" class="nav-link"> Profile </button>
-                                    </form>
-                                    </a>
-                                </li>
-                            }
-
-                            @if(!signInManager.IsSignedIn(User))
-                            {
-                            <li class="nav-item">
-                                    <form method="get" asp-area="Identity" asp-page="/Account/Login">
-                                        <button type="submit" class="nav-link"> Login </button>
-                                    </form>
-                                </li>
-                            }
-                            @if(!signInManager.IsSignedIn(User))
-                            {
-                            <li class="nav-item">
-                                    <form method="get" asp-area="Identity" asp-page="/Account/Register">
-                                    <button type="submit" class="nav-link"> Register </button>
-                                    </form>
-                                </li>
-                            }
+                    }
+                    
+                    @if(!signInManager.IsSignedIn(User))
+                        {
+                            <a type="submit" class="nav-link nav-item nav-link1" method="get" asp-area="Identity" asp-page="/Account/Register"> Registreren </a>
+                        }
     </div>
   </div>
 </nav>
