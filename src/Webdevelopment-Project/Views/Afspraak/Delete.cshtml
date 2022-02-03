@@ -1,14 +1,14 @@
 @model Webdevelopment_Project.Models.Afspraak
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Verwijderen";
 }
 
-<h1>Delete</h1>
+<h1>Vewijderen</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h2>Weet je zeker dat je dit wilt verwijderen?</h2>
 <div>
-    <h4>Afspraak</h4>
+    <h3>Afspraak</h3>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -52,6 +52,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="AfspraakId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="IndexAfspraak">Back to List</a>
+        <a asp-action="IndexAfspraak">Terug naar lijst</a>
     </form>
 </div>

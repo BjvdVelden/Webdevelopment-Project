@@ -1,0 +1,25 @@
+﻿@page
+@model Disable2faModel
+@{
+    ViewData["Title"] = "Disable two-factor authentication (2FA)";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-warning" role="alert">
+    <p>
+        <strong>Deze actie schakelt alleen 2FA uit.</strong>
+    </p>
+    <p>
+        Het uitschakelen van 2FA verandert niets aan de sleutels die worden gebruikt in authenticator-apps. Als u de sleutel wilt wijzigen:
+        gebruikt in een authenticator-app moet u <a asp-page="./ResetAuthenticator">reset uw authenticatorsleutels.</a>
+    </p>
+</div>
+
+<div>
+    <form method="post" class="form-group">
+        <button class="btn btn-danger" type="submit">Schakel 2FA uit</button>
+    </form>
+</div>
