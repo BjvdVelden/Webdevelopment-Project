@@ -58,7 +58,7 @@
                         <a class="nav-link" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
                     }
 
-                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Assistent"))
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Assistent") || User.IsInRole("Hulpverlener"))
                     {
                         <a class="nav-link" asp-area="" asp-controller="Calendar" asp-action="IndexCalendar">Intake inplannen</a>
                     }

@@ -18,13 +18,6 @@ namespace Webdevelopment_Project.Controllers
         {
             _context = context;
         }
-
-        // GET: Event
-        public async Task<IActionResult> IndexEvent()
-        {
-            return View(await _context.Event.ToListAsync());
-        }
-
         // GET: Event/Details/5
         public async Task<IActionResult> Details(int? id)
         {

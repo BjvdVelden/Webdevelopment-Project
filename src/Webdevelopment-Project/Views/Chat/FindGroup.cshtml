@@ -29,7 +29,9 @@
     <p> @chat.MinimumAge</p>
     <h5> Maximum Leeftijd</h5>
     <p> @chat.MaximumAge</p>
+    @if(!User.IsInRole("Assistent")){
     <a style="position: absolute; bottom: 0px; margin-top: 50px;" class="btn btn-primary" asp-controller="Chat" asp-action="Chat" asp-route-id="@chat.Id">Naar groep gaan</a>
+    }
     </div>
       }
       }

@@ -16,11 +16,13 @@
     </div>
     }
 </div>
+@if(!User.IsInRole("Assistent")){
 <form class="chat-input" onsubmit="sendMessage(event)" asp-controller="Chat" asp-action="CreateMessage">
     <input type="hidden" name="roomId" value="@Model.Id">
     <input type="text" name="message" id="message-input">
     <button type="submit">Send</button>
 </form>
+}
 
 @section scripts {
 <script src="~/js/signalr.min.js"></script>
