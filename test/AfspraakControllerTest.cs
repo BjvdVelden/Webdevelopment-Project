@@ -51,6 +51,10 @@ namespace test
             var s = controller.Create(afspraak);
             
             Assert.NotNull(s);
+            Assert.Equal("serdin@outlook.com", s.ClientEmail);
+            Assert.True(afspraak.HulpverlenerEmail.Equals("hulpverlener1@gmail.com"));
+
+
         }
 
         [Fact]
