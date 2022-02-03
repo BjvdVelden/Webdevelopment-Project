@@ -20,10 +20,10 @@ export default function () {
   const BASE_URL = 'https://localhost:5001'; // make sure this is not production
 
   const responses = http.batch([
-    ['GET', `${BASE_URL}/Orthopedagoog/Laura`],
-    ['GET', `${BASE_URL}/Orthopedagoog/Takezo`],
-    ['GET', `${BASE_URL}/Orthopedagoog/Jan`],
-    ['GET', `${BASE_URL}/Orthopedagoog/Dagmar`],
+    ['GET', `${BASE_URL}/Specialisten/Bert`],
+    ['GET', `${BASE_URL}/Specialisten/Sara`],
+    ['GET', `${BASE_URL}/Specialisten/Karel`],
+    ['GET', `${BASE_URL}/Specialisten/Jojan`],
   ]);
 
   sleep(1);
