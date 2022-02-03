@@ -22,6 +22,11 @@
                 <span asp-validation-for="StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="HulpverlenerEmail" class="control-label"> Hulpverlener Email</label>
+                <input asp-for="HulpverlenerEmail" class="form-control" />
+                <span asp-validation-for="HulpverlenerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Maak aan" class="btn btn-primary" />
             </div>
         </form>

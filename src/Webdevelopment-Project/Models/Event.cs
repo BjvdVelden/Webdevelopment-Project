@@ -10,5 +10,6 @@ namespace Webdevelopment_Project.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string StartDate { get; set; }
+        public string HulpverlenerEmail { get; set; }
     }
 }
