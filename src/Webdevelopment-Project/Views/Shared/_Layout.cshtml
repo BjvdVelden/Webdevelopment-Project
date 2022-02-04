@@ -45,6 +45,16 @@
                         <a class="nav-link nav-item nav-link1" asp-area="" asp-controller="Intake" asp-action="IndexIntake">Aanmeldingen</a>
                     }
 
+                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Assistent") || User.IsInRole("Hulpverlener"))
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Calendar" asp-action="IndexCalendar">Intake inplannen</a>
+                    }
+
+                     @if (signInManager.IsSignedIn(User) && User.IsInRole("Ouder"))
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Client" asp-action="ChatFrequentie">Chat Frequentie</a>
+                    }
+
                     @if (signInManager.IsSignedIn(User))
                     {
                         <form method="post" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
